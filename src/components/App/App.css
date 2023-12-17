@@ -5,3 +5,29 @@
     align-items: center;
     width: 100%;
 }
+
+.chat-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    /* border: 1px solid var(--clr-blue); */
+}
+
+.chat-messages {
+    opacity: .8;
+}
+
+.chat-input input {
+    background: var(--clr-dark);
+    color: var(--clr-light);
+}
+
+.chat-input button {
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    padding: 1em;
+    border-radius: 10px;
+    width: 90%;
+}

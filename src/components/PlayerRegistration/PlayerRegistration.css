@@ -9,8 +9,6 @@
     border-radius: 10px;
     width: 50em;
     max-width: 80%;
-    text-shadow: 1px 1px 1px white, -1px 1px 1px white, -1px -1px 0 white,
-        1px -1px 0 white;
 }
 
 input {

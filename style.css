@@ -37,6 +37,8 @@ h2 {
     padding: 1em;
     margin-bottom: .5em;
     color: var(--clr-red);
+    text-shadow: 1px 1px 1px white, -1px 1px 1px white, -1px -1px 0 white,
+        1px -1px 0 white;
 }
 
 h1 {
@@ -59,12 +61,11 @@ h2 {
     outline: none;
     position: relative;
     background-color: var(--clr-dark);
+    color: var(--clr-light);
     border: solid 1px transparent;
     border-radius: 10px;
     transition: all .3s ease-in-out;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 1px 1px 1px white, -1px 1px 1px white, -1px -1px 0 white,
-        1px -1px 0 white;
 }
 
 .btn:hover {
