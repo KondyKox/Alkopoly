@@ -1,4 +1,7 @@
 .app {
-    text-align: center;
-    color: var(--clr-red);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

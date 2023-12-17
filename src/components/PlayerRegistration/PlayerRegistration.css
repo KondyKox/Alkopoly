@@ -3,17 +3,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin:5em auto;
+    margin: 4.5em auto;
     padding: 2em;
     border: 3px solid var(--clr-blue);
     border-radius: 10px;
+    width: 50em;
     max-width: 80%;
-    background-color: var(--clr-light);
+    text-shadow: 1px 1px 1px white, -1px 1px 1px white, -1px -1px 0 white,
+        1px -1px 0 white;
 }
 
 input {
-    width: 100%;
+    width: 80%;
     padding: 1em;
     margin-bottom: 2em;
     border-radius: 10px;
+    background: var(--clr-green);
 }

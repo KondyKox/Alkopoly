@@ -22,7 +22,7 @@ const PlayerRegistration = ({ onPlayerRegister, currentNickname }) => {
 
   return (
     <div className="player-registration">
-      <h2>Witaj w Alkopoly!</h2>
+      <h1>Witaj w Alkopoly!</h1>
       <input
         type="text"
         value={playerName}
