@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PlayerRegistration from "../PlayerRegistration/PlayerRegistration";
 import Lobby from "../Lobby/Lobby";
-import "../../../style.css";
+import Game from "../GameInfo/Game/Game";
+import "../../style.css";
 import "./App.css";
 
 const App = () => {
   const [players, setPlayers] = useState([]);
   const [currentNickname, setCurrentNickname] = useState("");
+  const [isGameStarted, setIsGameStarted] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
 
@@ -47,6 +49,12 @@ const App = () => {
     };
   };
 
+  const handleStartGame = () => {
+    setIsGameStarted(true);
+
+    console.log("Gra rozpoczęta!");
+  };
+
   const handleChatInput = (e) => {
     setChatInput(e.target.value);
   };
@@ -63,11 +71,21 @@ const App = () => {
 
   return (
     <div className="app">
-      <PlayerRegistration
-        onPlayerRegister={handlePlayerRegister}
-        currentNickname={currentNickname}
-      />
-      <Lobby players={players} />
+      {!isGameStarted && (
+        <>
+          <PlayerRegistration
+            onPlayerRegister={handlePlayerRegister}
+            currentNickname={currentNickname}
+          />
+          <Lobby players={players} />
+          {players.length > 0 && ( // Tu probnie na 0 ale musi byc: > 1
+            <button className="btn start-game" onClick={handleStartGame}>
+              Startuj
+            </button>
+          )}
+        </>
+      )}
+      {isGameStarted && <Game players={players} />}
 
       <div className="chat-container">
         <div className="chat-messages">
@@ -79,7 +97,9 @@ const App = () => {
         </div>
         <div className="chat-input">
           <input type="text" value={chatInput} onChange={handleChatInput} />
-          <button onClick={handleChatSend}>Wyślij</button>
+          <button className="btn" onClick={handleChatSend}>
+            Wyślij
+          </button>
         </div>
       </div>
     </div>

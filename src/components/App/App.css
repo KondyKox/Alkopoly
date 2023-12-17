@@ -6,17 +6,38 @@
     width: 100%;
 }
 
+.start-game {
+    font-size: var(--size-xl);
+}
+
 .chat-container {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
+    margin: 1em;
     background: var(--clr-dark);
     color: var(--clr-light);
     /* border: 1px solid var(--clr-blue); */
 }
 
 .chat-messages {
-    opacity: .8;
+    opacity: .5;
+    height: 10%;
+    transition: all .3s ease-in-out;
+    padding: 1em;
+    margin: 1em;
+}
+
+.chat-messages:hover {
+    opacity: 1;
+    height: 100%;
+}
+
+.chat-message {
+    background: var(--clr-blue);
+    color: var(--clr-pink);
+    padding: .5em;
+    margin: .5em;
 }
 
 .chat-input input {
@@ -25,9 +46,14 @@
 }
 
 .chat-input button {
-    background: var(--clr-dark);
-    color: var(--clr-light);
     padding: 1em;
     border-radius: 10px;
     width: 90%;
+}
+
+/* md */
+@media (max-width: 768px) {
+    .chat-container {
+        display: none;
+    }
 }

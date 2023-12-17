@@ -1,0 +1,36 @@
+.menu-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 1.5em;
+    margin: 1em;
+    border: none;
+    text-align: center;
+    font-size: var(--size-xl);
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    border: solid 1px transparent;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+.menu-toggle:hover {
+    color: var(--clr-pink);
+    background-color: var(--clr-blue);
+    cursor: pointer;
+}
+
+.game__board-title {
+    padding-bottom: .25em;
+}
+
+.current-player {
+    text-align: center;
+    font-size: var(--size-lg);
+}
+
+.current-player-nick {
+    color: var(--clr-pink);
+    padding: 0 1em;
+}
