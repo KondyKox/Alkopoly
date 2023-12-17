@@ -1,0 +1,31 @@
+.lobby {
+    text-align: center;
+    margin: 5em auto;
+    padding: 2em;
+    border: 3px solid var(--clr-blue);
+    border-radius: 10px;
+    max-width: 80%;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+}
+
+h2 {
+    color: var(--clr-red);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    margin-bottom: 1em;
+    font-size: var(--size-lg);
+}
+
+p {
+    font-size: var(--size-sm);
+}

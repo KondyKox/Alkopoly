@@ -1,0 +1,63 @@
+:root {
+    /* colors */
+    --clr-background: #1f1d1d;
+    --clr-light: #efefef;
+    --clr-gray: #cac2c2;
+    --clr-dark: #262626;
+    --clr-blue: #0f56da;
+    --clr-red: #f21010;
+
+    /* sizes */
+    --size-xxs: 0.5rem;
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 1rem;
+    --size-lg: 1.125rem;
+    --size-xl: 1.25rem;
+    --size-2xl: 1.5rem;
+    --size-3xl: 1.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    font-family: Signika Negative, sans-serif;
+    overflow: hidden;
+    background: var(--clr-background);
+    color: var(--clr-light);
+    height: 100%;
+}
+
+h2 {
+    padding: 2em;
+    font-weight: 700;
+    font-size: var(--size-3xl);
+}
+
+.btn {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 1.5em 4em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    background-color: none;
+    border: solid 1px transparent;
+    border-radius: 10px;
+    margin-top: 0.75em;
+    transition: all 0.2s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    color: var(--clr-blue);
+    background-color: var(--clr-gray);
+}

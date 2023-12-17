@@ -1,0 +1,19 @@
+.player-registration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:5em auto;
+    padding: 2em;
+    border: 3px solid var(--clr-blue);
+    border-radius: 10px;
+    max-width: 80%;
+    background-color: var(--clr-light);
+}
+
+input {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+}
