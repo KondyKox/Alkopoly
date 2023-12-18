@@ -7,7 +7,7 @@ const SideMenu = ({ isOpen, onClose, players }) => {
       <button className="close-button" onClick={onClose}>
         x
       </button>
-      <h3 className="menu-title">Menu</h3>
+      <h3 className="menu-title"><img src="./logo.png" alt="Logo Alkopoly" /></h3>
       <ul>
         {players.map((player, index) => {
           <li key={index}>{player}</li>;

@@ -45,6 +45,15 @@
     padding-bottom: 1em;
 }
 
+.menu-title img {
+    max-width: 3em;
+    transition: all .3s ease-in-out;
+}
+
+.menu-title img:hover {
+    transform: scale(1.5);
+}
+
 /* md */
 @media (max-width: 768px) {
     .side-menu {
