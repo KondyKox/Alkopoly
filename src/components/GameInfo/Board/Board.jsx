@@ -8,16 +8,17 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
   const [board, setBoard] = useState(Array(40).fill(null));
 
   // Random possition for fields on the board
-  const shuffleProperties = () => {
+  const initializeBoard = () => {
     const shuffledProperties = [
       { name: "Start", type: "start" },
-      ...propertyData.slice(1),
-    ].sort(() => Math.random() - 0.5);
+      ...propertyData.slice(1).sort(() => Math.random() - 0.5),
+    ];
+
     setBoard(shuffledProperties);
   };
 
   useEffect(() => {
-    shuffleProperties();
+    initializeBoard();
   }, []);
 
   // Random chance card
@@ -29,6 +30,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
   // Handle click on board
   const handleClick = (index) => {};
 
+  // Handle Chance Card Draw
+  const handleChanceCardDraw = () => {
+    console.log("Karta narysowana.");
+  };
+
   // Render Chance Cards
   const renderChanceCards = () => {
     return chanceCardData.map((card, index) => {
@@ -37,6 +43,7 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
         name={card.name}
         text={card.text}
         imgSrc={card.image}
+        onDraw={handleChanceCardDraw}
       />;
     });
   };
