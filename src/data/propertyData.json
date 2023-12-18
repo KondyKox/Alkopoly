@@ -1,0 +1,18 @@
+[
+  { "name": "Start", "type": "start" },
+
+  { "name": "Asik", "type": "property", "price": 1000, "owner": null },
+  { "name": "Hakuna Matata", "type": "property", "price": 1000, "owner": null },
+  { "name": "Remiza", "type": "property", "price": 1000, "owner": null },
+  {
+    "name": "Czerwony Pomost",
+    "type": "property",
+    "price": 1000,
+    "owner": null
+  },
+
+  { "name": "Karta Szansy", "type": "chance" },
+  { "name": "Więzienie", "type": "jail" },
+  { "name": "Grzywna", "type": "fine", "amount": 200 },
+  { "name": "Pole Nagrody", "type": "reward" }
+]

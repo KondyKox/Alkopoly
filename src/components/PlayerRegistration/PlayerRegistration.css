@@ -11,6 +11,10 @@
     max-width: 80%;
 }
 
+.logo {
+    max-width: 20em;
+}
+
 input {
     width: 80%;
     padding: 1em;

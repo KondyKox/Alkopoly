@@ -22,7 +22,7 @@ const PlayerRegistration = ({ onPlayerRegister, currentNickname }) => {
 
   return (
     <div className="player-registration">
-      <h1>Witaj w Alkopoly!</h1>
+      <img className="logo" src="./logo.png" alt="Logo Alkopoly" />
       <input
         type="text"
         value={playerName}

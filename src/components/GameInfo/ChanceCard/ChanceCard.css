@@ -1,0 +1,9 @@
+.chance-card {
+    border: 3px solid var(--clr-blue);
+    padding: 1em;
+    margin: 1em;
+    background-color: var(--clr-dark);
+    border-radius: 10px;
+    max-width: 10em;
+    text-align: center;
+}
