@@ -68,7 +68,7 @@
   {
     "name": "Scam and Run",
     "text": "Zakładasz Scam and Run i stajesz się bogaty.",
-    "action": "Dostajesz 1 000 000 zł, zle tracisz z tego 999 000 zł.",
+    "action": "Dostajesz 1 000 000 zł, ale tracisz z tego 999 000 zł.",
     "image": "./chance_cards/scam-and-run.jpg"
   },
   {
@@ -127,8 +127,8 @@
   },
   {
     "name": "Snajper",
-    "text": "",
-    "action": "",
-    "image": ""
+    "text": "Snajper do ciebie strzela!",
+    "action": "Następne 2 kolejki ruszasz się tylko o połowe oczek.",
+    "image": "./chance_cards/snajper.jpg"
   }
 ]
