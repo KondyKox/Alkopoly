@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PlayerRegistration from "../PlayerRegistration/PlayerRegistration";
 import Lobby from "../Lobby/Lobby";
 import Game from "../GameInfo/Game/Game";
+import SideMenu from "../GameInfo/SideMenu/SideMenu";
 import "../../style.css";
 import "./App.css";
 
@@ -11,6 +12,7 @@ const App = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
@@ -102,6 +104,26 @@ const App = () => {
           </button>
         </div>
       </div>
+
+      {/* Open/Close side menu */}
+      {!isSideMenuOpen ? (
+        <button
+          className="menu-toggle"
+          onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}
+        >
+          ☰
+        </button>
+      ) : (
+        ""
+      )}
+
+      {/* Render side menu */}
+      <SideMenu
+        isOpen={isSideMenuOpen}
+        onClose={() => setIsSideMenuOpen(false)}
+        players={players}
+        isGameStarted={isGameStarted}
+      />
     </div>
   );
 };

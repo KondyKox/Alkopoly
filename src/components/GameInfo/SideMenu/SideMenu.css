@@ -52,6 +52,38 @@
 
 .menu-title img:hover {
     transform: scale(1.5);
+    cursor: pointer;
+}
+
+.lobby__menu__title {
+    font-size: var(--size-xl);
+    text-align: center;
+    padding-top: 1em;
+    font-weight: 800;
+}
+
+ul {
+    max-height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pionek {
+    transition: all .3s ease-in-out;
+    padding: .5em;
+    margin: .25em;
+    border-radius: 15px;
+}
+
+.pionek:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.playerPhoto {
+    width: 5em;
+    height: 5em;
+    border-radius: 10px;
 }
 
 /* md */
