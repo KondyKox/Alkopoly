@@ -10,8 +10,6 @@ const App = () => {
   const [players, setPlayers] = useState([]);
   const [currentNickname, setCurrentNickname] = useState("");
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [chatMessages, setChatMessages] = useState([]);
-  const [chatInput, setChatInput] = useState("");
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -57,20 +55,6 @@ const App = () => {
     console.log("Gra rozpoczęta!");
   };
 
-  const handleChatInput = (e) => {
-    setChatInput(e.target.value);
-  };
-
-  const handleChatSend = () => {
-    const message = JSON.stringify({ type: "chat", message: chatInput });
-
-    const ws = new WebSocket("ws://localhost:3001");
-    ws.send(message);
-    ws.close();
-
-    setChatInput("");
-  };
-
   return (
     <div className="app">
       {!isGameStarted && (
@@ -88,22 +72,6 @@ const App = () => {
         </>
       )}
       {isGameStarted && <Game players={players} />}
-
-      <div className="chat-container">
-        <div className="chat-messages">
-          {chatMessages.map((message, index) => (
-            <div key={index} className="chat-message">
-              {message}
-            </div>
-          ))}
-        </div>
-        <div className="chat-input">
-          <input type="text" value={chatInput} onChange={handleChatInput} />
-          <button className="btn" onClick={handleChatSend}>
-            Wyślij
-          </button>
-        </div>
-      </div>
 
       {/* Open/Close side menu */}
       {!isSideMenuOpen ? (

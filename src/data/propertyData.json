@@ -1,18 +1,200 @@
 [
-  { "name": "Start", "type": "start" },
-
-  { "name": "Asik", "type": "property", "price": 1000, "owner": null },
-  { "name": "Hakuna Matata", "type": "property", "price": 1000, "owner": null },
-  { "name": "Remiza", "type": "property", "price": 1000, "owner": null },
   {
+    "id": 1,
+    "name": "Start",
+    "type": "start",
+    "image": "./properties/start.png"
+  },
+
+  {
+    "id": 2,
+    "name": "Asik",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 3,
+    "name": "Hakuna Matata",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 4,
+    "name": "Remiza",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 5,
+    "name": "Domek Kubusia",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 6,
+    "name": "Domek Ozziego",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 7,
+    "name": "Domek Benia",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 8,
     "name": "Czerwony Pomost",
     "type": "property",
+    "image": "",
     "price": 1000,
     "owner": null
   },
 
-  { "name": "Karta Szansy", "type": "chance" },
-  { "name": "Więzienie", "type": "jail" },
-  { "name": "Grzywna", "type": "fine", "amount": 200 },
-  { "name": "Pole Nagrody", "type": "reward" }
+  { "id": 9, "name": "Karta Szansy", "type": "chance", "image": "" },
+  { "id": 10, "name": "Więzienie", "type": "jail", "image": "" },
+  { "id": 11, "name": "Grzywna", "type": "fine", "image": "", "amount": 200 },
+  { "id": 12, "name": "Pole Nagrody", "type": "reward", "image": "" },
+  {
+    "id": 13,
+    "name": "Zakup zioła",
+    "type": "fine",
+    "image": "",
+    "amount": 200
+  },
+  {
+    "id": 14,
+    "name": "Zakup wódki",
+    "type": "fine",
+    "image": "",
+    "amount": 200
+  },
+  {
+    "id": 15,
+    "name": "Publiczna Plaża",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 16,
+    "name": "Dom Kondiego",
+    "type": "property",
+    "image": "./properties/kondi_dom.jpg",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 17,
+    "name": "Dom Mikiego",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 18,
+    "name": "Dom Kamcia",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 19,
+    "name": "Holenderka",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 20,
+    "name": "Plac zabaw",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 21,
+    "name": "Głuchów",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 22,
+    "name": "Miejscówka",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 23,
+    "name": "Prywatna plaża",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 24,
+    "name": "Zjeżdzalnia na plaży",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 25,
+    "name": "Wałbrzych",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 26,
+    "name": "Zameczek",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 27,
+    "name": "'U Marcina'",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 28,
+    "name": "Kuźnica",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  { "id": 29, "name": "Karta Szansy", "type": "chance", "image": "" },
+  { "id": 30, "name": "Karta Szansy", "type": "chance", "image": "" },
+  { "id": 31, "name": "Karta Szansy", "type": "chance", "image": "" },
+  { "id": 32, "name": "Grzywna", "type": "fine", "image": "", "amount": 200 }
 ]

@@ -26,7 +26,7 @@
   {
     "name": "Koleje Dolnośląskie",
     "text": "100 minut opóźnienia xD",
-    "action": "Cofasz się o 5 pól",
+    "action": "Wracasz na Start",
     "image": "./chance_cards/koleje-dolnoslaski.jpg"
   },
   {
@@ -130,5 +130,17 @@
     "text": "Snajper do ciebie strzela!",
     "action": "Następne 2 kolejki ruszasz się tylko o połowe oczek.",
     "image": "./chance_cards/snajper.jpg"
+  },
+  {
+    "name": "No i chuj",
+    "text": "No i chuj, zostałeś błogosławiony!",
+    "action": "",
+    "image": ""
+  },
+  {
+    "name": "Szczęśliwy Pawełek",
+    "text": "Pawełek jest szczęśliwy.",
+    "action": "Podwójny dochód.",
+    "image": ""
   }
 ]
