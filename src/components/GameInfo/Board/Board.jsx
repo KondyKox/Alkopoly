@@ -42,6 +42,7 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
         key={index}
         name={card.name}
         text={card.text}
+        action={card.action}
         imgSrc={card.image}
         onDraw={handleChanceCardDraw}
       />

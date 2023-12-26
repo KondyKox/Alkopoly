@@ -5,5 +5,30 @@
     background-color: var(--clr-dark);
     border-radius: 10px;
     max-width: 10em;
+    height: 20em;
     text-align: center;
+}
+
+.chance-card img {
+    max-width: 5em;
+    border: 3px solid var(--clr-blue);
+    border-radius: 10px;
+}
+
+.card-title {
+    padding: .5em;
+    font-size: var(--size-lg);
+    color: var(--clr-pink);
+    text-shadow: 1px 1px 1px var(--clr-blue), -1px 1px 1px var(--clr-blue), -1px -1px 0 var(--clr-blue),
+        1px -1px 0 var(--clr-blue);
+}
+
+.card-description {
+    color: var(--clr-pink);
+    padding: 1 .5em;
+}
+
+.card-action {
+    color: var(--clr-blue);
+    padding: 1 .5em;
 }
