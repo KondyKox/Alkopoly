@@ -54,9 +54,9 @@
     "image": "./chance_cards/zgon.jpg"
   },
   {
-    "name": "Więzienie",
+    "name": "Izba wytrzeźwień",
     "text": "Pały Cię złapały debilu!",
-    "action": "Idziesz do więzienia.",
+    "action": "Idziesz do izby wytrzeźwień.",
     "image": ""
   },
   {

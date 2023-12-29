@@ -64,7 +64,7 @@
   },
 
   { "id": 9, "name": "Karta Szansy", "type": "chance", "image": "" },
-  { "id": 10, "name": "Więzienie", "type": "jail", "image": "" },
+  { "id": 10, "name": "Izba wytrzeźwień", "type": "jail", "image": "" },
   { "id": 11, "name": "Grzywna", "type": "fine", "image": "", "amount": 200 },
   { "id": 12, "name": "Pole Nagrody", "type": "reward", "image": "" },
   {
