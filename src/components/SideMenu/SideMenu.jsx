@@ -1,5 +1,5 @@
 import React from "react";
-import pionkiData from "../../../data/pionkiData.json";
+import pionkiData from "../../data/pionkiData.json";
 import "./SideMenu.css";
 
 const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {

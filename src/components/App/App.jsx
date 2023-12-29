@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PlayerRegistration from "../PlayerRegistration/PlayerRegistration";
 import Lobby from "../Lobby/Lobby";
 import Game from "../GameInfo/Game/Game";
-import SideMenu from "../GameInfo/SideMenu/SideMenu";
+import SideMenu from "../SideMenu/SideMenu";
 import "../../style.css";
 import "./App.css";
 
