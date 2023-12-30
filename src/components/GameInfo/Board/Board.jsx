@@ -15,6 +15,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
     const shuffledProperties = [
       { name: "Start", type: "start", image: "./properties/start.png" },
       ...propertyData.slice(1).sort(() => Math.random() - 0.5),
+      {
+        name: "Izba Wytrzeźwień",
+        type: "jail",
+        image: "./properties/start.png",
+      },
     ];
 
     setBoard(shuffledProperties);
@@ -23,9 +28,6 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
   useEffect(() => {
     initializeBoard();
   }, []);
-
-  // Random chance card
-  const drawChanceCard = () => {};
 
   // Check winner
   const checkWinner = (board) => {};
