@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import pionkiData from "../../data/pionkiData.json";
 import "./SideMenu.css";
 
 const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
+  const [selectedPionek, setSelectedPionek] = useState(null);
+
+  const handlePionekClick = (pionek, playerIndex) => {
+    if (!isGameStarted) setSelectedPionek(pionek);
+  };
+
   return (
     <div className={`side-menu ${isOpen ? "open" : ""}`}>
       <button className="close-button" onClick={onClose}>
@@ -21,7 +27,13 @@ const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
           <h3 className="lobby__menu__title">Pionki:</h3>
           <ul>
             {pionkiData.map((pionek) => (
-              <li key={pionek.id} className="pionek">
+              <li
+                key={pionek.id}
+                className={`pionek ${
+                  selectedPionek === pionek ? "selectedPionek" : ""
+                }`}
+                onClick={() => handlePionekClick(pionek, 0)}
+              >
                 <img
                   className="playerPhoto"
                   src={pionek.image}

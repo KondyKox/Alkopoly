@@ -86,6 +86,15 @@ ul {
     border-radius: 10px;
 }
 
+.selectedPionek {
+    background: var(--clr-blue);
+}
+
+.selectedPionek:hover {
+    transform: scale(1);
+    pointer-events: none;
+}
+
 /* md */
 @media (max-width: 768px) {
     .side-menu {
