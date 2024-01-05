@@ -13,7 +13,6 @@ const PlayerRegistration = ({ onPlayerRegister, currentNickname }) => {
       onPlayerRegister(playerName);
 
       setPlayerName("");
-      setPlayerName("");
     } else if (playerName.trim() !== "" && currentNickname) {
       onPlayerRegister(playerName, currentNickname);
       setPlayerName("");

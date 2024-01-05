@@ -7,7 +7,15 @@ const Lobby = ({ players }) => {
       <h2>Lobby</h2>
       <ul>
         {players.map((player, index) => (
-          <li key={index}>{player}</li>
+          <li key={index}>
+            {player}
+            {/* {player.pawn && (
+              <img
+                src={player.pawn.image}
+                alt={player.pawn.name}
+              />
+            )} */}
+          </li>
         ))}
       </ul>
       <p>Czekamy na innych...</p>

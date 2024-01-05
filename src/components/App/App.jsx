@@ -13,15 +13,13 @@ const App = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
+    const ws = new WebSocket("ws://localhost:5173");
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
 
       if (data.type === "players") setPlayers(data.players);
       else if (data.type === "register") setPlayers(data.players);
-      else if (data.type === "chat")
-        setChatMessages((prevMessages) => [...prevMessages, data.message]);
     };
 
     return () => {
@@ -30,7 +28,11 @@ const App = () => {
   }, []);
 
   const handlePlayerRegister = (newNickname, oldNickname) => {
-    const message = JSON.stringify({ type: "register", name: newNickname });
+    const message = JSON.stringify({
+      type: "register",
+      name: newNickname,
+      pawn: null,
+    });
 
     if (oldNickname) {
       setPlayers((prevPlayers) =>
@@ -42,7 +44,7 @@ const App = () => {
 
     setCurrentNickname(newNickname);
 
-    const wsRegister = new WebSocket("ws://localhost:3001");
+    const wsRegister = new WebSocket("ws://localhost:5173");
     wsRegister.onopen = () => {
       wsRegister.send(message);
       wsRegister.close();

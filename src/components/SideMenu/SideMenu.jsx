@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import pionkiData from "../../data/pionkiData.json";
+import pawnsData from "../../data/pawnsData.json";
 import "./SideMenu.css";
 
 const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
-  const [selectedPionek, setSelectedPionek] = useState(null);
+  const [selectedPawn, setSelectedPawn] = useState(null);
+  const [takenPawns, setTakenPawns] = useState([]);
 
-  const handlePionekClick = (pionek, playerIndex) => {
-    if (!isGameStarted) setSelectedPionek(pionek);
+  const handlePawnClick = (pawn) => {
+    if (!takenPawns.includes(pawn)) {
+      setSelectedPawn(pawn);
+      setTakenPawns((prevTakenPawns) => [...prevTakenPawns, pawn]);
+    }
   };
 
   return (
@@ -26,19 +30,15 @@ const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
         <>
           <h3 className="lobby__menu__title">Pionki:</h3>
           <ul>
-            {pionkiData.map((pionek) => (
+            {pawnsData.map((pawn) => (
               <li
-                key={pionek.id}
+                key={pawn.id}
                 className={`pionek ${
-                  selectedPionek === pionek ? "selectedPionek" : ""
+                  selectedPawn === pawn ? "selectedPionek" : ""
                 }`}
-                onClick={() => handlePionekClick(pionek, 0)}
+                onClick={() => handlePawnClick(pawn, 0)}
               >
-                <img
-                  className="playerPhoto"
-                  src={pionek.image}
-                  alt={pionek.name}
-                />
+                <img className="playerPhoto" src={pawn.image} alt={pawn.name} />
               </li>
             ))}
           </ul>
