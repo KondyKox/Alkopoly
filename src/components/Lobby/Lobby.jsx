@@ -8,13 +8,14 @@ const Lobby = ({ players }) => {
       <ul>
         {players.map((player, index) => (
           <li key={index}>
-            {player}
-            {/* {player.pawn && (
+            {player.name}
+            {player.pawn && (
               <img
+                className="playerPawn"
                 src={player.pawn.image}
                 alt={player.pawn.name}
               />
-            )} */}
+            )}
           </li>
         ))}
       </ul>

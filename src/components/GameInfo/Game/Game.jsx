@@ -32,7 +32,7 @@ const Game = ({ players }) => {
         <div className="current-player">
           Obecny gracz:{" "}
           <span className="current-player-nick">
-            {players[currentPlayerIndex % players.lenght]}
+            {players[currentPlayerIndex % players.length].name}
           </span>
         </div>
       )}

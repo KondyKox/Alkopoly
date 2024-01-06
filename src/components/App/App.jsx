@@ -6,51 +6,68 @@ import SideMenu from "../SideMenu/SideMenu";
 import "../../style.css";
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
+  const { socket } = props;
   const [players, setPlayers] = useState([]);
   const [currentNickname, setCurrentNickname] = useState("");
+  const [selectedPawn, setSelectedPawn] = useState(null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:5173");
+    socket.on("newPlayer", (newPlayer) => {
+      setPlayers((prevPlayers) => {
+        const updatedPlayers = prevPlayers.map((player) =>
+          player.id === newPlayer.id ? newPlayer : player
+        );
 
-    ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+        return [...updatedPlayers];
+      });
+    });
 
-      if (data.type === "players") setPlayers(data.players);
-      else if (data.type === "register") setPlayers(data.players);
-    };
+    socket.on("registeredPlayers", (registeredPlayers) => {
+      setPlayers(registeredPlayers);
+    });
 
     return () => {
-      ws.close();
+      socket.disconnect();
     };
-  }, []);
+  }, [socket]);
 
+  // Register player
   const handlePlayerRegister = (newNickname, oldNickname) => {
-    const message = JSON.stringify({
+    const data = {
       type: "register",
       name: newNickname,
-      pawn: null,
-    });
+      pawn: selectedPawn,
+    };
+
+    socket.emit("registerPlayer", data);
 
     if (oldNickname) {
       setPlayers((prevPlayers) =>
         prevPlayers.map((player) =>
-          player === oldNickname ? newNickname : player
+          player.name === oldNickname
+            ? { ...player, name: newNickname, pawn: selectedPawn }
+            : player
         )
       );
-    } else setPlayers((prevPlayers) => [...prevPlayers, newNickname]);
+    } else
+      setPlayers((prevPlayers) => [
+        ...prevPlayers,
+        { name: newNickname, pawn: selectedPawn },
+      ]);
 
     setCurrentNickname(newNickname);
-
-    const wsRegister = new WebSocket("ws://localhost:5173");
-    wsRegister.onopen = () => {
-      wsRegister.send(message);
-      wsRegister.close();
-    };
   };
 
+  // Select pawn
+  const handleSelectPawn = (pawn) => {
+    setSelectedPawn(pawn);
+    socket.emit("selectPawn", { playerID: socket.id, selectedPawn: pawn });
+  };
+
+  // Start game
   const handleStartGame = () => {
     setIsGameStarted(true);
 
@@ -91,6 +108,7 @@ const App = () => {
       <SideMenu
         isOpen={isSideMenuOpen}
         onClose={() => setIsSideMenuOpen(false)}
+        onSelectPawn={handleSelectPawn}
         players={players}
         isGameStarted={isGameStarted}
       />

@@ -1,70 +1,67 @@
 import express from "express";
 import http from "http";
-import { WebSocketServer } from "ws";
+import { Server } from "socket.io";
+import cors from "cors";
+
+import pawnsData from "./src/data/pawnsData.json" assert { type: "json" };
 
 const app = express();
 const server = http.createServer(app);
-const wss = new WebSocketServer({ noServer: true });
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
 
 // Port for server
 const PORT = 3001;
 
 // CORS
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-});
+app.use(cors());
 
 // Players array
-const players = [];
+const players = {};
 
-wss.on("connection", (ws) => {
-  ws.on("message", (message) => {
-    const data = JSON.parse(message);
+// Server connection
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
 
-    if (data.type === "register") {
-      const newPlayer = { id: ws, name: data.name };
-      players.push(newPlayer);
-      broadcastPlayers();
+  players[socket.id] = { id: socket.id, name: null, pawn: null };
 
-      ws.send(
-        JSON.stringify({
-          type: "players",
-          players: players.map((player) => player.name),
-        })
-      );
-    } else if (data.type === "chat") broadcastChatMessage(data.message);
+  const registeredPlayers = Object.values(players).map(({ name, pawn }) => ({
+    name,
+    pawn,
+  }));
+
+  io.to(socket.id).emit("registeredPlayers", registeredPlayers);
+  io.emit("newPlayer", players[socket.id]);
+
+  // Register player
+  socket.on("registerPlayer", (data) => {
+    const oldName = players[socket.id].name;
+
+    players[socket.id].name = data.name;
+    players[socket.id].pawn = data.pawn;
+
+    io.emit("newPlayer", players[socket.id]);
+
+    if (oldName) io.emit("playerDisconnected", socket.id);
   });
 
-  ws.on("close", () => {
-    const index = players.findIndex((player) => player.id === ws);
-    if (index !== -1) {
-      players.splice(index, 1);
-      broadcastPlayers();
-    }
+  // Select pawn
+  socket.on("selectPawn", ({ playerID, selectedPawn }) => {
+    players[playerID].pawn = pawnsData.find((pawn) => pawn.id === selectedPawn);
+    console.log(selectedPawn)
+    io.emit("updatePlayer", players[playerID]);
+  });
+
+  // Disconnect player
+  socket.on("disconnect", () => {
+    delete players[socket.id];
+    io.emit("playerDisconnected", socket.id);
   });
 });
-
-// Players
-function broadcastPlayers() {
-  const playerNames = players.map((player) => player.name);
-  const message = JSON.stringify({ type: "players", players: playerNames });
-
-  wss.clients.forEach((client) => {
-    if (client.readyState === WebSocketServer.OPEN) client.send(message);
-  });
-}
-
-// Chat messages
-function broadcastChatMessage(message) {
-  const chatMessage = JSON.stringify({ type: "chat", message });
-
-  wss.clients.forEach((client) => {
-    if (client.readyState === WebSocketServer.OPEN) client.send(chatMessage);
-  });
-}
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

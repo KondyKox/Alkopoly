@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import pawnsData from "../../data/pawnsData.json";
 import "./SideMenu.css";
 
-const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
+const SideMenu = ({
+  isOpen,
+  onClose,
+  onSelectPawn,
+  players,
+  isGameStarted,
+}) => {
   const [selectedPawn, setSelectedPawn] = useState(null);
   const [takenPawns, setTakenPawns] = useState([]);
 
@@ -10,6 +16,8 @@ const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
     if (!takenPawns.includes(pawn)) {
       setSelectedPawn(pawn);
       setTakenPawns((prevTakenPawns) => [...prevTakenPawns, pawn]);
+
+      onSelectPawn(pawn);
     }
   };
 
@@ -24,7 +32,7 @@ const SideMenu = ({ isOpen, onClose, players, isGameStarted }) => {
 
       {isGameStarted ? (
         // Side Menu in Game
-        players.map((player, index) => <li key={index}>{player}</li>)
+        players.map((player, index) => <li key={index}>{player.name}</li>)
       ) : (
         // Side Menu in Lobby
         <>
