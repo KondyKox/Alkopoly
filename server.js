@@ -27,7 +27,7 @@ const players = {};
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  players[socket.id] = { id: socket.id, name: null, pawn: null };
+  players[socket.id] = { id: socket.id, name: null, pawn: null, position: 0 };
 
   const registeredPlayers = Object.values(players).map(({ name, pawn }) => ({
     name,

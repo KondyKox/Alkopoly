@@ -43,6 +43,15 @@
     background: var(--clr-pink);
 }
 
+.board-cell.empty {
+    border: none;
+}
+
+.board-cell.empty:hover {
+    pointer-events: none;
+    background: none;
+}
+
 .property-name {
     font-size: var(--size-sm);
     color: var(--clr-blue);
