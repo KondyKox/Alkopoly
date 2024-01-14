@@ -3,9 +3,13 @@ import "./Player.css";
 
 const Player = ({ position, pawn, name }) => {
   return (
-    <div className="player" style={{ gridColumn: position + 1 }}>
-      {pawn ? <img src={pawn.image} alt={name} /> : position + 1}
-      <span>{name}</span>
+    <div className="player">
+      {pawn ? (
+        <img className="player__pawn" src={pawn.image} alt={name} />
+      ) : (
+        position + 1
+      )}
+      <span className="player__name">{name}</span>
     </div>
   );
 };

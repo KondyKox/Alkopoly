@@ -37,6 +37,7 @@ const Game = ({ players }) => {
         </div>
       )}
       <Board
+        players={players}
         currentPlayer={players[currentPlayerIndex % players.lenght]}
         onWinner={handleWinner}
         onNextPlayer={handleNextPlayer}

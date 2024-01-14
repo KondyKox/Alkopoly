@@ -6,7 +6,7 @@ import chanceCardData from "../../../data/ChanceCardData.json";
 import propertyData from "../../../data/propertyData.json";
 import "./Board.css";
 
-const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
+const Board = ({ players, currentPlayer, onWinner, onNextPlayer }) => {
   const [board, setBoard] = useState(Array(32).fill(null));
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [isPropertyCardVisible, setPropertyCardVisibility] = useState(false);
@@ -33,13 +33,10 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
 
   // Render players on board
   const renderPlayers = () => {
-    return PlayerRegistration.map((player, index) => {
-      const playerPosition = player.position;
-      const playerPawn = player.pawn.image;
+    return players.map((player, index) => {
+      const playerPosition = player.position % 32 + 1;
+      const playerPawn = player.pawn;
       const playerName = player.name;
-
-      console.log(playerPosition);
-      console.log(playerPawn);
 
       return (
         <Player
@@ -51,9 +48,6 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
       );
     });
   };
-
-  // Check winner
-  const checkWinner = (board) => {};
 
   // Handle click on board
   const handlePropertyClick = (index) => {
@@ -92,7 +86,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
         <>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(0)}>
+            <div
+              id="c1"
+              className="board-cell"
+              onClick={() => handlePropertyClick(0)}
+            >
               <img
                 className="property-image"
                 src={board[0]?.image}
@@ -100,7 +98,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[0]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(1)}>
+            <div
+              id="c2"
+              className="board-cell"
+              onClick={() => handlePropertyClick(1)}
+            >
               <img
                 className="property-image"
                 src={board[1]?.image}
@@ -108,7 +110,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[1]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(2)}>
+            <div
+              id="c3"
+              className="board-cell"
+              onClick={() => handlePropertyClick(2)}
+            >
               <img
                 className="property-image"
                 src={board[2]?.image}
@@ -116,7 +122,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[2]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(3)}>
+            <div
+              id="c4"
+              className="board-cell"
+              onClick={() => handlePropertyClick(3)}
+            >
               <img
                 className="property-image"
                 src={board[3]?.image}
@@ -124,7 +134,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[3]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(4)}>
+            <div
+              id="c5"
+              className="board-cell"
+              onClick={() => handlePropertyClick(4)}
+            >
               <img
                 className="property-image"
                 src={board[4]?.image}
@@ -132,7 +146,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[4]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(5)}>
+            <div
+              id="c6"
+              className="board-cell"
+              onClick={() => handlePropertyClick(5)}
+            >
               <img
                 className="property-image"
                 src={board[5]?.image}
@@ -140,7 +158,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[5]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(6)}>
+            <div
+              id="c7"
+              className="board-cell"
+              onClick={() => handlePropertyClick(6)}
+            >
               <img
                 className="property-image"
                 src={board[6]?.image}
@@ -151,7 +173,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(7)}>
+            <div
+              id="c32"
+              className="board-cell"
+              onClick={() => handlePropertyClick(7)}
+            >
               <img
                 className="property-image"
                 src={board[7]?.image}
@@ -164,7 +190,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(8)}>
+            <div
+              id="c8"
+              className="board-cell"
+              onClick={() => handlePropertyClick(8)}
+            >
               <img
                 className="property-image"
                 src={board[8]?.image}
@@ -175,7 +205,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(9)}>
+            <div
+              id="c31"
+              className="board-cell"
+              onClick={() => handlePropertyClick(9)}
+            >
               <img
                 className="property-image"
                 src={board[9]?.image}
@@ -188,7 +222,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(10)}>
+            <div
+              id="c9"
+              className="board-cell"
+              onClick={() => handlePropertyClick(10)}
+            >
               <img
                 className="property-image"
                 src={board[10]?.image}
@@ -199,7 +237,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(11)}>
+            <div
+              id="c30"
+              className="board-cell"
+              onClick={() => handlePropertyClick(11)}
+            >
               <img
                 className="property-image"
                 src={board[11]?.image}
@@ -212,7 +254,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(12)}>
+            <div
+              id="c10"
+              className="board-cell"
+              onClick={() => handlePropertyClick(12)}
+            >
               <img
                 className="property-image"
                 src={board[12]?.image}
@@ -223,7 +269,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(13)}>
+            <div
+              id="c29"
+              className="board-cell"
+              onClick={() => handlePropertyClick(13)}
+            >
               <img
                 className="property-image"
                 src={board[13]?.image}
@@ -236,7 +286,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(14)}>
+            <div
+              id="c11"
+              className="board-cell"
+              onClick={() => handlePropertyClick(14)}
+            >
               <img
                 className="property-image"
                 src={board[14]?.image}
@@ -247,7 +301,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(15)}>
+            <div
+              id="c28"
+              className="board-cell"
+              onClick={() => handlePropertyClick(15)}
+            >
               <img
                 className="property-image"
                 src={board[15]?.image}
@@ -260,7 +318,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(16)}>
+            <div
+              id="c12"
+              className="board-cell"
+              onClick={() => handlePropertyClick(16)}
+            >
               <img
                 className="property-image"
                 src={board[16]?.image}
@@ -271,7 +333,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(17)}>
+            <div
+              id="c27"
+              className="board-cell"
+              onClick={() => handlePropertyClick(17)}
+            >
               <img
                 className="property-image"
                 src={board[17]?.image}
@@ -284,7 +350,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(18)}>
+            <div
+              id="c13"
+              className="board-cell"
+              onClick={() => handlePropertyClick(18)}
+            >
               <img
                 className="property-image"
                 src={board[18]?.image}
@@ -295,7 +365,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(19)}>
+            <div
+              id="c26"
+              className="board-cell"
+              onClick={() => handlePropertyClick(19)}
+            >
               <img
                 className="property-image"
                 src={board[19]?.image}
@@ -308,7 +382,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(20)}>
+            <div
+              id="c14"
+              className="board-cell"
+              onClick={() => handlePropertyClick(20)}
+            >
               <img
                 className="property-image"
                 src={board[20]?.image}
@@ -319,7 +397,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(21)}>
+            <div
+              id="c25"
+              className="board-cell"
+              onClick={() => handlePropertyClick(21)}
+            >
               <img
                 className="property-image"
                 src={board[21]?.image}
@@ -332,7 +414,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(22)}>
+            <div
+              id="c15"
+              className="board-cell"
+              onClick={() => handlePropertyClick(22)}
+            >
               <img
                 className="property-image"
                 src={board[22]?.image}
@@ -343,7 +429,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(23)}>
+            <div
+              id="c24"
+              className="board-cell"
+              onClick={() => handlePropertyClick(23)}
+            >
               <img
                 className="property-image"
                 src={board[23]?.image}
@@ -356,7 +446,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
             <div className="board-cell empty"></div>
-            <div className="board-cell" onClick={() => handlePropertyClick(24)}>
+            <div
+              id="c16"
+              className="board-cell"
+              onClick={() => handlePropertyClick(24)}
+            >
               <img
                 className="property-image"
                 src={board[24]?.image}
@@ -367,7 +461,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           </div>
           {/* Board column */}
           <div className="board-col">
-            <div className="board-cell" onClick={() => handlePropertyClick(25)}>
+            <div
+              id="c23"
+              className="board-cell"
+              onClick={() => handlePropertyClick(25)}
+            >
               <img
                 className="property-image"
                 src={board[25]?.image}
@@ -375,7 +473,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[25]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(26)}>
+            <div
+              id="c22"
+              className="board-cell"
+              onClick={() => handlePropertyClick(26)}
+            >
               <img
                 className="property-image"
                 src={board[26]?.image}
@@ -383,7 +485,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[26]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(27)}>
+            <div
+              id="c21"
+              className="board-cell"
+              onClick={() => handlePropertyClick(27)}
+            >
               <img
                 className="property-image"
                 src={board[27]?.image}
@@ -391,7 +497,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[27]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(28)}>
+            <div
+              id="c20"
+              className="board-cell"
+              onClick={() => handlePropertyClick(28)}
+            >
               <img
                 className="property-image"
                 src={board[28]?.image}
@@ -399,7 +509,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[28]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(29)}>
+            <div
+              id="c19"
+              className="board-cell"
+              onClick={() => handlePropertyClick(29)}
+            >
               <img
                 className="property-image"
                 src={board[29]?.image}
@@ -407,7 +521,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[29]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(30)}>
+            <div
+              id="c18"
+              className="board-cell"
+              onClick={() => handlePropertyClick(30)}
+            >
               <img
                 className="property-image"
                 src={board[30]?.image}
@@ -415,7 +533,11 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
               />
               <div className="property-name">{board[30]?.name}</div>
             </div>
-            <div className="board-cell" onClick={() => handlePropertyClick(31)}>
+            <div
+              id="c17"
+              className="board-cell"
+              onClick={() => handlePropertyClick(31)}
+            >
               <img
                 className="property-image"
                 src={board[31]?.image}
@@ -434,7 +556,7 @@ const Board = ({ currentPlayer, onWinner, onNextPlayer }) => {
           <img className="logo-board" src="./logo.png" alt="Logo Alkopoly" />
         </div>
 
-        {/* {renderPlayers()} */}
+        {renderPlayers()}
 
         {renderCol()}
       </div>

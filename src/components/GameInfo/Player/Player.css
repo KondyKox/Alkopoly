@@ -1,6 +1,40 @@
 .player {
-    width: 3em;
-    height: 3em;
+    width: 3.5em;
+    height: 4.5em;
     border-radius: 10px;
     background: var(--clr-pink);
+    opacity: .8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    margin: .5em;
+}
+
+.player__pawn {
+    max-width: 2.5em;
+    padding: .25em;
+}
+
+.player__name {
+    color: var(--clr-blue);
+    text-shadow: 1px 1px 1px var(--clr-pink), -1px 1px 1px var(--clr-pink), -1px -1px 0 var(--clr-pink),
+        1px -1px 0 var(--clr-pink);
+    font-size: var(--size-xs);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.player:hover {
+    cursor: pointer;
+}
+
+.player:hover .player__name {
+    opacity: 1;
 }

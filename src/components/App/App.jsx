@@ -40,6 +40,7 @@ const App = (props) => {
       type: "register",
       name: newNickname,
       pawn: selectedPawn,
+      position: 0,
     };
 
     socket.emit("registerPlayer", data);
@@ -48,14 +49,14 @@ const App = (props) => {
       setPlayers((prevPlayers) =>
         prevPlayers.map((player) =>
           player.name === oldNickname
-            ? { ...player, name: newNickname, pawn: selectedPawn }
+            ? { ...player, name: newNickname, pawn: selectedPawn, position: 0 }
             : player
         )
       );
     } else
       setPlayers((prevPlayers) => [
         ...prevPlayers,
-        { name: newNickname, pawn: selectedPawn },
+        { name: newNickname, pawn: selectedPawn, position: 0 },
       ]);
 
     setCurrentNickname(newNickname);

@@ -63,22 +63,43 @@
     "owner": null
   },
 
-  { "id": 9, "name": "Karta Szansy", "type": "chance", "image": "" },
-  { "id": 10, "name": "Izba wytrzeźwień", "type": "jail", "image": "" },
-  { "id": 11, "name": "Grzywna", "type": "fine", "image": "", "amount": 200 },
-  { "id": 12, "name": "Pole Nagrody", "type": "reward", "image": "" },
+  {
+    "id": 9,
+    "name": "Karta Szansy",
+    "type": "chance",
+    "image": "./properties/chance.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Izba wytrzeźwień",
+    "type": "jail",
+    "image": "./properties/jail.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Grzywna",
+    "type": "fine",
+    "image": "./properties/fine.png",
+    "amount": 200
+  },
+  {
+    "id": 12,
+    "name": "Pole Nagrody",
+    "type": "reward",
+    "image": "./properties/reward.jpg"
+  },
   {
     "id": 13,
     "name": "Zakup zioła",
     "type": "fine",
-    "image": "",
+    "image": "./properties/weed.png",
     "amount": 200
   },
   {
     "id": 14,
-    "name": "Zakup wódki",
+    "name": "Zakup alkoholu",
     "type": "fine",
-    "image": "",
+    "image": "./properties/vodka.png",
     "amount": 200
   },
   {
@@ -179,7 +200,7 @@
   },
   {
     "id": 27,
-    "name": "'U Marcina'",
+    "name": "Piwnica u Kamilka",
     "type": "property",
     "image": "",
     "price": 1000,
@@ -193,8 +214,31 @@
     "price": 1000,
     "owner": null
   },
-  { "id": 29, "name": "Karta Szansy", "type": "chance", "image": "" },
-  { "id": 30, "name": "Karta Szansy", "type": "chance", "image": "" },
-  { "id": 31, "name": "Karta Szansy", "type": "chance", "image": "" },
-  { "id": 32, "name": "Grzywna", "type": "fine", "image": "", "amount": 200 }
+  {
+    "id": 29,
+    "name": "Jacuzzi",
+    "type": "property",
+    "image": "",
+    "price": 1000,
+    "owner": null
+  },
+  {
+    "id": 30,
+    "name": "Karta Szansy",
+    "type": "chance",
+    "image": "./properties/chance.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Karta Szansy",
+    "type": "chance",
+    "image": "./properties/chance.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Grzywna",
+    "type": "fine",
+    "image": "./properties/fine.png",
+    "amount": 200
+  }
 ]
