@@ -1,6 +1,6 @@
 import propertyData from "../data/propertyData.json";
 
-class BoardCell {
+class Property {
   constructor(id, name, type, imageSrc, price, owner) {
     this.id = id;
     this.name = name;
@@ -13,7 +13,7 @@ class BoardCell {
 }
 
 export const board = propertyData.map((data) => {
-  return new BoardCell(
+  return new Property(
     data.id,
     data.name,
     data.type,

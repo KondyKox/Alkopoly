@@ -1,0 +1,155 @@
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -50em;
+    width: 100%;
+    max-width: 30em;
+    height: 70%;
+    padding: 3em;
+    margin: 3em 1.5em;
+    border: 3px solid var(--clr-blue);
+    border-radius: 10px;
+    background: var(--clr-dark);
+    transition: right 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 1.5em;
+    margin: 1em;
+    border: none;
+    text-align: center;
+    font-size: var(--size-xl);
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    border: solid 1px transparent;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+.menu-toggle:hover {
+    color: var(--clr-pink);
+    background-color: var(--clr-blue);
+    cursor: pointer;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5em 1em;
+    margin: 1.5em 1em;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--clr-dark);
+    color: var(--clr-red);
+    border: solid 1px transparent;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--size-xl);
+}
+
+.close-button:hover {
+    color: var(--clr-blue);
+    background-color: var(--clr-red);
+}
+
+.menu-title {
+    border-bottom: 1px solid var(--clr-blue);
+    padding-bottom: 1em;
+}
+
+.menu-title img {
+    max-width: 3em;
+    transition: all .3s ease-in-out;
+}
+
+.menu-title img:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.lobby__menu__title {
+    font-size: var(--size-xl);
+    text-align: center;
+    padding-top: 1em;
+    font-weight: 800;
+}
+
+.pawns-list {
+    list-style-type: none;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.pawn {
+    transition: all .3s ease-in-out;
+    padding: .5em;
+    margin: .25em;
+    border-radius: 15px;
+    background: var(--clr-pink);
+}
+
+.pawn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.playerPhoto {
+    width: 5em;
+    height: 5em;
+    border-radius: 10px;
+}
+
+.selectedPawn {
+    background: var(--clr-blue);
+}
+
+.selectedPawn:hover {
+    transform: scale(1);
+    pointer-events: none;
+}
+
+/* md */
+@media (max-width: 768px) {
+    .side-menu {
+        max-width: 40em;
+        height: 90%;
+        padding: 2em;
+        margin: 0 2em;
+    }
+
+    .close-button {
+        padding: .5em 1em;
+        margin: 1em;
+    }
+}
+
+/* xs */
+@media (max-width: 475px) {
+    .side-menu {
+        max-width: 20em;
+        height: 90%;
+        padding: 2em;
+        margin: 0 1em;
+    }
+
+    .close-button {
+        padding: .5em 1em;
+        margin: 1em;
+    }
+}

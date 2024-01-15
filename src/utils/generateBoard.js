@@ -1,4 +1,4 @@
-import { board } from "../classes/BoardCell";
+import { board } from "../classes/Property";
 
 // Current Property Card
 let currentPropertyCard = null;
