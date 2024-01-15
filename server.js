@@ -52,8 +52,15 @@ io.on("connection", (socket) => {
   // Select pawn
   socket.on("selectPawn", ({ playerID, selectedPawn }) => {
     players[playerID].pawn = pawnsData.find((pawn) => pawn.id === selectedPawn);
-    console.log(selectedPawn)
+
     io.emit("updatePlayer", players[playerID]);
+  });
+
+  // Update player position
+  socket.on("updatePlayerPosition", ({ newPosition }) => {
+    players[socket.id].position = newPosition;
+
+    io.emit("updatePlayer", players[socket.id]);
   });
 
   // Disconnect player

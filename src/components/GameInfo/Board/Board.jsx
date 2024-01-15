@@ -2,14 +2,23 @@ import React, { useEffect, useState } from "react";
 import ChanceCard from "../ChanceCard/ChanceCard";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import Player from "../Player/Player";
+import Dice from "../Dice/Dice";
 import chanceCardData from "../../../data/ChanceCardData.json";
 import propertyData from "../../../data/propertyData.json";
 import "./Board.css";
 
-const Board = ({ players, currentPlayer, onWinner, onNextPlayer }) => {
+const Board = ({
+  players,
+  setPlayers,
+  currentPlayer,
+  onWinner,
+  onNextPlayer,
+  socket,
+}) => {
   const [board, setBoard] = useState(Array(32).fill(null));
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [isPropertyCardVisible, setPropertyCardVisibility] = useState(false);
+  const [diceResult, setDiceResult] = useState(null);
 
   // Random possition for fields on the board
   const initializeBoard = () => {
@@ -34,7 +43,7 @@ const Board = ({ players, currentPlayer, onWinner, onNextPlayer }) => {
   // Render players on board
   const renderPlayers = () => {
     return players.map((player, index) => {
-      const playerPosition = player.position % 32 + 1;
+      const playerPosition = (player.position % 32) + 1;
       const playerPawn = player.pawn;
       const playerName = player.name;
 
@@ -47,6 +56,31 @@ const Board = ({ players, currentPlayer, onWinner, onNextPlayer }) => {
         />
       );
     });
+  };
+
+  // Roll dice
+  const handleDiceRoll = (result) => {
+    setDiceResult(result);
+
+    const updatedPlayers = players.map((player) => {
+      if (player === currentPlayer) {
+        const newPosition = ((player.position + result) % 32) + 1;
+        if (newPosition > 32) newPosition = newPosition - 32;
+
+        setPlayers((prevPlayers) =>
+          prevPlayers.map((prevPlayer) =>
+            prevPlayer === currentPlayer
+              ? { ...prevPlayer, position: newPosition }
+              : prevPlayer
+          )
+        );
+
+        socket.emit("updatePlayerPosition", { newPosition });
+      }
+      return player;
+    });
+
+    onNextPlayer(updatedPlayers);
   };
 
   // Handle click on board
@@ -557,6 +591,10 @@ const Board = ({ players, currentPlayer, onWinner, onNextPlayer }) => {
         </div>
 
         {renderPlayers()}
+
+        {diceResult !== null && <div className="dice-result">{diceResult}</div>}
+
+        <Dice onRoll={handleDiceRoll} />
 
         {renderCol()}
       </div>

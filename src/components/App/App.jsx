@@ -91,7 +91,7 @@ const App = (props) => {
           )}
         </>
       )}
-      {isGameStarted && <Game players={players} />}
+      {isGameStarted && <Game players={players} setPlayers={setPlayers} socket={socket} />}
 
       {/* Open/Close side menu */}
       {!isSideMenuOpen ? (

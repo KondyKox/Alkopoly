@@ -1,14 +1,14 @@
 [
-  { "id": 1, "name": "Pionek 1", "image": "./game_pieces/pionek1.png" },
-  { "id": 2, "name": "Pionek 2", "image": "./game_pieces/pionek2.png" },
-  { "id": 3, "name": "Pionek 3", "image": "./game_pieces/pionek3.png" },
-  { "id": 4, "name": "Pionek 4", "image": "./game_pieces/pionek4.png" },
-  { "id": 5, "name": "Pionek 5", "image": "./game_pieces/pionek5.png" },
-  { "id": 6, "name": "Pionek 6", "image": "./game_pieces/pionek6.png" },
-  { "id": 7, "name": "Pionek 7", "image": "./game_pieces/pionek7.png" },
-  { "id": 8, "name": "Pionek 8", "image": "./game_pieces/pionek8.png" },
-  { "id": 9, "name": "Pionek 9", "image": "./game_pieces/pionek9.png" },
-  { "id": 10, "name": "Pionek 10", "image": "./game_pieces/pionek10.png" },
-  { "id": 11, "name": "Pionek 11", "image": "./game_pieces/pionek11.png" },
-  { "id": 12, "name": "Pionek 12", "image": "./game_pieces/pionek12.png" }
+  { "id": 1, "name": "Pionek 1", "image": "./game_pieces/pawns/pionek1.png" },
+  { "id": 2, "name": "Pionek 2", "image": "./game_pieces/pawns/pionek2.png" },
+  { "id": 3, "name": "Pionek 3", "image": "./game_pieces/pawns/pionek3.png" },
+  { "id": 4, "name": "Pionek 4", "image": "./game_pieces/pawns/pionek4.png" },
+  { "id": 5, "name": "Pionek 5", "image": "./game_pieces/pawns/pionek5.png" },
+  { "id": 6, "name": "Pionek 6", "image": "./game_pieces/pawns/pionek6.png" },
+  { "id": 7, "name": "Pionek 7", "image": "./game_pieces/pawns/pionek7.png" },
+  { "id": 8, "name": "Pionek 8", "image": "./game_pieces/pawns/pionek8.png" },
+  { "id": 9, "name": "Pionek 9", "image": "./game_pieces/pawns/pionek9.png" },
+  { "id": 10, "name": "Pionek 10", "image": "./game_pieces/pawns/pionek10.png" },
+  { "id": 11, "name": "Pionek 11", "image": "./game_pieces/pawns/pionek11.png" },
+  { "id": 12, "name": "Pionek 12", "image": "./game_pieces/pawns/pionek12.png" }
 ]
