@@ -77,7 +77,7 @@ function propertyCard(property) {
   // Property image
   const image = document.createElement("img");
   image.classList.add("property-img");
-  image.src = property.image;
+  image.src = property.image.src;
   image.alt = property.name;
 
   const value = document.createElement("span");
