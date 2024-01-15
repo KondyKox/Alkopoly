@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Zestaw Deluxe",
+    "text": "",
+    "action": "",
+    "image": ""
+  },
+  {
+    "name": "Zakup zioła",
+    "text": "Kupujesz zioło mordeczko i jest essa 420 😎.",
+    "action": "Idziesz na pole zakupu zioła.",
+    "image": "./chance_cards/ziolo.jpg"
+  },
+  {
+    "name": "Tatuaż TJ",
+    "text": "Robisz sobie tatuaż TJ i zyskujesz respekt.",
+    "action": "Następnym razem płacisz połowę mniej czynszu.",
+    "image": "./chance_cards/tatuaz-tj.jpg"
+  },
+  {
+    "name": "Półwidoczny",
+    "text": "Jesteś incognito półwidoczny.",
+    "action": "Gdy staniesz na polu innego gracza masz 50% szans, że Cię nie zauważy (3 użycia).",
+    "image": "./chance_cards/polwidoczni.jpg"
+  },
+  {
+    "name": "Koleje Dolnośląskie",
+    "text": "100 minut opóźnienia xD",
+    "action": "Wracasz na Start",
+    "image": "./chance_cards/koleje-dolnoslaski.jpg"
+  },
+  {
+    "name": "Kilof",
+    "text": "Zbudowałeś zajebisty kilof! Zniszcz komuś jakieś domki.",
+    "action": "Niszczysz dowolny domek innego gracza.",
+    "image": "./chance_cards/kilof.jpg"
+  },
+  {
+    "name": "Wódka ❤",
+    "text": "Wódeczka to miłość życia.",
+    "action": "Przejdź na pole wódki.",
+    "image": "./chance_cards/wodka-serce.jpg"
+  },
+  {
+    "name": "Emotki",
+    "text": "Zjarałeś się i robisz emotki. Inni czują respekt.",
+    "action": "Dostajesz od każdego po 20zł, ale stoisz w miejscu jedną kolejkę.",
+    "image": "./chance_cards/emotki.jpg"
+  },
+  {
+    "name": "Zgon",
+    "text": "Najebałeś się i zgonujesz. Ale masz drugą szansę.",
+    "action": "Przejdź na pole szansy.",
+    "image": "./chance_cards/zgon.jpg"
+  },
+  {
+    "name": "Izba wytrzeźwień",
+    "text": "Pały Cię złapały debilu!",
+    "action": "Idziesz do izby wytrzeźwień.",
+    "image": ""
+  },
+  {
+    "name": "Prezent urodzinowy",
+    "text": "Urodzinki 🥳",
+    "action": "Dostajesz od każdego po 50zł.",
+    "image": "./chance_cards/prezencik.jpg"
+  },
+  {
+    "name": "Scam and Run",
+    "text": "Zakładasz Scam and Run i stajesz się bogaty.",
+    "action": "Dostajesz 1 000 000 zł, ale tracisz z tego 999 000 zł.",
+    "image": "./chance_cards/scam-and-run.jpg"
+  },
+  {
+    "name": "Wiadro",
+    "text": "Walisz wiadro z ziomeczkami.",
+    "action": "Przez 2 tury się nie ruszasz.",
+    "image": "./chance_cards/wiadro.jpg"
+  },
+  {
+    "name": "Wypłata",
+    "text": "Dostajesz wypłatę 💵",
+    "action": "Idziesz na pole nagrody.",
+    "image": "./chance_cards/wyplata.jpg"
+  },
+  {
+    "name": "Rudy chuj",
+    "text": "Twoje włosy to teraz rudy chuj.",
+    "action": "Nic się nie dzieje, po prostu jest śmiesznie xD.",
+    "image": "./chance_cards/rudy-chuj.jpg"
+  },
+  {
+    "name": "SIGMA",
+    "text": "SIGMA",
+    "action": "Stajesz się SIGMĄ. Gdy następnym razem staniesz na polu innego gracza, to on Ci płaci.",
+    "image": "./chance_cards/sigma.jpg"
+  },
+  {
+    "name": "Main Event",
+    "text": "Szczepan przyjechał 😯",
+    "action": "Tracisz 200zł.",
+    "image": "./chance_cards/main-event.jpg"
+  },
+  {
+    "name": "Alkoholizm",
+    "text": "Zostajesz alkoholikiem 🍺.",
+    "action": "Zyskujesz respekt, ale tracisz hajs. -50zł",
+    "image": "./chance_cards/alkoholizm.jpg"
+  },
+  {
+    "name": "Tankowanie Polówki",
+    "text": "Polówkę wypada zatankować.",
+    "action": "Tracisz 51zł.",
+    "image": "./chance_cards/tankowanie-polowki.jpg"
+  },
+  {
+    "name": "Małżeństwo",
+    "text": "Żenisz się z losowym graczem.",
+    "action": "20% twoich pieniędzy idzie do niego.",
+    "image": "./chance_cards/malzenstwo.jpg"
+  },
+  {
+    "name": "Polówka",
+    "text": "Polówką dojedziesz wszędzie.",
+    "action": "Udaj się na dowolne pole.",
+    "image": "./chance_cards/polowka.jpg"
+  },
+  {
+    "name": "Snajper",
+    "text": "Snajper do ciebie strzela!",
+    "action": "Następne 2 kolejki ruszasz się tylko o połowe oczek.",
+    "image": "./chance_cards/snajper.jpg"
+  },
+  {
+    "name": "No i chuj",
+    "text": "No i chuj, zostałeś błogosławiony!",
+    "action": "",
+    "image": ""
+  },
+  {
+    "name": "Szczęśliwy Pawełek",
+    "text": "Pawełek jest szczęśliwy.",
+    "action": "Podwójny dochód.",
+    "image": ""
+  }
+]

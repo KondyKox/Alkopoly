@@ -7,332 +7,121 @@
     <title>Alkopoly</title>
   </head>
   <body>
-    <canvas></canvas>
-    <!-- <div>
-      <div className="board-col">
-        <div id="c1" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[0]?.image}"
-            alt="{board[0]?.name}"
-          />
-          <div className="property-name">{board[0]?.name}</div>
-        </div>
-        <div id="c2" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[1]?.image}"
-            alt="{board[1]?.name}"
-          />
-          <div className="property-name">{board[1]?.name}</div>
-        </div>
-        <div id="c3" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[2]?.image}"
-            alt="{board[2]?.name}"
-          />
-          <div className="property-name">{board[2]?.name}</div>
-        </div>
-        <div id="c4" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[3]?.image}"
-            alt="{board[3]?.name}"
-          />
-          <div className="property-name">{board[3]?.name}</div>
-        </div>
-        <div id="c5" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[4]?.image}"
-            alt="{board[4]?.name}"
-          />
-          <div className="property-name">{board[4]?.name}</div>
-        </div>
-        <div id="c6" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[5]?.image}"
-            alt="{board[5]?.name}"
-          />
-          <div className="property-name">{board[5]?.name}</div>
-        </div>
-        <div id="c7" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[6]?.image}"
-            alt="{board[6]?.name}"
-          />
-          <div className="property-name">{board[6]?.name}</div>
-        </div>
+    <div class="board">
+      <div class="logo-container">
+        <img class="logo-board" src="./logo.png" alt="Logo Alkopoly" />
       </div>
-      <div className="board-col">
-        <div id="c32" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[7]?.image}"
-            alt="{board[7]?.name}"
-          />
-          <div className="property-name">{board[7]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c8" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[8]?.image}"
-            alt="{board[8]?.name}"
-          />
-          <div className="property-name">{board[8]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c0" class="board-cell"></div>
+        <div id="c1" class="board-cell"></div>
+        <div id="c2" class="board-cell"></div>
+        <div id="c3" class="board-cell"></div>
+        <div id="c4" class="board-cell"></div>
+        <div id="c5" class="board-cell"></div>
+        <div id="c6" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c31" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[9]?.image}"
-            alt="{board[9]?.name}"
-          />
-          <div className="property-name">{board[9]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c9" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[10]?.image}"
-            alt="{board[10]?.name}"
-          />
-          <div className="property-name">{board[10]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c31" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c7" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c30" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[11]?.image}"
-            alt="{board[11]?.name}"
-          />
-          <div className="property-name">{board[11]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c10" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[12]?.image}"
-            alt="{board[12]?.name}"
-          />
-          <div className="property-name">{board[12]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c30" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c8" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c29" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[13]?.image}"
-            alt="{board[13]?.name}"
-          />
-          <div className="property-name">{board[13]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c11" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[14]?.image}"
-            alt="{board[14]?.name}"
-          />
-          <div className="property-name">{board[14]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c29" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c9" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c28" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[15]?.image}"
-            alt="{board[15]?.name}"
-          />
-          <div className="property-name">{board[15]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c12" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[16]?.image}"
-            alt="{board[16]?.name}"
-          />
-          <div className="property-name">{board[16]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c28" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c10" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c27" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[17]?.image}"
-            alt="{board[17]?.name}"
-          />
-          <div className="property-name">{board[17]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c13" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[18]?.image}"
-            alt="{board[18]?.name}"
-          />
-          <div className="property-name">{board[18]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c27" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c11" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c26" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[19]?.image}"
-            alt="{board[19]?.name}"
-          />
-          <div className="property-name">{board[19]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c14" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[20]?.image}"
-            alt="{board[20]?.name}"
-          />
-          <div className="property-name">{board[20]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c26" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c12" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c25" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[21]?.image}"
-            alt="{board[21]?.name}"
-          />
-          <div className="property-name">{board[21]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c15" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[22]?.image}"
-            alt="{board[22]?.name}"
-          />
-          <div className="property-name">{board[22]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c25" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c13" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c24" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[23]?.image}"
-            alt="{board[23]?.name}"
-          />
-          <div className="property-name">{board[23]?.name}</div>
-        </div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div className="board-cell empty"></div>
-        <div id="c16" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[24]?.image}"
-            alt="{board[24]?.name}"
-          />
-          <div className="property-name">{board[24]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c24" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c14" class="board-cell"></div>
       </div>
-      <div className="board-col">
-        <div id="c23" className="board-cell">
-          <img
-            className="property-image"
-            src="{board[25]?.image}"
-            alt="{board[25]?.name}"
-          />
-          <div className="property-name">{board[25]?.name}</div>
-        </div>
-        <div id="c22" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[26]?.image}"
-            alt="{board[26]?.name}"
-          />
-          <div className="property-name">{board[26]?.name}</div>
-        </div>
-        <div id="c21" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[27]?.image}"
-            alt="{board[27]?.name}"
-          />
-          <div className="property-name">{board[27]?.name}</div>
-        </div>
-        <div id="c20" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[28]?.image}"
-            alt="{board[28]?.name}"
-          />
-          <div className="property-name">{board[28]?.name}</div>
-        </div>
-        <div id="c19" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[29]?.image}"
-            alt="{board[29]?.name}"
-          />
-          <div className="property-name">{board[29]?.name}</div>
-        </div>
-        <div id="c18" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[30]?.image}"
-            alt="{board[30]?.name}"
-          />
-          <div className="property-name">{board[30]?.name}</div>
-        </div>
-        <div id="c17" className="board-cell" }>
-          <img
-            className="property-image"
-            src="{board[31]?.image}"
-            alt="{board[31]?.name}"
-          />
-          <div className="property-name">{board[31]?.name}</div>
-        </div>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c23" class="board-cell"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div class="board-cell empty"></div>
+        <div id="c15" class="board-cell"></div>
       </div>
-    </div> -->
-    <script type="module" src="./src//main.js"></script>
+      <!-- Board column -->
+      <div class="board-col">
+        <div id="c22" class="board-cell"></div>
+        <div id="c21" class="board-cell"></div>
+        <div id="c20" class="board-cell"></div>
+        <div id="c19" class="board-cell"></div>
+        <div id="c18" class="board-cell"></div>
+        <div id="c17" class="board-cell"></div>
+        <div id="c16" class="board-cell"></div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

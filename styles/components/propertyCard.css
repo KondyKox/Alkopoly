@@ -1,0 +1,57 @@
+.property-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid var(--clr-pink);
+    border-radius: 10px;
+    max-width: 30em;
+    height: 21em;
+    background: var(--clr-dark);
+    padding: 1em;
+}
+
+.property-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5em 1em;
+    margin: .5em .25em;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    color: var(--clr-red);
+    border: solid 1px transparent;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--size-xl);
+}
+
+.property-close:hover {
+    color: var(--clr-blue);
+    background-color: var(--clr-red);
+}
+
+.property-img {
+    width: 12em;
+    max-height: 10em;
+    padding: 0 1em 1em 1em;
+}
+
+.property-value {
+    font-size: var(--size-lg);
+    padding: .5em;
+    max-width: 20ch;
+    margin: auto;
+    text-align: center;
+}
+
+.property-price {
+    color: var(--clr-pink);
+    font-weight: 700;
+}
