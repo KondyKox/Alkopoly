@@ -1,4 +1,4 @@
-class Player {
+export default class Player {
   constructor(name, pawn, position) {
     this.name = name;
     this.pawn = pawn;
