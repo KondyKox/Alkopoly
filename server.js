@@ -5,31 +5,34 @@ import { Server } from "socket.io";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {pingInterval: 2000, pingTimeout: 5000});
+const io = new Server(server, { pingInterval: 2000, pingTimeout: 5000 });
 
 // CORS
 app.use(cors());
 
-// Players
-const players = {};
+// Backend Players
+const backendPlayers = {};
 
 // Connection with server
 io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
 
-  players[socket.id] = {
-    name: "Kondi",
-    pawn: Math.floor(Math.random() * 12),
-    position: 0,
-  };
+  // Submit user
+  socket.on("initGame", (username, pawn) => {
+    backendPlayers[socket.id] = {
+      name: username,
+      pawn: pawn,
+      position: 0,
+    };
 
-  io.emit("updatePlayers", players);
+    io.emit("updatePlayers", backendPlayers);
+  });
 
   // Disconnect player
   socket.on("disconnect", (reason) => {
     console.log(reason);
-    delete players[socket.id];
-    io.emit("updatePlayers", players);
+    delete backendPlayers[socket.id];
+    io.emit("updatePlayers", backendPlayers);
   });
 });
 

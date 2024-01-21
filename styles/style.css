@@ -1,10 +1,8 @@
 :root {
     /* colors */
     --clr-light: #efefef;
-    --clr-green: #e5f4e3;
     --clr-dark: #272727;
     --clr-blue: #00FFFF;
-    --clr-red: #e73535;
     --clr-pink: #ca2c92;
 
     /* sizes */
@@ -32,23 +30,14 @@ html {
     background-color: var(--clr-dark);
 }
 
-h1,
-h2 {
+h1 {
     text-align: center;
     padding: 1em;
     margin-bottom: .5em;
-    color: var(--clr-red);
-    text-shadow: 1px 1px 1px white, -1px 1px 1px white, -1px -1px 0 white,
-        1px -1px 0 white;
-}
-
-h1 {
+    color: var(--clr-blue);
+    text-shadow: 1px 1px 1px var(--clr-pink), -1px 1px 1px var(--clr-pink), -1px -1px 0 var(--clr-pink),
+        1px -1px 0 var(--clr-pink);
     font-weight: 800;
-}
-
-h2 {
-    font-size: var(--size-3xl);
-    font-weight: 700;
 }
 
 /* Scrollbar */
@@ -61,7 +50,7 @@ h2 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--clr-green);
+    background-color: var(--clr-blue);
     border-radius: 5px;
 }
 
@@ -72,11 +61,11 @@ h2 {
 /* Firefox Scrollbar */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--clr-green) var(--clr-dark);
+    scrollbar-color: var(--clr-blue) var(--clr-dark);
 }
 
 *::-moz-scrollbar-thumb {
-    background-color: var(--clr-green);
+    background-color: var(--clr-blue);
 }
 
 *::-moz-scrollbar-thumb:hover {

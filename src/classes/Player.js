@@ -1,10 +1,7 @@
-import pawnsData from "../data/pawnsData.json";
-
 export default class Player {
-  constructor(name, pawnId, position) {
+  constructor(name, pawn, position) {
     this.name = name;
-    this.pawnId = pawnId;
-    this.pawn = this.findPawnById(pawnId);
+    this.pawn = pawn;
     this.position = position;
     this.money = 1000;
   }
@@ -43,12 +40,5 @@ export default class Player {
   // Spent money
   substractMoney(amount) {
     this.money -= amount;
-  }
-
-  // Find pawn by ID
-  findPawnById(pawnId) {
-    const foundPawn = pawnsData.find((pawn) => pawn.id === pawnId);
-
-    if (foundPawn) return foundPawn.image;
   }
 }

@@ -1,0 +1,70 @@
+.user-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    max-width: 20em;
+}
+
+#userForm {
+    border-radius: 20px;
+    background: var(--clr-dark);
+    border: 3px solid var(--clr-pink);
+    padding: 1em;
+}
+
+#usernameInput {
+    border: 1px solid var(--clr-pink);
+    border-radius: 20px;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    padding: .75em;
+    margin: 1em;
+}
+
+#userForm div {
+    text-align: center;
+}
+
+.pawns-list {
+    list-style-type: none;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.pawn {
+    transition: all .3s ease-in-out;
+    padding: .5em;
+    margin: .2em;
+    border-radius: 15px;
+    background: var(--clr-pink);
+}
+
+.pawn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.playerPhoto {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 10px;
+}
+
+.selectedPawn {
+    background: var(--clr-blue);
+}
+
+.selectedPawn:hover {
+    transform: scale(1);
+    pointer-events: none;
+}

@@ -20,22 +20,22 @@
     border: none;
     text-align: center;
     cursor: pointer;
-    padding: 1.5em 4em;
+    padding: 1em 3em;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     outline: none;
     position: relative;
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
+    background-color: var(--clr-pink);
+    color: var(--clr-blue);
     border: solid 1px transparent;
-    border-radius: 10px;
+    border-radius: 100px;
     transition: all .3s ease-in-out;
     -webkit-font-smoothing: antialiased;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     color: var(--clr-pink);
     background-color: var(--clr-blue);
 }
