@@ -5,6 +5,7 @@ import "../styles/components/board.css";
 import "../styles/components/propertyCard.css";
 import "../styles/components/sideMenu.css";
 import "../styles/components/chanceCard.css";
+import "../styles/components/player.css";
 
 // JS
 import Player from "./classes/Player";
@@ -28,6 +29,8 @@ socket.on("updatePlayers", (backendPlayers) => {
         backendPlayer.pawn,
         backendPlayer.position
       );
+
+    players[id].draw();
 
     for (const id in players) {
       if (!backendPlayers[id]) delete players[id];
