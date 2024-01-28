@@ -1,110 +1,153 @@
 .side-menu {
-    position: fixed;
-    top: 0;
-    right: -50em;
-    width: 100%;
-    max-width: 30em;
-    height: 70%;
-    padding: 3em;
-    margin: 3em 1.5em;
-    border: 3px solid var(--clr-blue);
-    border-radius: 10px;
-    background: var(--clr-dark);
-    transition: right 0.3s ease-in-out;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  right: -50em;
+  width: 100%;
+  max-width: 30em;
+  height: 70%;
+  padding: 3em;
+  margin: 3em 1.5em;
+  border: 3px solid var(--clr-blue);
+  border-radius: 10px;
+  background: var(--clr-dark);
+  transition: right 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .side-menu.open {
-    right: 0;
+  right: 0;
 }
 
 .menu-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em 1.5em;
-    margin: 1em;
-    border: none;
-    text-align: center;
-    font-size: var(--size-xl);
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
-    border: solid 1px transparent;
-    border-radius: 10px;
-    transition: all .3s ease-in-out;
-    -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em 1.5em;
+  margin: 1em;
+  border: none;
+  text-align: center;
+  font-size: var(--size-xl);
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  border: solid 1px transparent;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 .menu-toggle:hover {
-    color: var(--clr-pink);
-    background-color: var(--clr-blue);
-    cursor: pointer;
+  color: var(--clr-pink);
+  background-color: var(--clr-blue);
+  cursor: pointer;
 }
 
 .close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: .5em 1em;
-    margin: 1.5em 1em;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    background-color: var(--clr-dark);
-    color: var(--clr-red);
-    border: solid 1px transparent;
-    border-radius: 10px;
-    transition: all .3s ease-in-out;
-    -webkit-font-smoothing: antialiased;
-    font-size: var(--size-xl);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  margin: 1.5em 1em;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--clr-dark);
+  color: var(--clr-red);
+  border: solid 1px transparent;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--size-xl);
 }
 
 .close-button:hover {
-    color: var(--clr-blue);
-    background-color: var(--clr-red);
+  color: var(--clr-blue);
+  background-color: var(--clr-red);
 }
 
 .menu-title {
-    border-bottom: 1px solid var(--clr-blue);
-    padding-bottom: 1em;
+  border-bottom: 1px solid var(--clr-blue);
+  padding-bottom: 1em;
 }
 
 .menu-title img {
-    max-width: 3em;
-    transition: all .3s ease-in-out;
+  max-width: 3em;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-title img:hover {
-    transform: scale(1.5);
-    cursor: pointer;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.players-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  overflow-y: auto;
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  margin: .5em 0;
+  border-radius: 10px;
+  width: 90%;
+  height: 2.5em;
+  border: 1px solid var(--clr-blue);
+}
+
+.player-info-pawn {
+  max-width: 1.5em;
+}
+
+.player-info-name,
+.player-info-money {
+  font-size: var(--size-lg);
+}
+
+.player-info-name {
+  color: var(--clr-blue);
+  text-shadow: 1px 1px 1px var(--clr-pink), -1px 1px 1px var(--clr-pink),
+    -1px -1px 0 var(--clr-pink), 1px -1px 0 var(--clr-pink);
+}
+
+.player-info-money {
+  color: var(--clr-pink);
+  text-shadow: 1px 1px 1px var(--clr-blue), -1px 1px 1px var(--clr-blue),
+    -1px -1px 0 var(--clr-blue), 1px -1px 0 var(--clr-blue);
 }
 
 /* md */
 @media (max-width: 768px) {
-    .side-menu {
-        max-width: 40em;
-        height: 90%;
-        padding: 2em;
-        margin: 0 2em;
-    }
+  .side-menu {
+    max-width: 40em;
+    height: 90%;
+    padding: 2em;
+    margin: 0 2em;
+  }
 
-    .close-button {
-        padding: .5em 1em;
-        margin: 1em;
-    }
+  .close-button {
+    padding: 0.5em 1em;
+    margin: 1em;
+  }
 }
 
 /* xs */
 @media (max-width: 475px) {
-    .side-menu {
-        max-width: 20em;
-        height: 90%;
-        padding: 2em;
-        margin: 0 1em;
-    }
+  .side-menu {
+    max-width: 20em;
+    height: 90%;
+    padding: 2em;
+    margin: 0 1em;
+  }
 
-    .close-button {
-        padding: .5em 1em;
-        margin: 1em;
-    }
+  .close-button {
+    padding: 0.5em 1em;
+    margin: 1em;
+  }
 }
