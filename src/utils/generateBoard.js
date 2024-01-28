@@ -26,8 +26,8 @@ export default function generateBoard() {
   const shuffledBoard = shuffleBoard();
   gameState.initializeBoard(shuffledBoard);
 
-  for (let i = 0; i < shuffledBoard.length; i++) {
-    const cell = document.querySelector(`#c${i}`);
+  for (let i = 0; i <= shuffledBoard.length; i++) {
+    const cell = document.querySelector(`#c${i + 1}`);
 
     // Property image
     const cellImg = document.createElement("img");
@@ -44,6 +44,8 @@ export default function generateBoard() {
     cell.appendChild(cellImg);
     cell.appendChild(cellName);
 
-    cell.addEventListener("click", () => gameState.displayPropertyCard(shuffledBoard[i]));
+    cell.addEventListener("click", () =>
+      gameState.displayPropertyCard(shuffledBoard[i])
+    );
   }
 }
