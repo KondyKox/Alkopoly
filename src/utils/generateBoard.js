@@ -26,7 +26,7 @@ export default function generateBoard() {
   const shuffledBoard = shuffleBoard();
   gameState.initializeBoard(shuffledBoard);
 
-  for (let i = 0; i <= shuffledBoard.length; i++) {
+  for (let i = 0; i < shuffledBoard.length; i++) {
     const cell = document.querySelector(`#c${i + 1}`);
 
     // Property image

@@ -22,7 +22,7 @@ io.on("connection", (socket) => {
     backendPlayers[socket.id] = {
       name: username,
       pawn: pawn,
-      position: 0,
+      position: 1,
     };
 
     io.emit("updatePlayers", backendPlayers);
