@@ -9,6 +9,7 @@ import "../styles/components/player.css";
 import "../styles/components/userInput.css";
 
 // JS
+import GameState from "./classes/GameState";
 import Player from "./classes/Player";
 import generateBoard from "./utils/generateBoard";
 import "./utils/sideMenu";
@@ -18,24 +19,25 @@ import "./utils/pawnList";
 import "https://cdn.socket.io/4.7.4/socket.io.min.js";
 
 const socket = io("http://localhost:5173");
-const frontendPlayers = {};
+export const gameState = new GameState();
 
 socket.on("updatePlayers", (backendPlayers) => {
   console.log(backendPlayers);
   for (const id in backendPlayers) {
     const backendPlayer = backendPlayers[id];
 
-    if (!frontendPlayers[id])
-      frontendPlayers[id] = new Player(
+    if (!gameState.players[id])
+      gameState.players[id] = new Player(
+        id,
         backendPlayer.name,
         backendPlayer.pawn,
         backendPlayer.position
       );
 
-    frontendPlayers[id].draw();
+    gameState.players[id].draw();
 
-    for (const id in frontendPlayers) {
-      if (!backendPlayers[id]) delete frontendPlayers[id];
+    for (const id in gameState.players) {
+      if (!backendPlayers[id]) delete gameState.players[id];
     }
   }
 });

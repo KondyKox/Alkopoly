@@ -1,7 +1,5 @@
 import { board } from "../classes/Property";
-
-// Current Property Card
-let currentPropertyCard = null;
+import { gameState } from "../main";
 
 // Shuffle board
 function shuffleBoard() {
@@ -17,7 +15,7 @@ function shuffleBoard() {
   // START on first possition
   shuffledBoard.unshift(startProperty);
 
-  // JAIL on 17th possition
+  // JAIL on 17th possition (because it's in the bottom-right corner)
   shuffledBoard.splice(16, 0, jailProperty);
 
   return shuffledBoard;
@@ -26,6 +24,7 @@ function shuffleBoard() {
 // Generate board
 export default function generateBoard() {
   const shuffledBoard = shuffleBoard();
+  gameState.initializeBoard(shuffledBoard);
 
   for (let i = 0; i < shuffledBoard.length; i++) {
     const cell = document.querySelector(`#c${i}`);
@@ -45,56 +44,6 @@ export default function generateBoard() {
     cell.appendChild(cellImg);
     cell.appendChild(cellName);
 
-    cell.addEventListener("click", () => propertyCard(shuffledBoard[i]));
+    cell.addEventListener("click", () => gameState.displayPropertyCard(shuffledBoard[i]));
   }
-}
-
-// Display property card
-function propertyCard(property) {
-  // If property card is open, close it
-  if (currentPropertyCard) {
-    document.body.removeChild(currentPropertyCard);
-    currentPropertyCard = null;
-  }
-
-  const propertyCard = document.createElement("div");
-  propertyCard.classList.add("property-card");
-
-  // Close button
-  const closeButton = document.createElement("button");
-  closeButton.classList.add("property-close");
-  closeButton.innerText = "x";
-  closeButton.addEventListener("click", () => {
-    document.body.removeChild(propertyCard);
-    currentPropertyCard = null;
-  });
-
-  // Property title
-  const title = document.createElement("h2");
-  title.classList.add("property-title");
-  title.innerText = property.name;
-
-  // Property image
-  const image = document.createElement("img");
-  image.classList.add("property-img");
-  image.src = property.image.src;
-  image.alt = property.name;
-
-  const value = document.createElement("span");
-  value.classList.add("property-value");
-
-  if (property.name === "Start")
-    value.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">100zl.</span>`;
-  else if (property.type === "jail")
-    value.innerText = "Izba Wytrzeźwień. Tu zostaniesz zamknięty.";
-  else
-    value.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
-
-  propertyCard.appendChild(closeButton);
-  propertyCard.appendChild(title);
-  propertyCard.appendChild(image);
-  propertyCard.appendChild(value);
-
-  document.body.appendChild(propertyCard);
-  currentPropertyCard = propertyCard;
 }

@@ -1,5 +1,6 @@
 export default class Player {
-  constructor(name, pawn, position) {
+  constructor(id, name, pawn, position) {
+    this.id = id;
     this.name = name;
     this.pawn = pawn;
     this.position = position;
@@ -29,6 +30,7 @@ export default class Player {
 
     // Update position
     this.position += steps;
+    if (this.position > 32) this.position -= 32;
     this.draw();
   }
 
