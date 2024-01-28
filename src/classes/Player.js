@@ -5,12 +5,26 @@ export default class Player {
     this.pawn = pawn;
     this.position = position;
     this.money = 1000;
+    this.color = this.getRandomColor();
+  }
+
+  // Random color for player
+  getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
   }
 
   // Draw player
   draw() {
     const playerElement = document.createElement("div");
     playerElement.className = "player";
+    playerElement.style.backgroundColor = this.color;
     playerElement.innerHTML = `
       <div class="player-name">${this.name}</div> 
       <img class="player-pawn" src="${this.pawn}" alt="${this.name}">
