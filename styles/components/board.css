@@ -27,6 +27,8 @@
     top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 1;
 }
 
 .dice {
@@ -36,7 +38,7 @@
 
 .dice:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .dice-result {
