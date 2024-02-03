@@ -12,6 +12,7 @@
   height: 21em;
   background: var(--clr-dark);
   padding: 1em;
+  z-index: 2;
 }
 
 .property-close {
