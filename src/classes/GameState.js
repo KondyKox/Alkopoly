@@ -87,8 +87,11 @@ export default class GameState {
       value.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">100zl.</span>`;
     else if (property.type === "jail")
       value.innerText = "Izba Wytrzeźwień. Tu zostaniesz zamknięty.";
-    else
+    else if (property.type === "property" || property.type === "fine")
       value.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
+    else if (property.type === "reward")
+      value.innerHTML = `Zgarniasz cały hajs jako nagrodę :O`;
+    else value.innerHTML = `Ciągnij szansę.`;
 
     propertyCard.appendChild(closeButton);
     propertyCard.appendChild(title);
