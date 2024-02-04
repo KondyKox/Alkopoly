@@ -27,7 +27,6 @@ export default class GameState {
 
   // Roll dice
   rollDice() {
-    console.log(this.currentPlayerId);
     const diceResultEl = document.querySelector(".dice-result");
 
     // Dice result
