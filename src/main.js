@@ -35,6 +35,7 @@ socket.on("updatePlayers", (backendPlayers) => {
       );
 
     gameState.players[id].draw();
+    gameState.startGame();
 
     for (const id in gameState.players) {
       if (!backendPlayers[id]) delete gameState.players[id];
@@ -52,6 +53,11 @@ document.querySelector("#userForm").addEventListener("submit", (event) => {
     document.querySelector("#usernameInput").value,
     document.querySelector(".selectedPawn").querySelector(".playerPhoto").src
   );
+});
+
+// Roll dice on click
+document.querySelector(".dice-container").addEventListener("click", () => {
+  gameState.rollDice();
 });
 
 generateBoard();

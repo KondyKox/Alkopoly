@@ -1,6 +1,7 @@
 export default class GameState {
   constructor() {
     this.players = {};
+    this.playerIds = null;
     this.currentPlayerId = null;
     this.board = [];
     this.currentPropertyCard = null;
@@ -16,8 +17,17 @@ export default class GameState {
     return this.players[this.currentPlayerId];
   }
 
+  // Start the game
+  startGame() {
+    this.playerIds = Object.keys(this.players);
+    this.currentPlayerId = this.playerIds[0];
+
+    console.log(`Gra się zaczęła! ${this.players[this.currentPlayerId].name} rozpoczyna.`);
+  }
+
   // Roll dice
   rollDice() {
+    console.log(this.currentPlayerId);
     const diceResultEl = document.querySelector(".dice-result");
 
     // Dice result
@@ -25,20 +35,21 @@ export default class GameState {
     diceResultEl.innerHTML = diceResult;
 
     const currentPlayer = this.getCurrentPlayer();
-    console.log(`${currentPlayer} wyrzucił: ${diceResult}`);
+    console.log(`${currentPlayer.name} wyrzucił: ${diceResult}`);
+
+    currentPlayer.move(diceResult);
   }
 
   // Switch player turn
   switchPlayerTurn() {
-    const playerIds = Object.keys(this.players);
-    const currentPlayerIndex = playerIds.indexOf(this.currentPlayerId);
+    const currentPlayerIndex = this.playerIds.indexOf(this.currentPlayerId);
 
     if (currentPlayerIndex !== -1) {
-      const nextPlayerIndex = (currentPlayerIndex + 1) % playerIds.length;
-      this.currentPlayerId = playerIds[nextPlayerIndex];
+      const nextPlayerIndex = (currentPlayerIndex + 1) % this.playerIds.length;
+      this.currentPlayerId = this.playerIds[nextPlayerIndex];
     }
     // Go back to first player
-    else if (playerIds.length > 0) this.currentPlayerId = playerIds[0];
+    else if (this.playerIds.length > 0) this.currentPlayerId = this.playerIds[0];
   }
 
   // Switch turn

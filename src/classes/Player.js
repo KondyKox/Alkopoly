@@ -38,9 +38,9 @@ export default class Player {
   move(steps) {
     // Remove player from current position
     const currentCell = document.querySelector(`#c${this.position}`);
-    while (currentCell.firstChild) {
-      currentCell.removeChild(currentCell.firstChild);
-    }
+    const playerEl = currentCell.querySelector(".player");
+
+    if (playerEl) currentCell.removeChild(playerEl);
 
     // Update position
     this.position += steps;
