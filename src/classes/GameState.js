@@ -1,3 +1,5 @@
+import { socket } from "../main";
+
 export default class GameState {
   constructor() {
     this.players = {};
@@ -22,7 +24,9 @@ export default class GameState {
     this.playerIds = Object.keys(this.players);
     this.currentPlayerId = this.playerIds[0];
 
-    console.log(`Gra się zaczęła! ${this.players[this.currentPlayerId].name} rozpoczyna.`);
+    console.log(
+      `Gra się zaczęła! ${this.players[this.currentPlayerId].name} rozpoczyna.`
+    );
   }
 
   // Roll dice
@@ -37,6 +41,9 @@ export default class GameState {
     console.log(`${currentPlayer.name} wyrzucił: ${diceResult}`);
 
     currentPlayer.move(diceResult);
+
+    // Change possition on server
+    socket.on("updatePlayers", this.players);
   }
 
   // Switch player turn
@@ -48,7 +55,8 @@ export default class GameState {
       this.currentPlayerId = this.playerIds[nextPlayerIndex];
     }
     // Go back to first player
-    else if (this.playerIds.length > 0) this.currentPlayerId = this.playerIds[0];
+    else if (this.playerIds.length > 0)
+      this.currentPlayerId = this.playerIds[0];
   }
 
   // Switch turn

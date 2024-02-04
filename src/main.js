@@ -18,7 +18,7 @@ import "./utils/pawnList";
 // Socket.io
 import "https://cdn.socket.io/4.7.4/socket.io.min.js";
 
-const socket = io("http://localhost:5173");
+export const socket = io("http://localhost:5173");
 export const gameState = new GameState();
 
 socket.on("updatePlayers", (backendPlayers) => {
