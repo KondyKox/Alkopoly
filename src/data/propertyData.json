@@ -10,7 +10,7 @@
     "id": 2,
     "name": "Asik",
     "type": "property",
-    "image": "",
+    "image": "./properties/asik.jpg",
     "price": 1000,
     "owner": null
   },
@@ -18,7 +18,7 @@
     "id": 3,
     "name": "Hakuna Matata",
     "type": "property",
-    "image": "",
+    "image": "./properties/hakuna_matata.jpg",
     "price": 1000,
     "owner": null
   },
@@ -26,7 +26,7 @@
     "id": 4,
     "name": "Remiza",
     "type": "property",
-    "image": "",
+    "image": "./properties/remiza.jpg",
     "price": 1000,
     "owner": null
   },
@@ -58,7 +58,7 @@
     "id": 8,
     "name": "Czerwony Pomost",
     "type": "property",
-    "image": "",
+    "image": "./properties/czerwony_pomost.jpg",
     "price": 1000,
     "owner": null
   },
@@ -109,7 +109,7 @@
   },
   {
     "id": 15,
-    "name": "Publiczna Plaża",
+    "name": "Plaża",
     "type": "property",
     "image": "",
     "price": 1000,
@@ -133,7 +133,7 @@
     "id": 18,
     "name": "Dom Kamcia",
     "type": "property",
-    "image": "",
+    "image": "./properties/dom_kamcia.jpg",
     "price": 1000,
     "owner": null
   },
@@ -149,7 +149,7 @@
     "id": 20,
     "name": "Plac zabaw",
     "type": "property",
-    "image": "",
+    "image": "./properties/plac_zabaw.jpg",
     "price": 1000,
     "owner": null
   },
@@ -157,7 +157,7 @@
     "id": 21,
     "name": "Głuchów",
     "type": "property",
-    "image": "",
+    "image": "./properties/gluchow.jpg",
     "price": 1000,
     "owner": null
   },
@@ -171,9 +171,9 @@
   },
   {
     "id": 23,
-    "name": "Prywatna plaża",
+    "name": "Discord",
     "type": "property",
-    "image": "",
+    "image": "./properties/discord.jpg",
     "price": 1000,
     "owner": null
   },
@@ -181,7 +181,7 @@
     "id": 24,
     "name": "Zjeżdzalnia na plaży",
     "type": "property",
-    "image": "",
+    "image": "./properties/zjezdzalnia.jpg",
     "price": 1000,
     "owner": null
   },
@@ -189,7 +189,7 @@
     "id": 25,
     "name": "Wałbrzych",
     "type": "property",
-    "image": "",
+    "image": "./properties/walbrzych.jpg",
     "price": 1000,
     "owner": null
   },
@@ -205,7 +205,7 @@
     "id": 27,
     "name": "Piwnica u Kamilka",
     "type": "property",
-    "image": "",
+    "image": "./properties/piwnica_kamcia.jpg",
     "price": 1000,
     "owner": null
   },
@@ -213,7 +213,7 @@
     "id": 28,
     "name": "Kuźnica",
     "type": "property",
-    "image": "",
+    "image": "./properties/kuznica.jpg",
     "price": 1000,
     "owner": null
   },
