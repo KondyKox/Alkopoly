@@ -1,0 +1,54 @@
+.lobby {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 20em;
+  background: var(--clr-dark);
+  padding: 2em 1em;
+  border: 3px solid var(--clr-pink);
+  border-radius: 20px;
+}
+
+.lobby__title {
+  padding: 0.5em;
+  color: var(--clr-blue);
+  border-bottom: 1px solid var(--clr-blue);
+}
+
+.registered-players {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.lobby__player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .5em;
+  margin: .25em 1em;
+  border-radius: 10px;
+  height: 5em;
+}
+
+.lobby__player-img {
+  max-width: 3em;
+}
+
+.lobby__player-name {
+  font-size: var(--size-lg);
+  color: var(--clr-blue);
+  text-shadow: 1px 1px 1px var(--clr-pink), -1px -1px 1px var(--clr-pink),
+    -1px -1px 0 var(--clr-pink), 1px -1px 0 var(--clr-pink);
+  padding: .2em;
+}

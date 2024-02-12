@@ -23,7 +23,7 @@
       <form id="userForm">
         <div>
           <input id="usernameInput" type="text" placeholder="Dawaj nick" />
-          <ul id="userPawn" class="pawns-list"></ul>
+          <ul class="pawns-list"></ul>
         </div>
         <div>
           <button class="btn">Start!</button>
@@ -31,13 +31,23 @@
       </form>
     </div>
 
+    <!-- Lobby -->
+    <div class="lobby">
+      <div>
+        <h2 class="lobby__title">Gracze w Lobby:</h2>
+        <ul class="registered-players"></ul>
+      </div>
+      <div>
+        <button id="start" class="btn">Start!</button>
+      </div>
+    </div>
     <!-- Board -->
     <div class="board">
       <div class="logo-container">
         <img class="logo-board" src="./logo.png" alt="Logo Alkopoly" />
       </div>
       <div class="dice-container">
-        <img class="dice" src="./game_pieces/dice/dice.png" alt="Kostki">
+        <img class="dice" src="./game_pieces/dice/dice.png" alt="Kostki" />
         <div class="dice-result"></div>
       </div>
       <!-- Board column -->

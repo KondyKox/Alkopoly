@@ -7,13 +7,16 @@ import "../styles/components/sideMenu.css";
 import "../styles/components/chanceCard.css";
 import "../styles/components/player.css";
 import "../styles/components/userInput.css";
+import "../styles/components/lobby.css";
 
 // JS
 import GameState from "./classes/GameState";
 import Player from "./classes/Player";
 import generateBoard from "./utils/generateBoard";
+import renderPlayersInLobby from "./utils/lobby";
 import "./utils/sideMenu";
 import "./utils/pawnList";
+import "./utils/lobby";
 
 // Socket.io
 import "https://cdn.socket.io/4.7.4/socket.io.min.js";
@@ -21,6 +24,7 @@ import "https://cdn.socket.io/4.7.4/socket.io.min.js";
 export const socket = io("http://localhost:5173");
 export const gameState = new GameState();
 
+// Update players
 socket.on("updatePlayers", (backendPlayers) => {
   console.log(backendPlayers);
   for (const id in backendPlayers) {
@@ -35,12 +39,13 @@ socket.on("updatePlayers", (backendPlayers) => {
       );
 
     gameState.players[id].draw();
-    gameState.startGame();
 
     for (const id in gameState.players) {
       if (!backendPlayers[id]) delete gameState.players[id];
     }
   }
+
+  renderPlayersInLobby();
 });
 
 // Submit user
@@ -49,7 +54,7 @@ document.querySelector("#userForm").addEventListener("submit", (event) => {
   document.querySelector("#userForm").style.display = "none";
 
   socket.emit(
-    "initGame",
+    "initLobby",
     document.querySelector("#usernameInput").value,
     document.querySelector(".selectedPawn").querySelector(".playerPhoto").src
   );
@@ -58,6 +63,21 @@ document.querySelector("#userForm").addEventListener("submit", (event) => {
 // Roll dice on click
 document.querySelector(".dice-container").addEventListener("click", () => {
   gameState.rollDice();
+});
+
+// Start game
+document.querySelector("#start").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  gameState.startGame();
+
+  socket.emit("startGame", gameState);
+});
+
+socket.on("gameStarted", () => {
+  console.log("Gra wystartowała!");
+  gameState.isGameStarted = true;
+  document.querySelector(".lobby").style.display = "none";
 });
 
 generateBoard();

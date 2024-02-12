@@ -7,6 +7,7 @@ export default class GameState {
     this.currentPlayerId = null;
     this.board = [];
     this.currentPropertyCard = null;
+    this.isGameStarted = false;
   }
 
   // Initialize board
@@ -21,6 +22,8 @@ export default class GameState {
 
   // Start the game
   startGame() {
+    this.isGameStarted = true;
+
     this.playerIds = Object.keys(this.players);
     this.currentPlayerId = this.playerIds[0];
 

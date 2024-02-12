@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
 
   // Submit user
-  socket.on("initGame", (username, pawn) => {
+  socket.on("initLobby", (username, pawn) => {
     backendPlayers[socket.id] = {
       name: username,
       pawn: pawn,
@@ -26,6 +26,13 @@ io.on("connection", (socket) => {
     };
 
     io.emit("updatePlayers", backendPlayers);
+  });
+
+  // Start game
+  socket.on("startGame", (gameState) => {
+    console.log("Gra wystartowała!");
+    gameState.isGameStarted = true;
+    io.emit("gameStarted");
   });
 
   // Disconnect player
