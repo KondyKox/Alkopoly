@@ -221,7 +221,7 @@
     "id": 29,
     "name": "Jacuzzi",
     "type": "property",
-    "image": "",
+    "image": "./properties/jacuzzi.jpg",
     "price": 1000,
     "owner": null
   },
