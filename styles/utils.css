@@ -49,6 +49,7 @@
   text-align: center;
   cursor: pointer;
   color: var(--clr-red);
+  background: none;
   border: solid 1px transparent;
   border-radius: 25%;
   transition: all 0.3s ease-in-out;

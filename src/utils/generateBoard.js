@@ -1,5 +1,6 @@
 import { board } from "../classes/Property";
 import { gameState } from "../main";
+import Property from "../classes/Property";
 
 // Shuffle board
 function shuffleBoard() {
@@ -45,7 +46,7 @@ export default function generateBoard() {
     cell.appendChild(cellName);
 
     cell.addEventListener("click", () =>
-      gameState.displayPropertyCard(shuffledBoard[i])
+      Property.displayPropertyCard(shuffledBoard[i])
     );
   }
 }

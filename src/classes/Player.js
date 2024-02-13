@@ -1,3 +1,6 @@
+import { gameState } from "../main";
+import ChanceCard from "./ChanceCard";
+
 export default class Player {
   constructor(id, name, pawn, position) {
     this.id = id;
@@ -46,6 +49,10 @@ export default class Player {
     // Update position
     this.position += steps;
     if (this.position > 32) this.position -= 32;
+
+    // Check new possition
+    this.checkCurrentField();
+
     this.draw();
   }
 
@@ -66,5 +73,11 @@ export default class Player {
     const playerEl = currentCell.querySelector(".player");
 
     if (playerEl) currentCell.removeChild(playerEl);
+  }
+
+  // Check current field
+  checkCurrentField() {
+    if (gameState.board[this.position - 1].type === "chance")
+      ChanceCard.drawChanceCard(this.id);
   }
 }
