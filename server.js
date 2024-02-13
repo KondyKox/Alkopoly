@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, { pingInterval: 2000, pingTimeout: 5000 });
+const io = new Server(server);
 
 // CORS
 app.use(cors());
@@ -33,6 +33,21 @@ io.on("connection", (socket) => {
     console.log("Gra wystartowała!");
     gameState.isGameStarted = true;
     io.emit("gameStarted");
+  });
+
+  // Roll dice
+  socket.on("rollDice", ({ playerId, steps }) => {
+    const backendPlayerIds = Object.keys(backendPlayers);
+    backendPlayerIds.forEach((backendPlayerId) => {
+      if (playerId === backendPlayerId) {
+        backendPlayers[backendPlayerId].position += steps;
+        console.log(
+          `${backendPlayers[backendPlayerId].name} poruszył się o ${steps} pól.`
+        );
+
+        io.emit("updatePlayers", backendPlayers);
+      }
+    });
   });
 
   // Disconnect player

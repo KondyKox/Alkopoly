@@ -66,9 +66,7 @@ document.querySelector(".dice-container").addEventListener("click", () => {
 });
 
 // Start game
-document.querySelector("#start").addEventListener("click", (e) => {
-  e.preventDefault();
-
+document.querySelector("#start").addEventListener("click", () => {
   gameState.startGame();
 
   socket.emit("startGame", gameState);

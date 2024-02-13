@@ -22,6 +22,10 @@ export default class Player {
 
   // Draw player
   draw() {
+    // Remove player from current position
+    this.clearPlayerFromCell();
+
+    // Draw player element
     const playerElement = document.createElement("div");
     playerElement.className = "player";
     playerElement.style.backgroundColor = this.color;
@@ -37,10 +41,7 @@ export default class Player {
   // Move on board
   move(steps) {
     // Remove player from current position
-    const currentCell = document.querySelector(`#c${this.position}`);
-    const playerEl = currentCell.querySelector(".player");
-
-    if (playerEl) currentCell.removeChild(playerEl);
+    this.clearPlayerFromCell();
 
     // Update position
     this.position += steps;
@@ -56,5 +57,14 @@ export default class Player {
   // Spent money
   substractMoney(amount) {
     this.money -= amount;
+  }
+
+  // Remove player from current cell
+  clearPlayerFromCell() {
+    // Remove player from current position
+    const currentCell = document.querySelector(`#c${this.position}`);
+    const playerEl = currentCell.querySelector(".player");
+
+    if (playerEl) currentCell.removeChild(playerEl);
   }
 }
