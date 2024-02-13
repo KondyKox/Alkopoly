@@ -17,25 +17,31 @@
 /* @media (max-width: 1536px) {} */
 
 .btn {
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    padding: 1em 3em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    outline: none;
-    position: relative;
-    background-color: var(--clr-pink);
-    color: var(--clr-blue);
-    border: solid 1px transparent;
-    border-radius: 100px;
-    transition: all .3s ease-in-out;
-    -webkit-font-smoothing: antialiased;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 1em 3em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  background-color: var(--clr-pink);
+  color: var(--clr-blue);
+  border: solid 1px transparent;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 .btn:hover {
-    /* transform: scale(1.1); */
-    color: var(--clr-pink);
-    background-color: var(--clr-blue);
+  /* transform: scale(1.1); */
+  color: var(--clr-pink);
+  background-color: var(--clr-blue);
+}
+
+.current-player__name {
+  color: var(--clr-pink);
+  text-shadow: 1px 1px 1px var(--clr-blue), -1px -1px 1px var(--clr-blue),
+    -1px -1px 0 var(--clr-blue), 1px -1px 0 var(--clr-blue);
 }

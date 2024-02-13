@@ -5,6 +5,7 @@ export default class GameState {
     this.players = {};
     this.playerIds = null;
     this.currentPlayerId = null;
+    this.currentPlayerEl = document.querySelector(".current-player__name");
     this.board = [];
     this.currentPropertyCard = null;
     this.isGameStarted = false;
@@ -24,8 +25,11 @@ export default class GameState {
   startGame() {
     this.isGameStarted = true;
 
+    // Set first player as the current player
     this.playerIds = Object.keys(this.players);
     this.currentPlayerId = this.playerIds[0];
+
+    this.currentPlayerEl.textContent = this.players[this.currentPlayerId].name;
 
     console.log(
       `Gra się zaczęła! ${this.players[this.currentPlayerId].name} rozpoczyna.`
@@ -69,6 +73,8 @@ export default class GameState {
   nextTurn() {
     this.switchPlayerTurn();
     const currentPlayer = this.getCurrentPlayer();
+
+    this.currentPlayerEl.textContent = this.players[this.currentPlayerId].name;
 
     console.log(`Tura należy do ${currentPlayer.name}`);
   }
@@ -114,8 +120,8 @@ export default class GameState {
     else if (property.type === "property" || property.type === "fine")
       value.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
     else if (property.type === "reward")
-      value.innerHTML = `Zgarniasz cały hajs jako nagrodę :O`;
-    else value.innerHTML = `Ciągnij szansę.`;
+      value.innerText = `Zgarniasz cały hajs jako nagrodę :O`;
+    else value.innerText = `Ciągnij szansę.`;
 
     propertyCard.appendChild(closeButton);
     propertyCard.appendChild(title);

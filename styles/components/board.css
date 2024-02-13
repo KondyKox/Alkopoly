@@ -1,7 +1,7 @@
 .board {
     position: relative;
     padding: 1em;
-    margin: 5em auto;
+    margin: auto;
     max-width: 85%;
     display: flex;
     justify-content: center;
