@@ -16,31 +16,13 @@
 }
 
 .property-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.5em 1em;
   margin: 0.5em 0.25em;
-  border: none;
-  text-align: center;
-  cursor: pointer;
   background: none;
-  color: var(--clr-red);
-  border: solid 1px transparent;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  -webkit-font-smoothing: antialiased;
-  font-size: var(--size-xl);
-}
-
-.property-close:hover {
-  color: var(--clr-blue);
-  background-color: var(--clr-red);
 }
 
 .property-title {
-  padding: .5em 1em;
-  margin: .5em 0;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
   color: var(--clr-blue);
   text-shadow: 1px 1px 1px var(--clr-pink), -1px 1px 1px var(--clr-pink),
     -1px -1px 0 var(--clr-pink), 1px -1px 0 var(--clr-pink);

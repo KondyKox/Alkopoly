@@ -40,6 +40,27 @@
   background-color: var(--clr-blue);
 }
 
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  color: var(--clr-red);
+  border: solid 1px transparent;
+  border-radius: 25%;
+  transition: all 0.3s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--size-xl);
+}
+
+.close-btn:hover {
+  color: var(--clr-blue);
+  background-color: var(--clr-red);
+}
+
 .current-player__name {
   color: var(--clr-pink);
   text-shadow: 1px 1px 1px var(--clr-blue), -1px -1px 1px var(--clr-blue),
