@@ -12,6 +12,8 @@ app.use(cors());
 
 // Backend Players
 const backendPlayers = {};
+let backendPlayerIds;
+let currentBackendPlayer;
 
 // Connection with server
 io.on("connection", (socket) => {
@@ -32,22 +34,30 @@ io.on("connection", (socket) => {
   socket.on("startGame", (gameState) => {
     console.log("Gra wystartowała!");
     gameState.isGameStarted = true;
+
+    backendPlayerIds = Object.keys(backendPlayers);
+    currentBackendPlayer = backendPlayerIds[0];
+
     io.emit("gameStarted");
   });
 
   // Roll dice
   socket.on("rollDice", ({ playerId, steps }) => {
-    const backendPlayerIds = Object.keys(backendPlayers);
-    backendPlayerIds.forEach((backendPlayerId) => {
-      if (playerId === backendPlayerId) {
-        backendPlayers[backendPlayerId].position += steps;
-        console.log(
-          `${backendPlayers[backendPlayerId].name} poruszył się o ${steps} pól.`
-        );
+    if (playerId === currentBackendPlayer) {
+      backendPlayers[currentBackendPlayer].position += steps;
+      console.log(
+        `${backendPlayers[currentBackendPlayer].name} poruszył się o ${steps} pól.`
+      );
 
-        io.emit("updatePlayers", backendPlayers);
-      }
-    });
+      // Change current player
+      const currentPlayerIdex = backendPlayerIds.indexOf(playerId);
+      const nextPlayerIndex = (currentPlayerIdex + 1) % backendPlayerIds.length;
+      const nextPlayerId = backendPlayerIds[nextPlayerIndex];
+
+      currentBackendPlayer = nextPlayerId;
+
+      io.emit("updatePlayers", backendPlayers);
+    }
   });
 
   // Disconnect player

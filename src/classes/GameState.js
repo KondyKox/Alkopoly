@@ -47,6 +47,9 @@ export default class GameState {
 
     // Change possition on server
     socket.emit("rollDice", { playerId: currentPlayer.id, steps: diceResult });
+
+    // Change turn
+    this.nextTurn();
   }
 
   // Switch player turn
@@ -67,7 +70,7 @@ export default class GameState {
     this.switchPlayerTurn();
     const currentPlayer = this.getCurrentPlayer();
 
-    console.log(`Tura należy do ${currentPlayer}`);
+    console.log(`Tura należy do ${currentPlayer.name}`);
   }
 
   // Display property card
