@@ -87,7 +87,7 @@
   },
   {
     "id": 12,
-    "name": "Pole Nagrody",
+    "name": "Wypłata",
     "type": "reward",
     "image": "./properties/reward.jpg"
   },

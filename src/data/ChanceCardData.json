@@ -1,9 +1,9 @@
 [
   {
     "name": "Zestaw Deluxe",
-    "text": "",
-    "action": "",
-    "image": ""
+    "text": "Kupujesz Zestaw Deluxe.",
+    "action": "Tracisz 100zł oraz idziesz 4 pola do przodu.",
+    "image": "./chance_cards/zestaw_deluxe.jpg"
   },
   {
     "name": "Zakup zioła",
@@ -57,7 +57,7 @@
     "name": "Izba wytrzeźwień",
     "text": "Pały Cię złapały debilu!",
     "action": "Idziesz do izby wytrzeźwień.",
-    "image": ""
+    "image": "./chance_cards/jail.jpg"
   },
   {
     "name": "Prezent urodzinowy",
@@ -104,7 +104,7 @@
   {
     "name": "Alkoholizm",
     "text": "Zostajesz alkoholikiem 🍺.",
-    "action": "Zyskujesz respekt, ale tracisz hajs. -50zł",
+    "action": "Zyskujesz respekt, ale tracisz hajs. -10% twoich pieniędzy.",
     "image": "./chance_cards/alkoholizm.jpg"
   },
   {
@@ -134,7 +134,7 @@
   {
     "name": "No i chuj",
     "text": "No i chuj, zostałeś błogosławiony!",
-    "action": "",
+    "action": "./chance_cards/no-i-chuj.jpg",
     "image": ""
   },
   {

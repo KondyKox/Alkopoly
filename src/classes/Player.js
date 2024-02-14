@@ -9,6 +9,14 @@ export default class Player {
     this.position = position;
     this.money = 1000;
     this.color = this.getRandomColor();
+
+    this.isSIGMA = false;
+    this.isShot = false;
+    this.turnsToHeal = 2;
+    this.respect = false;
+    this.incognito = 0;
+    this.cantMove = 0;
+    this.isPawelekHappy = false;
   }
 
   // Random color for player
@@ -43,11 +51,23 @@ export default class Player {
 
   // Move on board
   move(steps) {
+    if (this.cantMove > 0) {
+      this.cantMove--;
+      return;
+    }
+
     // Remove player from current position
     this.clearPlayerFromCell();
 
     // Update position
-    this.position += steps;
+    if (!this.isShot) this.position += steps;
+    else {
+      this.position += Math.floor(steps / 2);
+      this.turnsToHeal--;
+
+      if (this.turnsToHeal === 0) this.isShot = false;
+    }
+
     if (this.position > 32) this.position -= 32;
 
     // Check new possition
@@ -64,6 +84,32 @@ export default class Player {
   // Spent money
   substractMoney(amount) {
     this.money -= amount;
+  }
+
+  // Drive anywhere
+  driveAnywhere() {
+    const self = this;
+
+    const cells = document.querySelectorAll(".board-cell");
+    cells.forEach((cell) => {
+      cell.addEventListener("click", handleCellClick);
+    });
+
+    // Handle click to drive
+    function handleCellClick(event) {
+      const cellId = event.target.id;
+      const newPossition = cellId.match(/\d+/);
+
+      console.log(parseInt(newPossition[0]))
+
+      self.clearPlayerFromCell();
+      self.position = parseInt(newPossition[0]);
+      self.draw();
+
+      cells.forEach((cell) => {
+        cell.removeEventListener("click", handleCellClick);
+      });
+    }
   }
 
   // Remove player from current cell
