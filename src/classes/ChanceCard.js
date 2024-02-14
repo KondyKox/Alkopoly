@@ -12,8 +12,7 @@ export default class ChanceCard {
 
   // Take random chance card
   static drawChanceCard(playerId) {
-    // const chanceCardId = Math.floor(Math.random() * chanceCards.length);
-    const chanceCardId = 20; // testing
+    const chanceCardId = Math.floor(Math.random() * chanceCards.length);
 
     const chanceCardEl = document.createElement("div");
     chanceCardEl.className = "chance-card";
