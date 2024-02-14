@@ -139,17 +139,26 @@ export default class ChanceCard {
         break;
 
       case "Zgon":
-        gameState.board.forEach((field, index) => {
-          if (field.name === "Izba wytrzeźwień") {
-            gameState.players[playerId].clearPlayerFromCell();
-            gameState.players[playerId].position = index + 1;
-            gameState.players[playerId].draw();
-            return;
-          }
-        });
-        console.log(
-          `${gameState.players[playerId].name} idzie do Izby wytrzeźwień. Jebany alkoholik.`
-        );
+        if (!gameState.players[playerId].isBlessed) {
+          gameState.board.forEach((field, index) => {
+            if (field.name === "Izba wytrzeźwień") {
+              gameState.players[playerId].clearPlayerFromCell();
+              gameState.players[playerId].position = index + 1;
+              gameState.players[playerId].draw();
+              return;
+            }
+          });
+          console.log(
+            `${gameState.players[playerId].name} idzie do Izby wytrzeźwień. Jebany alkoholik.`
+          );
+        } else {
+          alert(
+            `${gameState.players[playerId].name} uratowany poprzez błogosławieństwo.`
+          );
+          console.log(
+            `${gameState.players[playerId].name} uratowany poprzez błogosławieństwo.`
+          );
+        }
         break;
 
       case "Prezent urodzinowy":
@@ -257,6 +266,10 @@ export default class ChanceCard {
         break;
 
       case "No i chuj":
+        gameState.players[playerId].isBlessed = true;
+        console.log(
+          `No i chuj! ${gameState.players[playerId].name} został błogosławiony.`
+        );
         break;
 
       case "Szczęśliwy Pawełek":

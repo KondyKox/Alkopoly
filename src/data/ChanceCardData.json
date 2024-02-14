@@ -128,8 +128,8 @@
   {
     "name": "No i chuj",
     "text": "No i chuj, zostałeś błogosławiony!",
-    "action": "./chance_cards/no-i-chuj.jpg",
-    "image": ""
+    "action": "Unikasz izby wytrzeźwień.",
+    "image": "./chance_cards/no-i-chuj.jpg"
   },
   {
     "name": "Szczęśliwy Pawełek",

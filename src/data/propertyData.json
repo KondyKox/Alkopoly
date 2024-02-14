@@ -3,7 +3,8 @@
     "id": 1,
     "name": "Start",
     "type": "start",
-    "image": "./properties/start.png"
+    "image": "./properties/start.png",
+    "price": 100
   },
 
   {

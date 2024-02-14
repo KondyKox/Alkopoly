@@ -17,6 +17,7 @@ export default class Player {
     this.respect = false;
     this.incognito = 0;
     this.cantMove = 0;
+    this.isBlessed = false;
     this.isPawelekHappy = false;
   }
 
@@ -72,7 +73,12 @@ export default class Player {
       if (this.turnsToHeal === 0) this.isShot = false;
     }
 
-    if (this.position > 32) this.position -= 32;
+    if (this.position > 32) {
+      this.position -= 32;
+
+      // Get money for full loop
+      this.goThroughStart();
+    }
 
     // Check new possition
     this.checkCurrentField();
@@ -136,24 +142,49 @@ export default class Player {
 
   // Check current field
   checkCurrentField() {
-    switch (gameState.board[this.position - 1].type) {
+    const currentCell = gameState.board[this.position - 1];
+
+    switch (currentCell.type) {
+      case "start":
+        Property.displayPropertyCard(currentCell);
+        break;
+
+      case "jail":
+        if (!this.isBlessed) {
+          this.cantMove = 3;
+          Property.displayPropertyCard(currentCell);
+          return;
+        }
+        this.isBlessed = false;
+        break;
+
       case "chance":
         ChanceCard.drawChanceCard(this.id);
         break;
 
       case "fine":
-        Property.displayPropertyCard(gameState.board[this.position - 1]);
+        Property.displayPropertyCard(currentCell);
 
-        const moneyToPay = gameState.board[this.position - 1].price;
+        const moneyToPay = currentCell.price;
         this.substractMoney(moneyToPay);
         gameState.setReward(moneyToPay);
         break;
 
       case "reward":
+        Property.displayPropertyCard(currentCell);
+
         this.addMoney(gameState.reward);
         gameState.setReward(-gameState.reward);
+        break;
+
       default:
         break;
     }
+  }
+
+  // Get money for going through start
+  goThroughStart() {
+    const money = gameState.board[0].price;
+    this.addMoney(money);
   }
 }
