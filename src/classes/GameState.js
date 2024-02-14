@@ -8,6 +8,7 @@ export default class GameState {
     this.currentPlayerEl = document.querySelector(".current-player__name");
     this.board = [];
     this.currentPropertyCard = null;
+    this.reward = 0;
     this.isGameStarted = false;
   }
 
@@ -24,6 +25,9 @@ export default class GameState {
   // Start the game
   startGame() {
     this.isGameStarted = true;
+
+    // Set reward to 0
+    this.setReward(this.reward);
 
     // Set first player as the current player
     this.playerIds = Object.keys(this.players);
@@ -77,5 +81,12 @@ export default class GameState {
     this.currentPlayerEl.textContent = this.players[this.currentPlayerId].name;
 
     console.log(`Tura należy do ${currentPlayer.name}`);
+  }
+
+  // Change reward to win
+  setReward(money) {
+    this.reward += money;
+
+    document.querySelector(".reward-money").innerText = this.reward;
   }
 }

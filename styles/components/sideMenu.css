@@ -64,10 +64,10 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 1em;
   overflow-y: auto;
+  height: 80%;
 }
 
 .player-info {
@@ -101,6 +101,25 @@
   color: var(--clr-pink);
   text-shadow: 1px 1px 1px var(--clr-blue), -1px 1px 1px var(--clr-blue),
     -1px -1px 0 var(--clr-blue), 1px -1px 0 var(--clr-blue);
+}
+
+.reward {
+  position: relative;
+  bottom: 0;
+  padding: 1em;
+  margin: 0.5em;
+  font-size: var(--size-xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-blue);
+  border-top: 3px solid var(--clr-blue);
+}
+
+.reward-money {
+  color: var(--clr-pink);
+  padding: 0 .5em;
+  font-weight: 600;
 }
 
 /* md */

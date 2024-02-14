@@ -1,5 +1,6 @@
 import { gameState, socket } from "../main";
 import ChanceCard from "./ChanceCard";
+import Property from "./Property";
 
 export default class Player {
   constructor(id, name, pawn, position) {
@@ -135,7 +136,24 @@ export default class Player {
 
   // Check current field
   checkCurrentField() {
-    if (gameState.board[this.position - 1].type === "chance")
-      ChanceCard.drawChanceCard(this.id);
+    switch (gameState.board[this.position - 1].type) {
+      case "chance":
+        ChanceCard.drawChanceCard(this.id);
+        break;
+
+      case "fine":
+        Property.displayPropertyCard(gameState.board[this.position - 1]);
+
+        const moneyToPay = gameState.board[this.position - 1].price;
+        this.substractMoney(moneyToPay);
+        gameState.setReward(moneyToPay);
+        break;
+
+      case "reward":
+        this.addMoney(gameState.reward);
+        gameState.setReward(-gameState.reward);
+      default:
+        break;
+    }
   }
 }
