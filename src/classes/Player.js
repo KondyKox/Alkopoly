@@ -1,4 +1,4 @@
-import { gameState } from "../main";
+import { gameState, socket } from "../main";
 import ChanceCard from "./ChanceCard";
 
 export default class Player {
@@ -47,6 +47,9 @@ export default class Player {
 
     const cell = document.querySelector(`#c${this.position}`);
     cell.appendChild(playerElement);
+
+    // Update on server
+    socket.emit("updatePlayers", gameState.players);
   }
 
   // Move on board
@@ -79,11 +82,17 @@ export default class Player {
   // Add money
   addMoney(amount) {
     this.money += amount;
+
+    // Update on server
+    socket.emit("updatePlayers", gameState.players);
   }
 
   // Spent money
   substractMoney(amount) {
     this.money -= amount;
+
+    // Update on server
+    socket.emit("updatePlayers", gameState.players);
   }
 
   // Drive anywhere
@@ -100,7 +109,7 @@ export default class Player {
       const cellId = event.target.id;
       const newPossition = cellId.match(/\d+/);
 
-      console.log(parseInt(newPossition[0]))
+      console.log(parseInt(newPossition[0]));
 
       self.clearPlayerFromCell();
       self.position = parseInt(newPossition[0]);
@@ -119,6 +128,9 @@ export default class Player {
     const playerEl = currentCell.querySelector(".player");
 
     if (playerEl) currentCell.removeChild(playerEl);
+
+    // Update on server
+    socket.emit("updatePlayers", gameState.players);
   }
 
   // Check current field

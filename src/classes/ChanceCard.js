@@ -1,5 +1,5 @@
 import chanceCardData from "../data/chanceCardData.json";
-import { gameState } from "../main";
+import { gameState, socket } from "../main";
 
 export default class ChanceCard {
   constructor(data) {
@@ -139,28 +139,8 @@ export default class ChanceCard {
         break;
 
       case "Zgon":
-        let chanceCardFields = [];
         gameState.board.forEach((field, index) => {
-          if (field.name === "Karta Szansy") chanceCardFields.push(index + 1);
-        });
-
-        const randomChanceCardField = Math.floor(
-          Math.random() * chanceCardFields.length
-        );
-
-        gameState.players[playerId].clearPlayerFromCell();
-        gameState.players[playerId].position =
-          chanceCardFields[randomChanceCardField];
-        gameState.players[playerId].draw();
-
-        console.log(
-          `${gameState.players[playerId].name} zgonuje. Ale dostaje drugą szansę.`
-        );
-        break;
-
-      case "Izba wytrzeźwień":
-        gameState.board.forEach((field, index) => {
-          if (field.name === chanceCard.name) {
+          if (field.name === "Izba wytrzeźwień") {
             gameState.players[playerId].clearPlayerFromCell();
             gameState.players[playerId].position = index + 1;
             gameState.players[playerId].draw();
@@ -289,6 +269,9 @@ export default class ChanceCard {
       default:
         break;
     }
+
+    // Update players on server
+    socket.emit("updatePlayers", gameState.players);
   }
 }
 

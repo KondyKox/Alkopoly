@@ -54,12 +54,6 @@
     "image": "./chance_cards/zgon.jpg"
   },
   {
-    "name": "Izba wytrzeźwień",
-    "text": "Pały Cię złapały debilu!",
-    "action": "Idziesz do izby wytrzeźwień.",
-    "image": "./chance_cards/jail.jpg"
-  },
-  {
     "name": "Prezent urodzinowy",
     "text": "Urodzinki 🥳",
     "action": "Dostajesz od każdego po 50zł.",
