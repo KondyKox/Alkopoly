@@ -46,7 +46,7 @@
 }
 
 .menu-title {
-  border-bottom: 1px solid var(--clr-blue);
+  border-bottom: 3px solid var(--clr-blue);
   padding-bottom: 1em;
 }
 
@@ -73,21 +73,24 @@
 .player-container {
   display: block;
   width: 90%;
-  height: 3.5em;
-  margin: .25em 0;
+  max-height: 3.5em;
+  margin: 0.25em 0;
   border: 3px solid var(--clr-blue);
   border-radius: 15px;
+  overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 
 .player-container:hover {
   cursor: pointer;
-  height: 15em;
+  max-height: 15em;
 }
 
 .player-container:hover .player-properties {
   opacity: 1;
-  max-height: 90%;
+  max-height: 7.5em;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .player-info {
@@ -98,7 +101,6 @@
   margin: 0 auto;
   width: 80%;
   height: 2.5em;
-  border-bottom: 3px solid var(--clr-blue);
 }
 
 .player-info-pawn {
@@ -128,11 +130,13 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   max-height: 0;
-  margin: 1em 0;
+  margin: 0.25em auto;
+  padding: 1.5em 0.5em;
+  border-top: 3px solid var(--clr-blue);
   opacity: 0;
   transition: all 0.3s ease-in-out;
 }

@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
       playerContainer.appendChild(playerProperties);
 
       playersList.appendChild(playerContainer);
+
+      gameState.currentPlayerStyle(player.name);
     });
   };
 

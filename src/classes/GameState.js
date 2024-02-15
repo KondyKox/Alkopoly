@@ -5,9 +5,7 @@ export default class GameState {
     this.players = {};
     this.playerIds = null;
     this.currentPlayerId = null;
-    this.currentPlayerEl = document.querySelector(".current-player__name");
     this.board = [];
-    this.currentPropertyCard = null;
     this.reward = 0;
     this.isGameStarted = false;
   }
@@ -22,6 +20,23 @@ export default class GameState {
     return this.players[this.currentPlayerId];
   }
 
+  // Change current player title and border color in side menu
+  currentPlayerStyle(currentPlayerName) {
+    // Current player name in title
+    const currentPlayerTitle = document.querySelector(".current-player__name");
+    currentPlayerTitle.textContent = currentPlayerName;
+
+    // Current player border color in side menu
+    const playersInSideMenu = document.querySelectorAll(".player-container");
+    playersInSideMenu.forEach((currentPlayerSideMenu) => {
+      const playerName =
+        currentPlayerSideMenu.querySelector(".player-info-name").textContent;
+      if (playerName === currentPlayerName) {
+        currentPlayerSideMenu.style.borderColor = "var(--clr-red)";
+      }
+    });
+  }
+
   // Start the game
   startGame() {
     this.isGameStarted = true;
@@ -33,7 +48,7 @@ export default class GameState {
     this.playerIds = Object.keys(this.players);
     this.currentPlayerId = this.playerIds[0];
 
-    this.currentPlayerEl.textContent = this.players[this.currentPlayerId].name;
+    this.currentPlayerStyle(this.players[this.currentPlayerId].name);
 
     console.log(
       `Gra się zaczęła! ${this.players[this.currentPlayerId].name} rozpoczyna.`
@@ -78,7 +93,7 @@ export default class GameState {
     this.switchPlayerTurn();
     const currentPlayer = this.getCurrentPlayer();
 
-    this.currentPlayerEl.textContent = this.players[this.currentPlayerId].name;
+    this.currentPlayerStyle(this.players[this.currentPlayerId].name);
 
     console.log(`Tura należy do ${currentPlayer.name}`);
   }
