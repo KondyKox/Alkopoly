@@ -75,16 +75,14 @@
     "name": "Grzywna",
     "type": "fine",
     "image": "./properties/fine.png",
-    "price": 200,
-    "owner": null
+    "price": 200
   },
   {
     "id": 11,
     "name": "Grzywna",
     "type": "fine",
     "image": "./properties/fine.png",
-    "price": 200,
-    "owner": null
+    "price": 200
   },
   {
     "id": 12,
@@ -97,16 +95,14 @@
     "name": "Zakup zioła",
     "type": "fine",
     "image": "./properties/weed.png",
-    "price": 200,
-    "owner": null
+    "price": 200
   },
   {
     "id": 14,
     "name": "Zakup alkoholu",
     "type": "fine",
     "image": "./properties/vodka.png",
-    "price": 200,
-    "owner": null
+    "price": 200
   },
   {
     "id": 15,
