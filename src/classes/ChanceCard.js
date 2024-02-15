@@ -73,7 +73,7 @@ export default class ChanceCard {
 
         gameState.setReward(100);
 
-        console.log(`${player} zakupił Zestaw Deluxe.`);
+        console.log(`${player.name} zakupił Zestaw Deluxe.`);
         break;
 
       case "Zakup zioła":
