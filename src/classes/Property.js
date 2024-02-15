@@ -9,6 +9,7 @@ export default class Property {
     this.image.src = data.image;
     this.price = data.price;
     this.owner = data.owner;
+    this.background = "none";
   }
 
   // Display property card
@@ -47,15 +48,34 @@ export default class Property {
     const value = document.createElement("span");
     value.classList.add("property-value");
 
-    if (property.name === "Start")
-      value.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">100zl.</span>`;
-    else if (property.type === "jail")
-      value.innerText = "Izba Wytrzeźwień. Tu zostaniesz zamknięty.";
-    else if (property.type === "property" || property.type === "fine")
-      value.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
-    else if (property.type === "reward")
-      value.innerText = `Zgarniasz cały hajs jako nagrodę :O`;
-    else value.innerText = `Ciągnij szansę.`;
+    switch (property.type) {
+      case "start":
+        value.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">${property.price}.</span>`;
+        break;
+
+      case "jail":
+        value.innerText = "Izba Wytrzeźwień. Tu zostaniesz zamknięty.";
+        break;
+
+      case "property":
+        value.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
+        break;
+
+      case "fine":
+        value.innerHTML = `Płacisz <span class="property-price">${property.price}</span> zł mordeczko.`;
+        break;
+
+      case "reward":
+        value.innerText = `Zgarniasz cały hajs jako nagrodę :O`;
+        break;
+
+      case "chance":
+        value.innerText = `Ciągnij szansę.`;
+        break;
+
+      default:
+        break;
+    }
 
     propertyCard.appendChild(closeButton);
     propertyCard.appendChild(title);

@@ -22,6 +22,22 @@ function shuffleBoard() {
   return shuffledBoard;
 }
 
+// Create Property Elements
+function createPropertyElements(property) {
+  // Property image
+  const cellImg = document.createElement("img");
+  cellImg.src = property.image.src;
+  cellImg.alt = property.name;
+  cellImg.classList.add("property-image");
+
+  // Property name
+  const cellName = document.createElement("div");
+  cellName.classList.add("property-name");
+  cellName.textContent = property.name;
+
+  return [cellImg, cellName];
+}
+
 // Generate board
 export default function generateBoard() {
   const shuffledBoard = shuffleBoard();
@@ -29,24 +45,44 @@ export default function generateBoard() {
 
   for (let i = 0; i < shuffledBoard.length; i++) {
     const cell = document.querySelector(`#c${i + 1}`);
+    cell.style.backgroundColor = shuffledBoard[i].background;
 
-    // Property image
-    const cellImg = document.createElement("img");
-    cellImg.src = shuffledBoard[i].image.src;
-    cellImg.alt = shuffledBoard[i].name;
-    cellImg.classList.add("property-image");
+    const property = shuffledBoard[i];
+    const [cellImg, cellName] = createPropertyElements(property);
 
-    // Property name
-    const cellName = document.createElement("div");
-    cellName.classList.add("property-name");
-    cellName.textContent = shuffledBoard[i].name;
-
-    // Add element to cell
+    // Add elements to cell
     cell.appendChild(cellImg);
     cell.appendChild(cellName);
 
     cell.addEventListener("click", () =>
       Property.displayPropertyCard(shuffledBoard[i])
     );
+  }
+}
+
+export function updateBoard() {
+  for (let i = 0; i < gameState.board.length; i++) {
+    const cell = document.querySelector(`#c${i + 1}`);
+
+    // Find current field and change color
+    if (cell.style.backgroundColor !== gameState.board[i].background) {
+      cell.style.backgroundColor = gameState.board[i].background;
+
+      // Remove old field
+      while (cell.firstChild) {
+        cell.removeChild(cell.firstChild);
+      }
+
+      const property = gameState.board[i];
+      const [cellImg, cellName] = createPropertyElements(property);
+
+      // Add elements to cell
+      cell.appendChild(cellImg);
+      cell.appendChild(cellName);
+
+      cell.addEventListener("click", () =>
+        Property.displayPropertyCard(gameState.board[i])
+      );
+    }
   }
 }

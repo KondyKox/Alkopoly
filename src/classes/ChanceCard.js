@@ -249,6 +249,7 @@ export default class ChanceCard {
 
       case "Snajper":
         player.isShot = true;
+        player.turnsToHeal = 2;
         console.log(`${player.name} został postrzelony przez Snajpera.`);
         break;
 

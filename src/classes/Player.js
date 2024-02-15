@@ -1,6 +1,7 @@
 import { gameState, socket } from "../main";
 import ChanceCard from "./ChanceCard";
 import Property from "./Property";
+import { updateBoard } from "../utils/generateBoard";
 
 export default class Player {
   constructor(id, name, pawn, position) {
@@ -10,10 +11,11 @@ export default class Player {
     this.position = position;
     this.money = 1000;
     this.color = this.getRandomColor();
+    this.properties = {};
 
     this.isSIGMA = false;
     this.isShot = false;
-    this.turnsToHeal = 2;
+    this.turnsToHeal = 0;
     this.respect = false;
     this.incognito = 0;
     this.cantMove = 0;
@@ -103,6 +105,20 @@ export default class Player {
     socket.emit("updatePlayers", gameState.players);
   }
 
+  // Buy property
+  buyProperty(property) {
+    this.properties[property.id] = property;
+    property.owner = this.name;
+    this.substractMoney(property.price);
+
+    // const propertyCell = document.querySelector(`#c${this.position}`);
+    // propertyCell.style.backgroundColor = this.color;
+    gameState.board[this.position - 1].background = this.color;
+    updateBoard();
+
+    console.log(`${this.name} zakupił ${property.name}`);
+  }
+
   // Drive anywhere
   driveAnywhere() {
     const self = this;
@@ -116,8 +132,6 @@ export default class Player {
     function handleCellClick(event) {
       const cellId = event.target.id;
       const newPossition = cellId.match(/\d+/);
-
-      console.log(parseInt(newPossition[0]));
 
       self.clearPlayerFromCell();
       self.position = parseInt(newPossition[0]);
@@ -176,6 +190,11 @@ export default class Player {
 
         this.addMoney(gameState.reward);
         gameState.setReward(-gameState.reward);
+        break;
+
+      case "property":
+        Property.displayPropertyCard(currentCell);
+        if (!this.properties[currentCell.id]) this.buyProperty(currentCell);
         break;
 
       default:
