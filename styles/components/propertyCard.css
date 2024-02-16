@@ -53,6 +53,21 @@
   padding: 0 0.25em;
 }
 
+.beer {
+  filter: drop-shadow(0 0 0.1em var(--clr-green));
+}
+
+.vodka {
+  filter: drop-shadow(0 0 0.5em var(--clr-blue));
+  transition: all 0.3s ease-in-out;
+}
+
+.vodka:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+  filter: drop-shadow(0 0 1.5em var(--clr-blue));
+}
+
 .property-price {
   color: var(--clr-pink);
   font-weight: 700;

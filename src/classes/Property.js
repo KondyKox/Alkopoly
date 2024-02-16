@@ -1,4 +1,5 @@
 import propertyData from "../data/propertyData.json";
+import Alcohol from "./Alcohol";
 
 class Property {
   constructor(data) {
@@ -9,10 +10,9 @@ class Property {
     this.image.src = data.image;
     this.price = data.price;
     this.tax = data.tax;
-    this.taxMultiplier = 1;
     this.owner = data.owner;
-    this.beers = 0;
-    this.vodkas = 0;
+
+    this.alcohols = new Alcohol();
     this.background = "none";
   }
 
@@ -57,20 +57,21 @@ class Property {
 
     // Draw alkohol
     if (property.owner) {
-      let alkohol =
-        property.beers > property.vodkas ? property.beers : property.vodkas;
+      const alcohol = property.alcohols;
 
-      while (alkohol > 0) {
+      for (let i = 0; i < alcohol.quantity; i++) {
         const alkoholImg = document.createElement("img");
         alkoholImg.className = "property-alkohol";
         alkoholImg.alt = "ALKOHOL!!!";
 
-        if (property.beers > 0)
-          alkoholImg.src = "./game_pieces/alkohol/beer.png";
-        else if (property.vodkas > 0)
-          alkoholImg.src = "./game_pieces/alkohol/vodka.png";
-
-        alkohol--;
+        if (alcohol.type === "beer") {
+          alkoholImg.src = alcohol.image.src;
+          alkoholImg.classList.add("beer");
+        } else if (alcohol.type === "vodka") {
+          alkoholImg.src = alcohol.image.src;
+          alkoholImg.classList.remove("beer");
+          alkoholImg.classList.add("vodka");
+        }
 
         propertyAlkoholContainer.appendChild(alkoholImg);
       }
@@ -92,7 +93,7 @@ class Property {
           description.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
         else {
           description.innerHTML = `Podatek <span class="property-price">${
-            property.tax * property.taxMultiplier
+            property.tax * property.alcohols.taxMultiplier
           }</span> zł dla <span class="property-price">${
             property.owner
           }</span>`;

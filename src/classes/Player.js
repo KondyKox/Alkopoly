@@ -37,6 +37,24 @@ export default class Player {
     return color;
   }
 
+  // Remove player from current cell
+  clearPlayerFromCell() {
+    // Remove player from current position
+    const currentCell = document.querySelector(`#c${this.position}`);
+    const playerEl = currentCell.querySelector(".player");
+
+    if (playerEl) currentCell.removeChild(playerEl);
+
+    // Update on server
+    socket.emit("updatePlayers", gameState.players);
+  }
+
+  // Get money for going through start
+  goThroughStart() {
+    const money = gameState.board[0].price;
+    this.addMoney(money);
+  }
+
   // Draw player
   draw() {
     // Remove player from current position
@@ -154,6 +172,19 @@ export default class Player {
     }
   }
 
+  // Buy alkohol in property
+  buyAlcohol(property) {
+    const alcohol = property.alcohols;
+
+    if (this.money >= alcohol.price) {
+      alcohol.update();
+      this.substractMoney(alcohol.price);
+
+      alert(`${this.name} kupuje alkohol w ${property.name}.`);
+      console.log(`${this.name} kupuje alkohol w ${property.name}.`);
+    }
+  }
+
   // Drive anywhere
   driveAnywhere() {
     const self = this;
@@ -176,18 +207,6 @@ export default class Player {
         cell.removeEventListener("click", handleCellClick);
       });
     }
-  }
-
-  // Remove player from current cell
-  clearPlayerFromCell() {
-    // Remove player from current position
-    const currentCell = document.querySelector(`#c${this.position}`);
-    const playerEl = currentCell.querySelector(".player");
-
-    if (playerEl) currentCell.removeChild(playerEl);
-
-    // Update on server
-    socket.emit("updatePlayers", gameState.players);
   }
 
   // Check current field
@@ -240,6 +259,15 @@ export default class Player {
         Object.values(this.properties).forEach((property) => {
           if (property.id === currentCell.id) {
             isOwned = true;
+
+            // Confirm if you want to buy the alcohol
+            setTimeout(() => {
+              const confirmation = confirm(
+                `Czy chcesz kupić alkohol w "${currentCell.name}" za ${currentCell.alcohols.price} zł?`
+              );
+              if (confirmation) this.buyAlcohol(currentCell);
+            }, 200);
+
             return;
           }
         });
@@ -265,6 +293,7 @@ export default class Player {
                 return;
               }
             }
+
             this.payTaxes(
               player,
               this,
@@ -290,11 +319,5 @@ export default class Player {
       default:
         break;
     }
-  }
-
-  // Get money for going through start
-  goThroughStart() {
-    const money = gameState.board[0].price;
-    this.addMoney(money);
   }
 }
