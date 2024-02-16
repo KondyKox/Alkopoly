@@ -181,7 +181,9 @@ export default class Player {
       this.substractMoney(alcohol.price);
 
       alert(`${this.name} kupuje alkohol w ${property.name}.`);
-      console.log(`${this.name} kupuje alkohol w ${property.name}.`);
+      console.log(
+        `${this.name} kupuje alkohol w "${property.name}" za ${alcohol.price} zł.`
+      );
     }
   }
 
