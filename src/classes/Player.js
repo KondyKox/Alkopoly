@@ -5,6 +5,7 @@ import { updateBoard } from "../utils/generateBoard";
 
 export default class Player {
   constructor(id, name, pawn, position) {
+    // Basic attributes
     this.id = id;
     this.name = name;
     this.pawn = pawn;
@@ -13,6 +14,7 @@ export default class Player {
     this.color = this.getRandomColor();
     this.properties = {};
 
+    // Special attributes
     this.isSIGMA = false;
     this.isShot = false;
     this.turnsToHeal = 0;
@@ -119,16 +121,33 @@ export default class Player {
 
   // Pay taxes to other player
   payTaxes(propertyOwner, taxpayer, tax) {
-    taxpayer.substractMoney(tax);
-    propertyOwner.addMoney(tax);
+    if (!taxpayer.isSIGMA) {
+      taxpayer.substractMoney(tax);
+      propertyOwner.addMoney(tax);
 
-    setTimeout(() => {
-      alert(`Podatek ${tax} zł dla ${propertyOwner.name}`);
-    }, 200);
+      setTimeout(() => {
+        alert(`Podatek ${tax} zł dla ${propertyOwner.name}`);
+      }, 200);
 
-    console.log(
-      `${taxpayer.name} zapłacił ${tax} zł podatku dla ${propertyOwner.name}.`
-    );
+      console.log(
+        `${taxpayer.name} zapłacił ${tax} zł podatku dla ${propertyOwner.name}.`
+      );
+    } else {
+      propertyOwner.substractMoney(tax);
+      taxpayer.addMoney(tax);
+
+      taxpayer.isSIGMA = false;
+
+      setTimeout(() => {
+        alert(
+          `${propertyOwner.name}Płaci podatek ${tax} zł dla SIGMY ${taxpayer.name}`
+        );
+      }, 200);
+
+      console.log(
+        `${taxpayer.name} jest SIGMĄ więc ${propertyOwner.name} płaci mu ${tax}`
+      );
+    }
   }
 
   // Drive anywhere
@@ -223,6 +242,20 @@ export default class Player {
 
           if (player.id !== this.id && player.properties[currentCell.id]) {
             isOwned = true;
+
+            if (this.incognito > 0) {
+              const isSpotted = Math.random() < 0.5 ? true : false;
+              if (isSpotted) {
+                this.payTaxes(
+                  player,
+                  this,
+                  player.properties[currentCell.id].tax
+                );
+
+                this.incognito--;
+                return;
+              }
+            }
             this.payTaxes(player, this, player.properties[currentCell.id].tax);
             return;
           }
