@@ -31,9 +31,10 @@ export default class GameState {
     playersInSideMenu.forEach((currentPlayerSideMenu) => {
       const playerName =
         currentPlayerSideMenu.querySelector(".player-info-name").textContent;
-      if (playerName === currentPlayerName) {
+
+      if (playerName === currentPlayerName)
         currentPlayerSideMenu.style.borderColor = "var(--clr-red)";
-      }
+      else currentPlayerSideMenu.style.borderColor = "var(--clr-blue)";
     });
   }
 
