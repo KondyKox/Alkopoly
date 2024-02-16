@@ -1,6 +1,5 @@
 import { gameState, socket } from "../main";
 import ChanceCard from "./ChanceCard";
-import Property from "./Property";
 import { updateBoard } from "../utils/generateBoard";
 
 export default class Player {
@@ -197,13 +196,13 @@ export default class Player {
 
     switch (currentCell.type) {
       case "start":
-        Property.displayPropertyCard(currentCell);
+        currentCell.displayPropertyCard(currentCell);
         break;
 
       case "jail":
         if (!this.isBlessed) {
           this.cantMove = 3;
-          Property.displayPropertyCard(currentCell);
+          currentCell.displayPropertyCard(currentCell);
           return;
         }
         this.isBlessed = false;
@@ -214,7 +213,7 @@ export default class Player {
         break;
 
       case "fine":
-        Property.displayPropertyCard(currentCell);
+        currentCell.displayPropertyCard(currentCell);
 
         const moneyToPay = currentCell.price;
         this.substractMoney(moneyToPay);
@@ -222,7 +221,7 @@ export default class Player {
         break;
 
       case "reward":
-        Property.displayPropertyCard(currentCell);
+        currentCell.displayPropertyCard(currentCell);
 
         if (this.isPawelekHappy) {
           this.addMoney(gameState.reward * 2);
@@ -233,7 +232,7 @@ export default class Player {
         break;
 
       case "property":
-        Property.displayPropertyCard(currentCell);
+        currentCell.displayPropertyCard(currentCell);
 
         let isOwned = false;
 
@@ -258,14 +257,20 @@ export default class Player {
                 this.payTaxes(
                   player,
                   this,
-                  player.properties[currentCell.id].tax
+                  player.properties[currentCell.id].tax *
+                    player.properties[currentCell.id].taxMultiplier
                 );
 
                 this.incognito--;
                 return;
               }
             }
-            this.payTaxes(player, this, player.properties[currentCell.id].tax);
+            this.payTaxes(
+              player,
+              this,
+              player.properties[currentCell.id].tax *
+                player.properties[currentCell.id].taxMultiplier
+            );
             return;
           }
         });
