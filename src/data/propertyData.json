@@ -160,9 +160,9 @@
   },
   {
     "id": 22,
-    "name": "Miejscówka",
+    "name": "Stare Bogaczowice",
     "type": "property",
-    "image": "",
+    "image": "./properties/stare_bogaczowice.jpg",
     "price": 1000,
     "owner": null
   },
