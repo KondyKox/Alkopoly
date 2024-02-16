@@ -111,8 +111,6 @@ export default class Player {
     property.owner = this.name;
     this.substractMoney(property.price);
 
-    // const propertyCell = document.querySelector(`#c${this.position}`);
-    // propertyCell.style.backgroundColor = this.color;
     gameState.board[this.position - 1].background = this.color;
     updateBoard();
 
@@ -194,7 +192,37 @@ export default class Player {
 
       case "property":
         Property.displayPropertyCard(currentCell);
-        if (!this.properties[currentCell.id]) this.buyProperty(currentCell);
+
+        let isOwned = false;
+
+        // Check if already owned
+        Object.values(this.properties).forEach((property) => {
+          if (property.id === currentCell.id) {
+            isOwned = true;
+            return;
+          }
+        });
+
+        // Check if someone bought this
+        gameState.playerIds.forEach((playerId) => {
+          const player = gameState.players[playerId];
+
+          if (player.id !== this.id && player.properties[currentCell.id]) {
+            isOwned = true;
+            return;
+          }
+        });
+
+        // Confirm your purchase
+        if (!isOwned) {
+          setTimeout(() => {
+            const confirmation = confirm(
+              `Kupujesz "${currentCell.name}" za ${currentCell.price}zł?`
+            );
+            if (confirmation) this.buyProperty(currentCell);
+          }, 200);
+        }
+
         break;
 
       default:
