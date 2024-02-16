@@ -8,6 +8,7 @@ export default class Property {
     this.image = new Image();
     this.image.src = data.image;
     this.price = data.price;
+    this.tax = data.tax;
     this.owner = data.owner;
     this.background = "none";
   }

@@ -117,6 +117,20 @@ export default class Player {
     console.log(`${this.name} zakupił ${property.name}`);
   }
 
+  // Pay taxes to other player
+  payTaxes(propertyOwner, taxpayer, tax) {
+    taxpayer.substractMoney(tax);
+    propertyOwner.addMoney(tax);
+
+    setTimeout(() => {
+      alert(`Podatek ${tax} zł dla ${propertyOwner.name}`);
+    }, 200);
+
+    console.log(
+      `${taxpayer.name} zapłacił ${tax} zł podatku dla ${propertyOwner.name}.`
+    );
+  }
+
   // Drive anywhere
   driveAnywhere() {
     const self = this;
@@ -209,6 +223,7 @@ export default class Player {
 
           if (player.id !== this.id && player.properties[currentCell.id]) {
             isOwned = true;
+            this.payTaxes(player, this, player.properties[currentCell.id].tax);
             return;
           }
         });

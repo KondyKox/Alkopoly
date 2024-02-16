@@ -13,6 +13,7 @@
     "type": "property",
     "image": "./properties/asik.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -21,6 +22,7 @@
     "type": "property",
     "image": "./properties/hakuna_matata.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -29,6 +31,7 @@
     "type": "property",
     "image": "./properties/remiza.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -37,6 +40,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -45,6 +49,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -53,6 +58,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -61,6 +67,7 @@
     "type": "property",
     "image": "./properties/czerwony_pomost.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
 
@@ -110,6 +117,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -118,6 +126,7 @@
     "type": "property",
     "image": "./properties/kondi_dom.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -132,6 +141,7 @@
     "type": "property",
     "image": "./properties/dom_kamcia.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -140,6 +150,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -148,6 +159,7 @@
     "type": "property",
     "image": "./properties/plac_zabaw.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -156,6 +168,7 @@
     "type": "property",
     "image": "./properties/gluchow.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -164,6 +177,7 @@
     "type": "property",
     "image": "./properties/stare_bogaczowice.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -172,6 +186,7 @@
     "type": "property",
     "image": "./properties/discord.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -180,6 +195,7 @@
     "type": "property",
     "image": "./properties/zjezdzalnia.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -188,6 +204,7 @@
     "type": "property",
     "image": "./properties/walbrzych.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -196,6 +213,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -204,6 +222,7 @@
     "type": "property",
     "image": "./properties/piwnica_kamcia.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -212,6 +231,7 @@
     "type": "property",
     "image": "./properties/kuznica.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -220,6 +240,7 @@
     "type": "property",
     "image": "./properties/jacuzzi.jpg",
     "price": 1000,
+    "tax": 200,
     "owner": null
   },
   {
@@ -240,6 +261,7 @@
     "type": "property",
     "image": "",
     "price": 1000,
+    "tax": 200,
     "owner": null
   }
 ]
