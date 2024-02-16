@@ -224,7 +224,11 @@ export default class Player {
       case "reward":
         Property.displayPropertyCard(currentCell);
 
-        this.addMoney(gameState.reward);
+        if (this.isPawelekHappy) {
+          this.addMoney(gameState.reward * 2);
+          this.isPawelekHappy = false;
+        } else this.addMoney(gameState.reward);
+
         gameState.setReward(-gameState.reward);
         break;
 
