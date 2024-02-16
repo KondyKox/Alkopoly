@@ -60,7 +60,7 @@ export default function generateBoard() {
   }
 }
 
-export function updateBoard() {
+export function updateBoard(player) {
   for (let i = 0; i < gameState.board.length; i++) {
     const cell = document.querySelector(`#c${i + 1}`);
 
@@ -83,6 +83,8 @@ export function updateBoard() {
       cell.addEventListener("click", () =>
         Property.displayPropertyCard(gameState.board[i])
       );
+
+      player.draw();
     }
   }
 }

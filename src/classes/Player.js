@@ -109,14 +109,19 @@ export default class Player {
 
   // Buy property
   buyProperty(property) {
-    this.properties[property.id] = property;
-    property.owner = this.name;
-    this.substractMoney(property.price);
+    if (this.money >= property.price) {
+      this.properties[property.id] = property;
+      property.owner = this.name;
+      this.substractMoney(property.price);
 
-    gameState.board[this.position - 1].background = this.color;
-    updateBoard();
+      gameState.board[this.position - 1].background = this.color;
+      updateBoard(this);
 
-    console.log(`${this.name} zakupił ${property.name}`);
+      console.log(`${this.name} zakupił ${property.name}`);
+    } else {
+      alert(`No sorry ${this.name}, za biedny jesteś. XD.`);
+      console.log(`${this.name} to jebany biedak.`);
+    }
   }
 
   // Pay taxes to other player
