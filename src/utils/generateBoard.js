@@ -59,7 +59,7 @@ export default function generateBoard() {
   }
 }
 
-export function updateBoard(player) {
+export function updateBoard() {
   for (let i = 0; i < gameState.board.length; i++) {
     const cell = document.querySelector(`#c${i + 1}`);
 
@@ -83,7 +83,9 @@ export function updateBoard(player) {
         gameState.board[i].displayPropertyCard(gameState.board[i])
       );
 
-      player.draw();
+      Object.values(gameState.players).forEach((player) => {
+        player.draw();
+      });
     }
   }
 }

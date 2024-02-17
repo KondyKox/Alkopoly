@@ -24,4 +24,13 @@ export default class Alcohol {
     this.price = 900;
     this.image.src = "./game_pieces/alkohol/vodka.png";
   }
+
+  // Reset values after player bankruptcy
+  resetAfterBankruptcy() {
+    this.type = "beer";
+    this.quantity = 0;
+    this.taxMultiplier = 1;
+    this.price = 430;
+    this.image.src = "./game_pieces/alkohol/beer.png";
+  }
 }

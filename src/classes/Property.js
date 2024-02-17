@@ -16,6 +16,13 @@ class Property {
     this.background = "none";
   }
 
+  // Reset values after player bankruptcy
+  resetAfterBankruptcy() {
+    this.owner = null;
+    this.background = "none";
+    this.alcohols.resetAfterBankruptcy();
+  }
+
   // Display property card
   displayPropertyCard(property) {
     const currentPropertyCard = document.querySelector(".property-card");

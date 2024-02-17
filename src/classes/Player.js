@@ -12,6 +12,7 @@ export default class Player {
     this.money = 1000;
     this.color = this.getRandomColor();
     this.properties = {};
+    this.isBankrupt = false;
 
     // Special attributes
     this.isSIGMA = false;
@@ -59,6 +60,8 @@ export default class Player {
   draw() {
     // Remove player from current position
     this.clearPlayerFromCell();
+
+    if (this.isBankrupt) return;
 
     // Draw player element
     const playerElement = document.createElement("div");
@@ -131,8 +134,8 @@ export default class Player {
       property.owner = this.name;
       this.substractMoney(property.price);
 
-      gameState.board[this.position - 1].background = this.color;
-      updateBoard(this);
+      property.background = this.color;
+      updateBoard();
 
       console.log(`${this.name} zakupił ${property.name}`);
     } else {
@@ -144,6 +147,8 @@ export default class Player {
   // Pay taxes to other player
   payTaxes(propertyOwner, taxpayer, tax) {
     if (!taxpayer.isSIGMA) {
+      if (this.money >= 0) bankruptcy();
+
       taxpayer.substractMoney(tax);
       propertyOwner.addMoney(tax);
 
@@ -167,7 +172,7 @@ export default class Player {
       }, 200);
 
       console.log(
-        `${taxpayer.name} jest SIGMĄ więc ${propertyOwner.name} płaci mu ${tax}`
+        `${taxpayer.name} jest SIGMĄ więc ${propertyOwner.name} płaci mu ${tax} zł.`
       );
     }
   }
@@ -185,6 +190,19 @@ export default class Player {
         `${this.name} kupuje alkohol w "${property.name}" za ${alcohol.price} zł.`
       );
     }
+  }
+
+  // Declare bankruptcy
+  bankruptcy() {
+    this.isBankrupt = true;
+
+    Object.values(this.properties).forEach((property) => {
+      property.resetAfterBankruptcy();
+    });
+
+    updateBoard();
+
+    delete gameState.players[this.id];
   }
 
   // Drive anywhere
@@ -277,8 +295,9 @@ export default class Player {
         // Check if someone bought this
         gameState.playerIds.forEach((playerId) => {
           const player = gameState.players[playerId];
+          const playerProperty = player.properties[currentCell.id];
 
-          if (player.id !== this.id && player.properties[currentCell.id]) {
+          if (player.id !== this.id && playerProperty) {
             isOwned = true;
 
             if (this.incognito > 0) {
@@ -287,8 +306,7 @@ export default class Player {
                 this.payTaxes(
                   player,
                   this,
-                  player.properties[currentCell.id].tax *
-                    player.properties[currentCell.id].taxMultiplier
+                  playerProperty.tax * playerProperty.alcohols.taxMultiplier
                 );
 
                 this.incognito--;
@@ -299,8 +317,7 @@ export default class Player {
             this.payTaxes(
               player,
               this,
-              player.properties[currentCell.id].tax *
-                player.properties[currentCell.id].taxMultiplier
+              playerProperty.tax * playerProperty.alcohols.taxMultiplier
             );
             return;
           }
