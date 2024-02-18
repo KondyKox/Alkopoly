@@ -82,7 +82,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            return;
+            player.checkCurrentField();
           }
         });
         console.log(`${player.name} idzie kupić jazz.`);
@@ -94,7 +94,7 @@ export default class ChanceCard {
         break;
 
       case "Półwidoczny":
-        player.incognito = 3;
+        player.incognito += 3;
         console.log(`${player.name} staje się Incognito Półwidoczny.`);
         break;
 
@@ -102,6 +102,7 @@ export default class ChanceCard {
         player.clearPlayerFromCell();
         player.position = 1;
         player.draw();
+        player.checkCurrentField();
 
         console.log(`${player.name} wsiada w Koleje Dolnośląskie.`);
         break;
@@ -119,7 +120,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            return;
+            player.checkCurrentField();
           }
         });
         console.log(`${player.name} idzie kupić wódkę.`);
@@ -145,7 +146,7 @@ export default class ChanceCard {
               player.clearPlayerFromCell();
               player.position = index + 1;
               player.draw();
-              return;
+              player.checkCurrentField();
             }
           });
           console.log(
@@ -188,7 +189,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            return;
+            player.checkCurrentField();
           }
         });
         console.log(`${player.name} dostaje wypłatę.`);
@@ -244,6 +245,7 @@ export default class ChanceCard {
 
       case "Polówka":
         player.driveAnywhere();
+        player.checkCurrentField();
         console.log(`${player.name} wsiada do Polówki i jedzie gdzie chce.`);
         break;
 
