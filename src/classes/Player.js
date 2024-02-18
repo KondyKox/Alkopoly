@@ -189,6 +189,9 @@ export default class Player {
       console.log(
         `${this.name} kupuje alkohol w "${property.name}" za ${alcohol.price} zł.`
       );
+    } else {
+      alert(`No sorry ${this.name}, za biedny jesteś. XD.`);
+      console.log(`${this.name} to jebany biedak.`);
     }
   }
 
@@ -216,7 +219,11 @@ export default class Player {
 
     // Handle click to drive
     function handleCellClick(event) {
-      const cellId = event.target.id;
+      let target = event.target;
+      while (target !== null && !target.classList.contains("board-cell"))
+        target = target.parentNode;
+
+      const cellId = target.id;
       const newPossition = cellId.match(/\d+/);
 
       self.clearPlayerFromCell();
