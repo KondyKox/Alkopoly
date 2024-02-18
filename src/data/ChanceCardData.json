@@ -17,7 +17,7 @@
     "id": 3,
     "name": "Tatuaż TJ",
     "text": "Robisz sobie tatuaż TJ i zyskujesz respekt.",
-    "action": "Następnym razem płacisz połowę mniej czynszu.",
+    "action": "Następnym razem płacisz połowę mniej podatku.",
     "image": "./chance_cards/tatuaz-tj.jpg"
   },
   {
@@ -152,12 +152,5 @@
     "text": "No i chuj, zostałeś błogosławiony!",
     "action": "Unikasz izby wytrzeźwień.",
     "image": "./chance_cards/no-i-chuj.jpg"
-  },
-  {
-    "id": 23,
-    "name": "Szczęśliwy Pawełek",
-    "text": "Pawełek jest szczęśliwy.",
-    "action": "Podwójny dochód.",
-    "image": ""
   }
 ]

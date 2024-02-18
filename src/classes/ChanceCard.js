@@ -260,11 +260,6 @@ export default class ChanceCard {
         console.log(`No i chuj! ${player.name} został błogosławiony.`);
         break;
 
-      case "Szczęśliwy Pawełek":
-        player.isPawelekHappy = true;
-        console.log(`Pawełek jest szczęśliwy dzięki ${player.name}`);
-        break;
-
       default:
         break;
     }

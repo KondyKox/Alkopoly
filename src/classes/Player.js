@@ -23,7 +23,6 @@ export default class Player {
     this.cantMove = 0;
     this.hasKilof = false;
     this.isBlessed = false;
-    this.isPawelekHappy = false;
   }
 
   // Random color for player
@@ -159,17 +158,22 @@ export default class Player {
   // Pay taxes to other player
   payTaxes(propertyOwner, taxpayer, tax) {
     if (!taxpayer.isSIGMA) {
-      if (this.money >= 0) bankruptcy();
+      if (this.money <= 0) bankruptcy();
 
-      taxpayer.substractMoney(tax);
-      propertyOwner.addMoney(tax);
+      // If taxpayer has respect he pays only half
+      let taxToPay = !taxpayer.respect ? tax : Math.floor(tax / 2);
+
+      taxpayer.substractMoney(taxToPay);
+      propertyOwner.addMoney(taxToPay);
+
+      taxpayer.respect = false;
 
       setTimeout(() => {
-        alert(`Podatek ${tax} zł dla ${propertyOwner.name}`);
+        alert(`Podatek ${taxToPay} zł dla ${propertyOwner.name}`);
       }, 200);
 
       console.log(
-        `${taxpayer.name} zapłacił ${tax} zł podatku dla ${propertyOwner.name}.`
+        `${taxpayer.name} zapłacił ${taxToPay} zł podatku dla ${propertyOwner.name}.`
       );
     } else {
       propertyOwner.substractMoney(tax);
@@ -281,11 +285,7 @@ export default class Player {
       case "reward":
         currentCell.displayPropertyCard(currentCell);
 
-        if (this.isPawelekHappy) {
-          this.addMoney(gameState.reward * 2);
-          this.isPawelekHappy = false;
-        } else this.addMoney(gameState.reward);
-
+        this.addMoney(gameState.reward);
         gameState.setReward(-gameState.reward);
         break;
 
