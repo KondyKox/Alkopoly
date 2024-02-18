@@ -86,29 +86,41 @@ export default class Player {
       return;
     }
 
-    // Remove player from current position
-    this.clearPlayerFromCell();
+    let step = 0;
+    const self = this;
 
-    // Update position
-    if (!this.isShot) this.position += steps;
-    else {
-      this.position += Math.floor(steps / 2);
-      this.turnsToHeal--;
+    // Move animation
+    const moveInterval = setInterval(() => {
+      // Remove player from current position
+      self.clearPlayerFromCell();
 
-      if (this.turnsToHeal === 0) this.isShot = false;
-    }
+      // Update position
+      if (!self.isShot) self.position++;
+      else {
+        self.position += Math.floor(steps / 2);
+        self.turnsToHeal--;
 
-    if (this.position > 32) {
-      this.position -= 32;
+        if (self.turnsToHeal === 0) self.isShot = false;
+      }
 
-      // Get money for full loop
-      this.goThroughStart();
-    }
+      if (self.position > 32) {
+        self.position -= 32;
 
-    // Check new possition
-    this.checkCurrentField();
+        // Get money for full loop
+        self.goThroughStart();
+      }
 
-    this.draw();
+      self.draw();
+      step++;
+
+      if (step === steps) {
+        // Stop the interval after all steps are completed
+        clearInterval(moveInterval);
+
+        // Check new possition
+        this.checkCurrentField();
+      }
+    }, 500);
   }
 
   // Add money
