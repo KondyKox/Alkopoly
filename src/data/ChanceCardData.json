@@ -58,8 +58,8 @@
   {
     "id": 9,
     "name": "Zgon",
-    "text": "Najebałeś się i zgonujesz. Ale masz drugą szansę.",
-    "action": "Przejdź na pole szansy.",
+    "text": "Najebałeś się i zgonujesz.",
+    "action": "Lecisz na izbe wytrzeźwień.",
     "image": "./chance_cards/zgon.jpg"
   },
   {
