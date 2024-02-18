@@ -1,6 +1,6 @@
 import { gameState, socket } from "../main";
-import ChanceCard from "./ChanceCard";
 import { updateBoard } from "../utils/generateBoard";
+import BoardManager from "./PlayerManagers/BoardManager";
 
 export default class Player {
   constructor(id, name, pawn, position) {
@@ -117,7 +117,7 @@ export default class Player {
         clearInterval(moveInterval);
 
         // Check new possition
-        this.checkCurrentField();
+        BoardManager.checkCurrentField(this);
       }
     }, 500);
   }
@@ -138,79 +138,6 @@ export default class Player {
     socket.emit("updatePlayers", gameState.players);
   }
 
-  // Buy property
-  buyProperty(property) {
-    if (this.money >= property.price) {
-      this.properties[property.id] = property;
-      property.owner = this.name;
-      this.substractMoney(property.price);
-
-      property.background = this.color;
-      updateBoard();
-
-      console.log(`${this.name} zakupił ${property.name}`);
-    } else {
-      alert(`No sorry ${this.name}, za biedny jesteś. XD.`);
-      console.log(`${this.name} to jebany biedak.`);
-    }
-  }
-
-  // Pay taxes to other player
-  payTaxes(propertyOwner, taxpayer, tax) {
-    if (!taxpayer.isSIGMA) {
-      if (this.money <= 0) bankruptcy();
-
-      // If taxpayer has respect he pays only half
-      let taxToPay = !taxpayer.respect ? tax : Math.floor(tax / 2);
-
-      taxpayer.substractMoney(taxToPay);
-      propertyOwner.addMoney(taxToPay);
-
-      taxpayer.respect = false;
-
-      setTimeout(() => {
-        alert(`Podatek ${taxToPay} zł dla ${propertyOwner.name}`);
-      }, 200);
-
-      console.log(
-        `${taxpayer.name} zapłacił ${taxToPay} zł podatku dla ${propertyOwner.name}.`
-      );
-    } else {
-      propertyOwner.substractMoney(tax);
-      taxpayer.addMoney(tax);
-
-      taxpayer.isSIGMA = false;
-
-      setTimeout(() => {
-        alert(
-          `${propertyOwner.name}Płaci podatek ${tax} zł dla SIGMY ${taxpayer.name}`
-        );
-      }, 200);
-
-      console.log(
-        `${taxpayer.name} jest SIGMĄ więc ${propertyOwner.name} płaci mu ${tax} zł.`
-      );
-    }
-  }
-
-  // Buy alkohol in property
-  buyAlcohol(property) {
-    const alcohol = property.alcohols;
-
-    if (this.money >= alcohol.price) {
-      alcohol.update();
-      this.substractMoney(alcohol.price);
-
-      alert(`${this.name} kupuje alkohol w ${property.name}.`);
-      console.log(
-        `${this.name} kupuje alkohol w "${property.name}" za ${alcohol.price} zł.`
-      );
-    } else {
-      alert(`No sorry ${this.name}, za biedny jesteś. XD.`);
-      console.log(`${this.name} to jebany biedak.`);
-    }
-  }
-
   // Declare bankruptcy
   bankruptcy() {
     this.isBankrupt = true;
@@ -222,140 +149,5 @@ export default class Player {
     updateBoard();
 
     delete gameState.players[this.id];
-  }
-
-  // Drive anywhere
-  driveAnywhere() {
-    const self = this;
-
-    const cells = document.querySelectorAll(".board-cell");
-    cells.forEach((cell) => {
-      cell.addEventListener("click", handleCellClick);
-    });
-
-    // Handle click to drive
-    function handleCellClick(event) {
-      let target = event.target;
-      while (target !== null && !target.classList.contains("board-cell"))
-        target = target.parentNode;
-
-      const cellId = target.id;
-      const newPossition = cellId.match(/\d+/);
-
-      self.clearPlayerFromCell();
-      self.position = parseInt(newPossition[0]);
-      self.draw();
-
-      cells.forEach((cell) => {
-        cell.removeEventListener("click", handleCellClick);
-      });
-    }
-  }
-
-  // Check current field
-  checkCurrentField() {
-    const currentCell = gameState.board[this.position - 1];
-
-    switch (currentCell.type) {
-      case "start":
-        currentCell.displayPropertyCard(currentCell);
-        break;
-
-      case "jail":
-        if (!this.isBlessed) {
-          this.cantMove = 3;
-          currentCell.displayPropertyCard(currentCell);
-          return;
-        }
-        this.isBlessed = false;
-        break;
-
-      case "chance":
-        ChanceCard.drawChanceCard(this.id);
-        break;
-
-      case "fine":
-        currentCell.displayPropertyCard(currentCell);
-
-        const moneyToPay = currentCell.price;
-        this.substractMoney(moneyToPay);
-        gameState.setReward(moneyToPay);
-        break;
-
-      case "reward":
-        currentCell.displayPropertyCard(currentCell);
-
-        this.addMoney(gameState.reward);
-        gameState.setReward(-gameState.reward);
-        break;
-
-      case "property":
-        currentCell.displayPropertyCard(currentCell);
-
-        let isOwned = false;
-
-        // Check if already owned
-        Object.values(this.properties).forEach((property) => {
-          if (property.id === currentCell.id) {
-            isOwned = true;
-
-            // Confirm if you want to buy the alcohol
-            setTimeout(() => {
-              const confirmation = confirm(
-                `Czy chcesz kupić alkohol w "${currentCell.name}" za ${currentCell.alcohols.price} zł?`
-              );
-              if (confirmation) this.buyAlcohol(currentCell);
-            }, 200);
-
-            return;
-          }
-        });
-
-        // Check if someone bought this
-        gameState.playerIds.forEach((playerId) => {
-          const player = gameState.players[playerId];
-          const playerProperty = player.properties[currentCell.id];
-
-          if (player.id !== this.id && playerProperty) {
-            isOwned = true;
-
-            if (this.incognito > 0) {
-              const isSpotted = Math.random() < 0.5 ? true : false;
-              if (isSpotted) {
-                this.payTaxes(
-                  player,
-                  this,
-                  playerProperty.tax * playerProperty.alcohols.taxMultiplier
-                );
-
-                this.incognito--;
-                return;
-              }
-            }
-
-            this.payTaxes(
-              player,
-              this,
-              playerProperty.tax * playerProperty.alcohols.taxMultiplier
-            );
-            return;
-          }
-        });
-
-        // Confirm your purchase
-        if (!isOwned) {
-          setTimeout(() => {
-            const confirmation = confirm(
-              `Kupujesz "${currentCell.name}" za ${currentCell.price}zł?`
-            );
-            if (confirmation) this.buyProperty(currentCell);
-          }, 200);
-        }
-
-        break;
-
-      default:
-        break;
-    }
   }
 }

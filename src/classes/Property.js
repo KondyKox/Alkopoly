@@ -24,7 +24,7 @@ class Property {
   }
 
   // Display property card
-  displayPropertyCard(property) {
+  displayPropertyCard() {
     const currentPropertyCard = document.querySelector(".property-card");
 
     // If property card is open, close it
@@ -46,13 +46,13 @@ class Property {
     // Property title
     const title = document.createElement("h2");
     title.className = "property-title";
-    title.innerText = property.name;
+    title.innerText = this.name;
 
     // Property image
     const image = document.createElement("img");
     image.className = "property-img";
-    image.src = property.image.src;
-    image.alt = property.name;
+    image.src = this.image.src;
+    image.alt = this.name;
 
     // Value element
     const value = document.createElement("div");
@@ -63,13 +63,13 @@ class Property {
     propertyAlkoholContainer.className = "property-alkohol-container";
 
     // Draw alkohol
-    if (property.owner) property.alcohols.draw(propertyAlkoholContainer);
+    if (this.owner) this.alcohols.draw(propertyAlkoholContainer);
 
     // Property description
     const description = document.createElement("span");
-    switch (property.type) {
+    switch (this.type) {
       case "start":
-        description.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">${property.price}.</span>`;
+        description.innerHTML = `Za przejście przez <span class="property-price">START</span> dostajesz <span class="property-price">${this.price}.</span>`;
         break;
 
       case "jail":
@@ -77,19 +77,17 @@ class Property {
         break;
 
       case "property":
-        if (!property.owner)
-          description.innerHTML = `Cena: <span class="property-price">${property.price}</span> zł`;
+        if (!this.owner)
+          description.innerHTML = `Cena: <span class="property-price">${this.price}</span> zł`;
         else {
           description.innerHTML = `Podatek <span class="property-price">${
-            property.tax * property.alcohols.taxMultiplier
-          }</span> zł dla <span class="property-price">${
-            property.owner
-          }</span>`;
+            this.tax * this.alcohols.taxMultiplier
+          }</span> zł dla <span class="property-price">${this.owner}</span>`;
         }
         break;
 
       case "fine":
-        description.innerHTML = `Płacisz <span class="property-price">${property.price}</span> zł mordeczko.`;
+        description.innerHTML = `Płacisz <span class="property-price">${this.price}</span> zł mordeczko.`;
         break;
 
       case "reward":

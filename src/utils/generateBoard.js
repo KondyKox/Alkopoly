@@ -54,7 +54,7 @@ export default function generateBoard() {
     cell.appendChild(cellName);
 
     cell.addEventListener("click", () =>
-      shuffledBoard[i].displayPropertyCard(shuffledBoard[i])
+      shuffledBoard[i].displayPropertyCard()
     );
   }
 }
@@ -78,10 +78,6 @@ export function updateBoard() {
       // Add elements to cell
       cell.appendChild(cellImg);
       cell.appendChild(cellName);
-
-      cell.addEventListener("click", () =>
-        gameState.board[i].displayPropertyCard(gameState.board[i])
-      );
 
       Object.values(gameState.players).forEach((player) => {
         player.draw();

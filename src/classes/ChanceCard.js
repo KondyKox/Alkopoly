@@ -1,5 +1,6 @@
 import chanceCardData from "../data/chanceCardData.json";
 import { gameState, socket } from "../main";
+import BoardManager from "./PlayerManagers/BoardManager";
 
 export default class ChanceCard {
   constructor(data) {
@@ -82,7 +83,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            player.checkCurrentField();
+            BoardManager.checkCurrentField(player);
           }
         });
         console.log(`${player.name} idzie kupić jazz.`);
@@ -102,7 +103,7 @@ export default class ChanceCard {
         player.clearPlayerFromCell();
         player.position = 1;
         player.draw();
-        player.checkCurrentField();
+        BoardManager.checkCurrentField(player);
 
         console.log(`${player.name} wsiada w Koleje Dolnośląskie.`);
         break;
@@ -120,7 +121,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            player.checkCurrentField();
+            BoardManager.checkCurrentField(player);
           }
         });
         console.log(`${player.name} idzie kupić wódkę.`);
@@ -146,7 +147,7 @@ export default class ChanceCard {
               player.clearPlayerFromCell();
               player.position = index + 1;
               player.draw();
-              player.checkCurrentField();
+              BoardManager.checkCurrentField(player);
             }
           });
           console.log(
@@ -189,7 +190,7 @@ export default class ChanceCard {
             player.clearPlayerFromCell();
             player.position = index + 1;
             player.draw();
-            player.checkCurrentField();
+            BoardManager.checkCurrentField(player);
           }
         });
         console.log(`${player.name} dostaje wypłatę.`);
@@ -244,8 +245,8 @@ export default class ChanceCard {
         break;
 
       case "Polówka":
-        player.driveAnywhere();
-        player.checkCurrentField();
+        BoardManager.driveAnywhere(player);
+        BoardManager.checkCurrentField(player);
         console.log(`${player.name} wsiada do Polówki i jedzie gdzie chce.`);
         break;
 
