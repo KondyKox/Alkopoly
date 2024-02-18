@@ -8,6 +8,24 @@ export default class Alcohol {
     this.image.src = "./game_pieces/alkohol/beer.png";
   }
 
+  // Draw alcohol in alcohol property container
+  draw(alcoholContainer) {
+    for (let i = 0; i < this.quantity; i++) {
+      const alkoholImg = document.createElement("img");
+      alkoholImg.className = "property-alkohol";
+      alkoholImg.src = this.image.src;
+      alkoholImg.alt = "ALKOHOL!!!";
+
+      if (this.type === "beer") alkoholImg.classList.add("beer");
+      else if (this.type === "vodka") {
+        alkoholImg.classList.remove("beer");
+        alkoholImg.classList.add("vodka");
+      }
+
+      alcoholContainer.appendChild(alkoholImg);
+    }
+  }
+
   // Update quantity and tax multiplier
   update() {
     this.quantity++;

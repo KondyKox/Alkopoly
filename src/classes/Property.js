@@ -63,26 +63,7 @@ class Property {
     propertyAlkoholContainer.className = "property-alkohol-container";
 
     // Draw alkohol
-    if (property.owner) {
-      const alcohol = property.alcohols;
-
-      for (let i = 0; i < alcohol.quantity; i++) {
-        const alkoholImg = document.createElement("img");
-        alkoholImg.className = "property-alkohol";
-        alkoholImg.alt = "ALKOHOL!!!";
-
-        if (alcohol.type === "beer") {
-          alkoholImg.src = alcohol.image.src;
-          alkoholImg.classList.add("beer");
-        } else if (alcohol.type === "vodka") {
-          alkoholImg.src = alcohol.image.src;
-          alkoholImg.classList.remove("beer");
-          alkoholImg.classList.add("vodka");
-        }
-
-        propertyAlkoholContainer.appendChild(alkoholImg);
-      }
-    }
+    if (property.owner) property.alcohols.draw(propertyAlkoholContainer);
 
     // Property description
     const description = document.createElement("span");
