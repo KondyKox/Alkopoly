@@ -38,7 +38,7 @@
     "id": 5,
     "name": "Domek Kubusia",
     "type": "property",
-    "image": "",
+    "image": "./properties/domek_kubusia.jpg",
     "price": 1000,
     "tax": 200,
     "owner": null
@@ -47,7 +47,7 @@
     "id": 6,
     "name": "Domek Ozziego",
     "type": "property",
-    "image": "",
+    "image": "./properties/domek_oskara.jpg",
     "price": 1000,
     "tax": 200,
     "owner": null
@@ -56,7 +56,7 @@
     "id": 7,
     "name": "Domek Benia",
     "type": "property",
-    "image": "",
+    "image": "./properties/domek_benia.jpg",
     "price": 1000,
     "tax": 200,
     "owner": null
@@ -211,7 +211,7 @@
     "id": 26,
     "name": "Zameczek",
     "type": "property",
-    "image": "",
+    "image": "./properties/zameczek.jpg",
     "price": 1000,
     "tax": 200,
     "owner": null
@@ -259,7 +259,7 @@
     "id": 32,
     "name": "Dom Mikiego",
     "type": "property",
-    "image": "",
+    "image": "./properties/dom_mikiego.jpg",
     "price": 1000,
     "tax": 200,
     "owner": null
