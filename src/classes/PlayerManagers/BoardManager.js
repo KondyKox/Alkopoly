@@ -32,7 +32,7 @@ export default class BoardManager {
 
   // Check current field
   static checkCurrentField(player) {
-    const currentCell = gameState.board[player.position - 1]
+    const currentCell = gameState.board[player.position - 1];
 
     switch (currentCell.type) {
       case "jail":
@@ -80,18 +80,18 @@ export default class BoardManager {
 
         // Check if someone bought player
         gameState.playerIds.forEach((playerId) => {
-          const player = gameState.players[playerId];
+          const thisPlayer = gameState.players[playerId];
           const playerProperty = player.properties[currentCell.id];
 
-          if (player.id !== this.id && playerProperty) {
+          if (thisPlayer.id !== player.id && playerProperty) {
             isOwned = true;
 
             if (player.incognito > 0) {
               const isSpotted = Math.random() < 0.5 ? true : false;
               if (isSpotted) {
                 PropertyManager.payTaxes(
+                  thisPlayer,
                   player,
-                  this,
                   playerProperty.tax * playerProperty.alcohols.taxMultiplier
                 );
 
@@ -101,8 +101,8 @@ export default class BoardManager {
             }
 
             PropertyManager.payTaxes(
+              thisPlayer,
               player,
-              this,
               playerProperty.tax * playerProperty.alcohols.taxMultiplier
             );
             return;
@@ -125,7 +125,7 @@ export default class BoardManager {
         break;
     }
 
-    // If current cell other than chance, diplay property card
+    // If current cell is other than chance, diplay property card
     if (currentCell.type !== "chance") currentCell.displayPropertyCard();
   }
 }
