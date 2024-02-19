@@ -13,5 +13,6 @@
   { "id": 12, "name": "Pionek 12", "image": "./game_pieces/pawns/pionek12.png" },
   { "id": 13, "name": "Pionek 13", "image": "./game_pieces/pawns/pionek13.png" },
   { "id": 14, "name": "Pionek 14", "image": "./game_pieces/pawns/pionek14.png" },
-  { "id": 15, "name": "Pionek 15", "image": "./game_pieces/pawns/pionek15.png" }
+  { "id": 15, "name": "Pionek 15", "image": "./game_pieces/pawns/pionek15.png" },
+  { "id": 16, "name": "Pionek 16", "image": "./game_pieces/pawns/pionek16.png" }
 ]
