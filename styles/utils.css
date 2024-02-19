@@ -35,9 +35,9 @@
 }
 
 .btn:hover {
-  /* transform: scale(1.1); */
   color: var(--clr-pink);
   background-color: var(--clr-blue);
+  filter: drop-shadow(0 0 1em var(--clr-pink));
 }
 
 .close-btn {
@@ -45,6 +45,7 @@
   top: 0;
   right: 0;
   padding: 0.5em 1em;
+  margin: 0.25em;
   border: none;
   text-align: center;
   cursor: pointer;
@@ -60,10 +61,5 @@
 .close-btn:hover {
   color: var(--clr-blue);
   background-color: var(--clr-red);
-}
-
-.current-player__name {
-  color: var(--clr-pink);
-  text-shadow: 1px 1px 1px var(--clr-blue), -1px -1px 1px var(--clr-blue),
-    -1px -1px 0 var(--clr-blue), 1px -1px 0 var(--clr-blue);
+  filter: drop-shadow(0 0 1em var(--clr-red));
 }

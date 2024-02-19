@@ -33,6 +33,7 @@
   max-width: 10em;
   border: 3px solid var(--clr-blue);
   border-radius: 10px;
+  filter: drop-shadow(0 0 0.5em var(--clr-blue));
 }
 
 .card-description {

@@ -66,6 +66,7 @@ export default class Player {
     const playerElement = document.createElement("div");
     playerElement.className = "player";
     playerElement.style.backgroundColor = this.color;
+    playerElement.style.filter = `drop-shadow(0 0 1em ${this.color})`;
     playerElement.innerHTML = `
       <div class="player-name">${this.name}</div> 
       <img class="player-pawn" src="${this.pawn}" alt="${this.name}">
