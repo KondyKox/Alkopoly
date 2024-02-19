@@ -38,7 +38,7 @@
     "id": 6,
     "name": "Kilof",
     "text": "Zbudowałeś zajebisty kilof! Zniszcz komuś jakieś domki.",
-    "action": "Niszczysz dowolny domek innego gracza.",
+    "action": "Niszczysz dowolny alkohol innego gracza.",
     "image": "./chance_cards/kilof.jpg"
   },
   {
