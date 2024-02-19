@@ -47,7 +47,7 @@ export default class Alcohol {
   destroy(player, property) {
     if (!player.hasKilof) {
       console.log(`${player.name} nie ma kilofa.`);
-      return;
+      return false;
     }
 
     switch (this.type) {
@@ -71,8 +71,11 @@ export default class Alcohol {
         break;
 
       default:
-        break;
+        return false;
     }
+
+    // Delete pickaxe from player
+    player.hasKilof = false;
 
     // Update tax multiplier
     this.updateTaxMultiplier();
