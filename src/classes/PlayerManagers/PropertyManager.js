@@ -1,4 +1,5 @@
 import { updateBoard } from "../../utils/generateBoard";
+import { gameState } from "../../main";
 
 // Property manager for Player
 export default class PropertyManager {
@@ -73,5 +74,14 @@ export default class PropertyManager {
       alert(`No sorry ${player.name}, za biedny jesteś. XD.`);
       console.log(`${player.name} to jebany biedak.`);
     }
+  }
+
+  // Destroy 1 alcohol when player has a pickaxe
+  static destroyAlcohol(playerName, property) {
+    const player = Object.values(gameState.players).find(
+      (player) => player.name === playerName
+    );
+
+    property.alcohols.destroy(player, property);
   }
 }

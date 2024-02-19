@@ -1,5 +1,6 @@
 import propertyData from "../data/propertyData.json";
 import Alcohol from "./Alcohol";
+import PropertyManager from "./PlayerManagers/PropertyManager";
 
 class Property {
   constructor(data) {
@@ -59,11 +60,11 @@ class Property {
     value.className = "property-value";
 
     // Property alkohol
-    const propertyAlkoholContainer = document.createElement("div");
-    propertyAlkoholContainer.className = "property-alkohol-container";
+    const propertyAlcoholContainer = document.createElement("div");
+    propertyAlcoholContainer.className = "property-alcohol-container";
 
     // Draw alkohol
-    if (this.owner) this.alcohols.draw(propertyAlkoholContainer);
+    if (this.owner) this.alcohols.draw(propertyAlcoholContainer);
 
     // Property description
     const description = document.createElement("span");
@@ -83,6 +84,11 @@ class Property {
           description.innerHTML = `Podatek <span class="property-price">${
             this.tax * this.alcohols.taxMultiplier
           }</span> zł dla <span class="property-price">${this.owner}</span>`;
+
+          // Destroy alcohol on click
+          propertyAlcoholContainer.addEventListener("click", () =>
+            PropertyManager.destroyAlcohol(this.owner, this)
+          );
         }
         break;
 
@@ -102,7 +108,7 @@ class Property {
         break;
     }
 
-    value.appendChild(propertyAlkoholContainer);
+    value.appendChild(propertyAlcoholContainer);
     value.appendChild(description);
 
     propertyCard.appendChild(closeButton);
