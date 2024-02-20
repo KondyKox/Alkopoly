@@ -66,15 +66,24 @@ document.querySelector(".dice-container").addEventListener("click", () => {
 
 // Start game
 document.querySelector("#start").addEventListener("click", () => {
-  gameState.startGame();
-
   socket.emit("startGame", gameState);
 });
 
 socket.on("gameStarted", () => {
-  console.log("Gra wystartowała!");
-  gameState.isGameStarted = true;
+  gameState.startGame();
   document.querySelector(".lobby").style.display = "none";
 });
+
+// Update game state
+socket.on("updateGameState", (backendGameState) => {
+  Object.values(backendGameState).forEach((key) => {
+    gameState[key] = backendGameState[key];
+  });
+});
+
+// // Update current player
+// socket.on("updateCurrentPlayer", (currentPlayerId) => {
+//   gameState.currentPlayerId = currentPlayerId;
+// });
 
 generateBoard();

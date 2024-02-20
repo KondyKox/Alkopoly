@@ -14,6 +14,7 @@ app.use(cors());
 const backendPlayers = {};
 let backendPlayerIds;
 let currentBackendPlayer;
+let backendGameState;
 
 // Connection with server
 io.on("connection", (socket) => {
@@ -33,7 +34,7 @@ io.on("connection", (socket) => {
   // Start game
   socket.on("startGame", (gameState) => {
     console.log("Gra wystartowała!");
-    gameState.isGameStarted = true;
+    backendGameState = gameState;
 
     backendPlayerIds = Object.keys(backendPlayers);
     currentBackendPlayer = backendPlayerIds[0];
@@ -44,21 +45,40 @@ io.on("connection", (socket) => {
   // Roll dice
   socket.on("rollDice", ({ playerId, steps }) => {
     if (playerId === currentBackendPlayer) {
-      backendPlayers[currentBackendPlayer].position += steps;
+      backendPlayers[playerId].position += steps;
       console.log(
-        `${backendPlayers[currentBackendPlayer].name} poruszył się o ${steps} pól.`
+        `${backendPlayers[playerId].name} poruszył się o ${steps} pól.`
       );
 
       // Change current player
-      const currentPlayerIdex = backendPlayerIds.indexOf(playerId);
-      const nextPlayerIndex = (currentPlayerIdex + 1) % backendPlayerIds.length;
+      const currentPlayerIndex = backendPlayerIds.indexOf(playerId);
+      const nextPlayerIndex =
+        (currentPlayerIndex + 1) % backendPlayerIds.length;
       const nextPlayerId = backendPlayerIds[nextPlayerIndex];
 
-      currentBackendPlayer = nextPlayerId;
+      currentBackendPlayer = backendPlayers[nextPlayerId];
 
+      console.log(`Teraz kolej na ${currentBackendPlayer.name}`);
       io.emit("updatePlayers", backendPlayers);
+      io.emit("updateCurrentPlayer", currentBackendPlayer);
     }
   });
+
+  // Update current player
+  socket.on("updateCurrentPlayer", ({ gameState, currentPlayerId }) => {
+    backendGameState = gameState;
+    gameState.currentPlayerId = currentPlayerId;
+    currentBackendPlayer = backendPlayers[currentPlayerId];
+
+    console.log(currentPlayerId);
+    io.emit("updateGameState", backendGameState);
+  });
+
+  // // Update reward
+  // socket.on("updateReward", (reward) => {
+  //   gameState.reward = reward;
+
+  // });
 
   // Disconnect player
   socket.on("disconnect", (reason) => {

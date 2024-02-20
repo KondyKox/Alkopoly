@@ -17,6 +17,11 @@ export default class GameState {
 
   // Get current player
   getCurrentPlayer() {
+    socket.emit("updateCurrentPlayer", {
+      gameState: this,
+      currentPlayerId: this.currentPlayerId,
+    });
+
     return this.players[this.currentPlayerId];
   }
 
@@ -104,5 +109,7 @@ export default class GameState {
     this.reward += money;
 
     document.querySelector(".reward-money").innerText = this.reward;
+
+    // socket.emit("updateReward");
   }
 }
