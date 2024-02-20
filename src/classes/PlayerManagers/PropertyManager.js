@@ -1,4 +1,4 @@
-import { updateBoard } from "../../utils/generateBoard";
+import { updateBoard } from "../../utils/board";
 import { gameState } from "../../main";
 
 // Property manager for Player

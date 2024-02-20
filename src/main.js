@@ -12,11 +12,10 @@ import "../styles/components/lobby.css";
 // JS
 import GameState from "./classes/GameState";
 import Player from "./classes/Player";
-import generateBoard from "./utils/generateBoard";
+import generateBoard from "./utils/board";
 import renderPlayersInLobby from "./utils/lobby";
 import "./utils/sideMenu";
 import "./utils/pawnList";
-import "./utils/lobby";
 
 // Socket.io
 import "https://cdn.socket.io/4.7.4/socket.io.min.js";

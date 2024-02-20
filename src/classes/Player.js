@@ -1,5 +1,5 @@
 import { gameState, socket } from "../main";
-import { updateBoard } from "../utils/generateBoard";
+import { updateBoard } from "../utils/board";
 import BoardManager from "./PlayerManagers/BoardManager";
 
 export default class Player {
