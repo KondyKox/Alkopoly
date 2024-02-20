@@ -105,10 +105,15 @@
 @media (max-width: 1536px) {
   .board {
     border: none;
+    max-width: 100%;
   }
 
   .logo-board {
     width: 35em;
+  }
+
+  .dice {
+    max-width: 8em;
   }
 
   .board-cell {
@@ -128,6 +133,10 @@
 
   .logo-board {
     width: 30em;
+  }
+
+  .dice {
+    max-width: 6em;
   }
 
   .board-cell {
