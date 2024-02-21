@@ -43,8 +43,10 @@ io.on("connection", (socket) => {
   });
 
   // Roll dice
-  socket.on("rollDice", ({ playerId, steps }) => {
+  socket.on("rollDice", ({ gameState, playerId, steps }) => {
     if (playerId === currentBackendPlayer) {
+      backendGameState = gameState;
+
       backendPlayers[playerId].position += steps;
       console.log(
         `${backendPlayers[playerId].name} poruszył się o ${steps} pól.`
@@ -59,8 +61,9 @@ io.on("connection", (socket) => {
       currentBackendPlayer = backendPlayers[nextPlayerId];
 
       console.log(`Teraz kolej na ${currentBackendPlayer.name}`);
+
       io.emit("updatePlayers", backendPlayers);
-      io.emit("updateCurrentPlayer", currentBackendPlayer);
+      io.emit("updateGameState", backendGameState);
     }
   });
 
@@ -73,12 +76,6 @@ io.on("connection", (socket) => {
     console.log(currentPlayerId);
     io.emit("updateGameState", backendGameState);
   });
-
-  // // Update reward
-  // socket.on("updateReward", (reward) => {
-  //   gameState.reward = reward;
-
-  // });
 
   // Disconnect player
   socket.on("disconnect", (reason) => {

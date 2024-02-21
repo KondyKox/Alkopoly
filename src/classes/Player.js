@@ -74,9 +74,6 @@ export default class Player {
 
     const cell = document.querySelector(`#c${this.position}`);
     cell.appendChild(playerElement);
-
-    // Update on server
-    socket.emit("updatePlayers", gameState.players);
   }
 
   // Move on board

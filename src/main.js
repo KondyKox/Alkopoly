@@ -81,9 +81,4 @@ socket.on("updateGameState", (backendGameState) => {
   });
 });
 
-// // Update current player
-// socket.on("updateCurrentPlayer", (currentPlayerId) => {
-//   gameState.currentPlayerId = currentPlayerId;
-// });
-
 generateBoard();

@@ -75,7 +75,11 @@ export default class GameState {
     currentPlayer.move(diceResult);
 
     // Change possition on server
-    socket.emit("rollDice", { playerId: currentPlayer.id, steps: diceResult });
+    socket.emit("rollDice", {
+      gameState: this,
+      playerId: currentPlayer.id,
+      steps: diceResult,
+    });
 
     // Change turn
     this.nextTurn();
