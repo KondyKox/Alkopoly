@@ -1,5 +1,5 @@
 import chanceCardData from "../data/chanceCardData.json";
-import { gameState, socket } from "../main";
+import { gameState } from "../main";
 import BoardManager from "./PlayerManagers/BoardManager";
 
 export default class ChanceCard {
@@ -264,9 +264,6 @@ export default class ChanceCard {
       default:
         break;
     }
-
-    // Update players on server
-    socket.emit("updatePlayers", gameState.players);
   }
 }
 

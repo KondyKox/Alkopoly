@@ -17,68 +17,48 @@ import renderPlayersInLobby from "./utils/lobby";
 import "./utils/sideMenu";
 import "./utils/pawnList";
 
-// Socket.io
-import "https://cdn.socket.io/4.7.4/socket.io.min.js";
-
-export const socket = io("http://localhost:5173");
 export const gameState = new GameState();
 
-// Update players
-socket.on("updatePlayers", (backendPlayers) => {
-  console.log(backendPlayers);
-  for (const id in backendPlayers) {
-    const backendPlayer = backendPlayers[id];
-
-    if (!gameState.players[id])
-      gameState.players[id] = new Player(
-        id,
-        backendPlayer.name,
-        backendPlayer.pawn,
-        backendPlayer.position
-      );
-
-    gameState.players[id].draw();
-
-    for (const id in gameState.players) {
-      if (!backendPlayers[id]) delete gameState.players[id];
-    }
-  }
-
-  renderPlayersInLobby();
-});
+// Generate random player id
+function generatePlayerId() {
+  return Math.random().toString(36).substring(2, 10);
+}
 
 // Submit user
 document.querySelector("#userForm").addEventListener("submit", (event) => {
   event.preventDefault();
+
+  const usernameInput = document.querySelector("#usernameInput");
+  const selectedPawn = document.querySelector(".selectedPawn");
+
+  const id = generatePlayerId();
+  gameState.players[id] = new Player(
+    id,
+    usernameInput.value,
+    selectedPawn.querySelector(".playerPhoto").src
+  );
+
+  usernameInput.value = "";
+  selectedPawn.classList.remove("selectedPawn");
+
+  renderPlayersInLobby();
+});
+
+// Start game
+document.querySelector("#start").addEventListener("click", () => {
+  document.querySelector(".lobby").style.display = "none";
   document.querySelector("#userForm").style.display = "none";
 
-  socket.emit(
-    "initLobby",
-    document.querySelector("#usernameInput").value,
-    document.querySelector(".selectedPawn").querySelector(".playerPhoto").src
-  );
+  Object.values(gameState.players).forEach((player) => {
+    player.draw();
+  });
+
+  gameState.startGame();
 });
 
 // Roll dice on click
 document.querySelector(".dice-container").addEventListener("click", () => {
   gameState.rollDice();
-});
-
-// Start game
-document.querySelector("#start").addEventListener("click", () => {
-  socket.emit("startGame", gameState);
-});
-
-socket.on("gameStarted", () => {
-  gameState.startGame();
-  document.querySelector(".lobby").style.display = "none";
-});
-
-// Update game state
-socket.on("updateGameState", (backendGameState) => {
-  Object.values(backendGameState).forEach((key) => {
-    gameState[key] = backendGameState[key];
-  });
 });
 
 generateBoard();

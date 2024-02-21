@@ -1,14 +1,14 @@
-import { gameState, socket } from "../main";
+import { gameState } from "../main";
 import { updateBoard } from "../utils/board";
 import BoardManager from "./PlayerManagers/BoardManager";
 
 export default class Player {
-  constructor(id, name, pawn, position) {
+  constructor(id, name, pawn) {
     // Basic attributes
     this.id = id;
     this.name = name;
     this.pawn = pawn;
-    this.position = position;
+    this.position = 1;
     this.money = 1000;
     this.color = this.getRandomColor();
     this.properties = {};
@@ -44,9 +44,6 @@ export default class Player {
     const playerEl = currentCell.querySelector(".player");
 
     if (playerEl) currentCell.removeChild(playerEl);
-
-    // Update on server
-    socket.emit("updatePlayers", gameState.players);
   }
 
   // Get money for going through start
@@ -123,17 +120,11 @@ export default class Player {
   // Add money
   addMoney(amount) {
     this.money += amount;
-
-    // Update on server
-    socket.emit("updatePlayers", gameState.players);
   }
 
   // Spent money
   substractMoney(amount) {
     this.money -= amount;
-
-    // Update on server
-    socket.emit("updatePlayers", gameState.players);
   }
 
   // Declare bankruptcy

@@ -1,5 +1,3 @@
-import { socket } from "../main";
-
 export default class GameState {
   constructor() {
     this.players = {};
@@ -17,11 +15,6 @@ export default class GameState {
 
   // Get current player
   getCurrentPlayer() {
-    socket.emit("updateCurrentPlayer", {
-      gameState: this,
-      currentPlayerId: this.currentPlayerId,
-    });
-
     return this.players[this.currentPlayerId];
   }
 
@@ -74,13 +67,6 @@ export default class GameState {
 
     currentPlayer.move(diceResult);
 
-    // Change possition on server
-    socket.emit("rollDice", {
-      gameState: this,
-      playerId: currentPlayer.id,
-      steps: diceResult,
-    });
-
     // Change turn
     this.nextTurn();
   }
@@ -113,7 +99,5 @@ export default class GameState {
     this.reward += money;
 
     document.querySelector(".reward-money").innerText = this.reward;
-
-    // socket.emit("updateReward");
   }
 }

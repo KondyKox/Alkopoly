@@ -69,12 +69,14 @@
   align-items: center;
   padding: 1em;
   overflow-y: auto;
-  height: 80%;
+  height: 33em;
+  /* max-height: 80%; */
 }
 
 .player-container {
   display: block;
   width: 90%;
+  min-height: 3em;
   max-height: 3.5em;
   margin: 0.25em 0;
   border: 3px solid var(--clr-blue);
