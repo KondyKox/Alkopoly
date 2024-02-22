@@ -4,7 +4,7 @@
     "name": "Start",
     "type": "start",
     "image": "./properties/start.png",
-    "price": 100
+    "price": 300
   },
   
   {
@@ -12,7 +12,7 @@
     "name": "Asik",
     "type": "property",
     "image": "./properties/asik.jpg",
-    "price": 100,
+    "price": 400,
     "tax": 200,
     "owner": null
   },
@@ -22,8 +22,8 @@
     "name": "Hakuna Matata",
     "type": "property",
     "image": "./properties/hakuna_matata.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -32,8 +32,8 @@
     "name": "Remiza",
     "type": "property",
     "image": "./properties/remiza.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 500,
+    "tax": 250,
     "owner": null
   },
   
@@ -42,8 +42,8 @@
     "name": "Domek Kubusia",
     "type": "property",
     "image": "./properties/domek_kubusia.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 300,
+    "tax": 150,
     "owner": null
   },
   
@@ -52,8 +52,8 @@
     "name": "Domek Ozziego",
     "type": "property",
     "image": "./properties/domek_oskara.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 300,
+    "tax": 150,
     "owner": null
   },
   
@@ -62,8 +62,8 @@
     "name": "Domek Benia",
     "type": "property",
     "image": "./properties/domek_benia.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 300,
+    "tax": 150,
     "owner": null
   },
   
@@ -72,12 +72,11 @@
     "name": "Czerwony Pomost",
     "type": "property",
     "image": "./properties/czerwony_pomost.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 500,
+    "tax": 250,
     "owner": null
   },
   
-
   {
     "id": 9,
     "name": "Karta Szansy",
@@ -121,7 +120,7 @@
     "name": "Zakup alkoholu",
     "type": "fine",
     "image": "./properties/vodka.png",
-    "price": 200
+    "price": 100
   },
   
   {
@@ -129,8 +128,8 @@
     "name": "Plaża",
     "type": "property",
     "image": "./properties/plaza.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -139,7 +138,7 @@
     "name": "Dom Kondiego",
     "type": "property",
     "image": "./properties/kondi_dom.jpg",
-    "price": 100,
+    "price": 300,
     "tax": 200,
     "owner": null
   },
@@ -156,7 +155,7 @@
     "name": "Dom Kamcia",
     "type": "property",
     "image": "./properties/dom_kamcia.jpg",
-    "price": 100,
+    "price": 300,
     "tax": 200,
     "owner": null
   },
@@ -166,7 +165,7 @@
     "name": "Zakup alkoholu",
     "type": "fine",
     "image": "./properties/vodka.png",
-    "price": 200
+    "price": 100
   },
   
   {
@@ -175,7 +174,7 @@
     "type": "property",
     "image": "./properties/plac_zabaw.jpg",
     "price": 100,
-    "tax": 200,
+    "tax": 50,
     "owner": null
   },
   
@@ -184,8 +183,8 @@
     "name": "Głuchów",
     "type": "property",
     "image": "./properties/gluchow.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -194,8 +193,8 @@
     "name": "Stare Bogaczowice",
     "type": "property",
     "image": "./properties/stare_bogaczowice.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -205,7 +204,7 @@
     "type": "property",
     "image": "./properties/discord.jpg",
     "price": 100,
-    "tax": 200,
+    "tax": 50,
     "owner": null
   },
   
@@ -215,7 +214,7 @@
     "type": "property",
     "image": "./properties/zjezdzalnia.jpg",
     "price": 100,
-    "tax": 200,
+    "tax": 50,
     "owner": null
   },
   
@@ -224,18 +223,18 @@
     "name": "Wałbrzych",
     "type": "property",
     "image": "./properties/walbrzych.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
   {
     "id": 26,
-    "name": "Zameczek",
+    "name": "Tarnów Jezierny",
     "type": "property",
-    "image": "./properties/zameczek.jpg",
-    "price": 100,
-    "tax": 200,
+    "image": "./properties/tarnow_jezierny.jpg",
+    "price": 1500,
+    "tax": 750,
     "owner": null
   },
   
@@ -244,8 +243,8 @@
     "name": "Piwnica u Kamilka",
     "type": "property",
     "image": "./properties/piwnica_kamcia.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 1000,
+    "tax": 500,
     "owner": null
   },
   
@@ -254,8 +253,8 @@
     "name": "Kuźnica",
     "type": "property",
     "image": "./properties/kuznica.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -264,8 +263,8 @@
     "name": "Jacuzzi",
     "type": "property",
     "image": "./properties/jacuzzi.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 200,
+    "tax": 100,
     "owner": null
   },
   
@@ -288,8 +287,8 @@
     "name": "Dom Mikiego",
     "type": "property",
     "image": "./properties/dom_mikiego.jpg",
-    "price": 100,
-    "tax": 200,
+    "price": 300,
+    "tax": 150,
     "owner": null
   }
 ]
