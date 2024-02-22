@@ -9,7 +9,7 @@ export default class Player {
     this.name = name;
     this.pawn = pawn;
     this.position = 1;
-    this.money = 1000;
+    this.money = 2000;
     this.color = this.getRandomColor();
     this.properties = {};
     this.isBankrupt = false;
@@ -77,6 +77,13 @@ export default class Player {
   move(steps) {
     if (this.cantMove > 0) {
       this.cantMove--;
+
+      this.draw();
+
+      // Change turn
+      gameState.areDiceRolled = false;
+      gameState.nextTurn();
+
       return;
     }
 
@@ -113,6 +120,10 @@ export default class Player {
 
         // Check new possition
         BoardManager.checkCurrentField(this);
+
+        // Change turn
+        gameState.areDiceRolled = false;
+        gameState.nextTurn();
       }
     }, 500);
   }
@@ -135,8 +146,10 @@ export default class Player {
       property.resetAfterBankruptcy();
     });
 
-    updateBoard();
-
     delete gameState.players[this.id];
+
+    console.log(gameState.players);
+
+    updateBoard();
   }
 }

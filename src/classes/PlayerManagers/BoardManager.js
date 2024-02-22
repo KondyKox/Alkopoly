@@ -6,6 +6,8 @@ import PropertyManager from "./PropertyManager";
 export default class BoardManager {
   // Drive anywhere
   static driveAnywhere(player) {
+    if (player.id !== gameState.currentPlayerId) return;
+
     const cells = document.querySelectorAll(".board-cell");
     cells.forEach((cell) => {
       cell.addEventListener("click", handleCellClick);
@@ -23,6 +25,7 @@ export default class BoardManager {
       player.clearPlayerFromCell();
       player.position = parseInt(newPossition[0]);
       player.draw();
+      BoardManager.checkCurrentField(player);
 
       cells.forEach((cell) => {
         cell.removeEventListener("click", handleCellClick);
@@ -78,30 +81,24 @@ export default class BoardManager {
           }
         });
 
-        // Check if someone bought player
+        // Check if someone bought this
         gameState.playerIds.forEach((playerId) => {
-          const thisPlayer = gameState.players[playerId];
-          const playerProperty = player.properties[currentCell.id];
+          const owner = gameState.players[playerId];
+          const playerProperty = owner.properties[currentCell.id];
 
-          if (thisPlayer.id !== player.id && playerProperty) {
+          if (owner.id !== player.id && playerProperty) {
             isOwned = true;
 
             if (player.incognito > 0) {
               const isSpotted = Math.random() < 0.5 ? true : false;
-              if (isSpotted) {
-                PropertyManager.payTaxes(
-                  thisPlayer,
-                  player,
-                  playerProperty.tax * playerProperty.alcohols.taxMultiplier
-                );
-
+              if (!isSpotted) {
                 player.incognito--;
                 return;
               }
             }
 
             PropertyManager.payTaxes(
-              thisPlayer,
+              owner,
               player,
               playerProperty.tax * playerProperty.alcohols.taxMultiplier
             );

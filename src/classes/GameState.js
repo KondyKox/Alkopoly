@@ -6,6 +6,7 @@ export default class GameState {
     this.board = [];
     this.reward = 0;
     this.isGameStarted = false;
+    this.areDiceRolled = false;
   }
 
   // Initialize board
@@ -56,9 +57,12 @@ export default class GameState {
 
   // Roll dice
   rollDice() {
-    const diceResultEl = document.querySelector(".dice-result");
+    if (this.areDiceRolled) return;
+
+    this.areDiceRolled = true;
 
     // Dice result
+    const diceResultEl = document.querySelector(".dice-result");
     const diceResult = Math.floor(Math.random() * 6) + 1;
     diceResultEl.innerHTML = diceResult;
 
@@ -66,9 +70,6 @@ export default class GameState {
     console.log(`${currentPlayer.name} wyrzucił: ${diceResult}`);
 
     currentPlayer.move(diceResult);
-
-    // Change turn
-    this.nextTurn();
   }
 
   // Switch player turn
@@ -82,6 +83,9 @@ export default class GameState {
     // Go back to first player
     else if (this.playerIds.length > 0)
       this.currentPlayerId = this.playerIds[0];
+
+    // If player is bankrupt change turn again
+    if (this.players[this.currentPlayerId].isBankrupt) this.switchPlayerTurn();
   }
 
   // Switch turn
@@ -89,7 +93,7 @@ export default class GameState {
     this.switchPlayerTurn();
     const currentPlayer = this.getCurrentPlayer();
 
-    this.currentPlayerStyle(this.players[this.currentPlayerId].name);
+    this.currentPlayerStyle(currentPlayer.name);
 
     console.log(`Tura należy do ${currentPlayer.name}`);
   }

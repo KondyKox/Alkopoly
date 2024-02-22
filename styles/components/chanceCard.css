@@ -23,7 +23,7 @@
 
 .card-title {
   padding: 0.5em;
-  font-size: var(--size-xl);
+  font-size: var(--size-2xl);
   color: var(--clr-pink);
   text-shadow: 1px 1px 1px var(--clr-blue), -1px 1px 1px var(--clr-blue),
     -1px -1px 0 var(--clr-blue), 1px -1px 0 var(--clr-blue);
@@ -31,6 +31,7 @@
 
 .card-image {
   max-width: 10em;
+  margin: 0.25em;
   border: 3px solid var(--clr-blue);
   border-radius: 10px;
   filter: drop-shadow(0 0 0.5em var(--clr-blue));
