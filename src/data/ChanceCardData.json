@@ -6,6 +6,7 @@
     "action": "Tracisz 100zł oraz idziesz 4 pola do przodu.",
     "image": "./chance_cards/zestaw_deluxe.jpg"
   },
+
   {
     "id": 2,
     "name": "Zakup zioła",
@@ -13,6 +14,7 @@
     "action": "Idziesz na pole zakupu zioła.",
     "image": "./chance_cards/ziolo.jpg"
   },
+
   {
     "id": 3,
     "name": "Tatuaż TJ",
@@ -20,6 +22,7 @@
     "action": "Następnym razem płacisz połowę mniej podatku.",
     "image": "./chance_cards/tatuaz-tj.jpg"
   },
+
   {
     "id": 4,
     "name": "Półwidoczny",
@@ -27,6 +30,7 @@
     "action": "Gdy staniesz na polu innego gracza masz 50% szans, że Cię nie zauważy (3 użycia).",
     "image": "./chance_cards/polwidoczni.jpg"
   },
+
   {
     "id": 5,
     "name": "Koleje Dolnośląskie",
@@ -34,6 +38,7 @@
     "action": "Wracasz na Start",
     "image": "./chance_cards/koleje-dolnoslaskie.jpg"
   },
+
   {
     "id": 6,
     "name": "Kilof",
@@ -41,6 +46,7 @@
     "action": "Niszczysz dowolny alkohol innego gracza.",
     "image": "./chance_cards/kilof.jpg"
   },
+
   {
     "id": 7,
     "name": "Wódka ❤",
@@ -48,6 +54,7 @@
     "action": "Przejdź na pole wódki.",
     "image": "./chance_cards/wodka-serce.jpg"
   },
+
   {
     "id": 8,
     "name": "Emotki",
@@ -55,6 +62,7 @@
     "action": "Dostajesz od każdego po 20zł, ale stoisz w miejscu jedną kolejkę.",
     "image": "./chance_cards/emotki.jpg"
   },
+
   {
     "id": 9,
     "name": "Zgon",
@@ -62,6 +70,7 @@
     "action": "Lecisz na izbe wytrzeźwień.",
     "image": "./chance_cards/zgon.jpg"
   },
+
   {
     "id": 10,
     "name": "Prezent urodzinowy",
@@ -69,6 +78,7 @@
     "action": "Dostajesz od każdego po 50zł.",
     "image": "./chance_cards/prezencik.jpg"
   },
+
   {
     "id": 11,
     "name": "Scam and Run",
@@ -76,6 +86,7 @@
     "action": "Dostajesz 1 000 000 zł, ale tracisz z tego 999 000 zł.",
     "image": "./chance_cards/scam-and-run.jpg"
   },
+
   {
     "id": 12,
     "name": "Wiadro",
@@ -83,6 +94,7 @@
     "action": "Przez 2 tury się nie ruszasz.",
     "image": "./chance_cards/wiadro.jpg"
   },
+
   {
     "id": 13,
     "name": "Wypłata",
@@ -90,6 +102,7 @@
     "action": "Idziesz na pole nagrody.",
     "image": "./chance_cards/wyplata.jpg"
   },
+
   {
     "id": 14,
     "name": "Rudy chuj",
@@ -97,6 +110,7 @@
     "action": "Nic się nie dzieje, po prostu jest śmiesznie xD.",
     "image": "./chance_cards/rudy-chuj.jpg"
   },
+
   {
     "id": 15,
     "name": "SIGMA",
@@ -104,6 +118,7 @@
     "action": "Stajesz się SIGMĄ. Gdy następnym razem staniesz na polu innego gracza, to on Ci płaci.",
     "image": "./chance_cards/sigma.jpg"
   },
+
   {
     "id": 16,
     "name": "Main Event",
@@ -111,6 +126,7 @@
     "action": "Tracisz 200zł.",
     "image": "./chance_cards/main-event.jpg"
   },
+
   {
     "id": 17,
     "name": "Alkoholizm",
@@ -118,6 +134,7 @@
     "action": "Zyskujesz respekt, ale tracisz hajs. -10% twoich pieniędzy.",
     "image": "./chance_cards/alkoholizm.jpg"
   },
+
   {
     "id": 18,
     "name": "Tankowanie Polówki",
@@ -125,6 +142,7 @@
     "action": "Tracisz 51zł.",
     "image": "./chance_cards/tankowanie-polowki.jpg"
   },
+
   {
     "id": 19,
     "name": "Małżeństwo",
@@ -132,6 +150,7 @@
     "action": "20% twoich pieniędzy idzie do niego.",
     "image": "./chance_cards/malzenstwo.jpg"
   },
+
   {
     "id": 20,
     "name": "Polówka",
@@ -139,6 +158,7 @@
     "action": "Udaj się na dowolne pole.",
     "image": "./chance_cards/polowka.jpg"
   },
+
   {
     "id": 21,
     "name": "Snajper",
@@ -146,11 +166,36 @@
     "action": "Następne 2 kolejki ruszasz się tylko o połowe oczek.",
     "image": "./chance_cards/snajper.jpg"
   },
+
   {
     "id": 22,
     "name": "No i chuj",
     "text": "No i chuj, zostałeś błogosławiony!",
     "action": "Unikasz izby wytrzeźwień.",
     "image": "./chance_cards/no-i-chuj.jpg"
+  },
+
+  {
+    "id": 23,
+    "name": "Dzidek",
+    "text": "Dzidka spotkałeś!",
+    "action": "Patrz jaki zajebisty.",
+    "image": "./chance_cards/dzidek.jpg"
+  },
+
+  {
+    "id": 24,
+    "name": "Misja Niemcy",
+    "text": "Kto wie ten wie.",
+    "action": "Robisz kółko po planszy",
+    "image": "./chance_cards/misja_niemcy.jpg"
+  },
+
+  {
+    "id": 25,
+    "name": "Movement Małpy",
+    "text": "Czaisz ziomuś ten movement.",
+    "action": "Poruszasz się 2 razy dalej przez 2 tury.",
+    "image": "./chance_cards/movement.jpg"
   }
 ]

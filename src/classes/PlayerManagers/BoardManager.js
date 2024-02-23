@@ -39,7 +39,7 @@ export default class BoardManager {
 
     switch (currentCell.type) {
       case "jail":
-        if (!player.isBlessed) {
+        if (!player.isBlessed && player.cantMove === 0) {
           player.cantMove = 3;
           return;
         }
@@ -124,5 +124,9 @@ export default class BoardManager {
 
     // If current cell is other than chance, diplay property card
     if (currentCell.type !== "chance") currentCell.displayPropertyCard();
+
+    // Change turn
+    gameState.areDiceRolled = false;
+    gameState.nextTurn();
   }
 }

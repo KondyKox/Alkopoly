@@ -260,6 +260,20 @@ export default class ChanceCard {
         console.log(`No i chuj! ${player.name} został błogosławiony.`);
         break;
 
+      case "Dzidek":
+        console.log(`${player.name} spotkał dzidka.`);
+        break;
+
+      case "Misja Niemcy":
+        player.move(32);
+        console.log(`${player.name} robi Misję Niemcy!`);
+        break;
+
+      case "Movement Małpy":
+        player.movement = 2;
+        console.log(`${player.name} ma małpi movement.`);
+        break;
+
       default:
         break;
     }

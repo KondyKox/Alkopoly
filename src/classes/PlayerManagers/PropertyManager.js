@@ -20,10 +20,42 @@ export default class PropertyManager {
     }
   }
 
+  // Sell property
+  static sellProperty(player) {
+    if (Object.keys(player.properties).length === 0) {
+      alert("Nie posiadasz żadnych nieruchomości do sprzedaży.");
+      player.bankruptcy();
+      return;
+    }
+
+    let propertiesList = "Twoje posiadłości:\n";
+    Object.values(player.properties).forEach((property) => {
+      propertiesList += `ID: ${property.id}, ${property.name}, Zarobisz: ${
+        property.tax * property.alcohols.taxMultiplier
+      }`;
+    });
+
+    const propertyId = prompt(`Wybierz ID, żeby sprzedać:\n${propertiesList}`);
+
+    const propertyToSell = player.properties[propertyId];
+    if (!propertyToSell) {
+      alert("Niepoprawne ID");
+      this.sellProperty(player);
+      return;
+    }
+
+    const sellingPrice =
+      propertyToSell.tax * propertyToSell.alcohols.taxMultiplier;
+
+    player.addMoney(sellingPrice);
+    delete player.properties[propertyId];
+    alert(`Sprzedano ${propertyToSell.name} za ${sellingPrice}`);
+  }
+
   // Pay taxes to other player
   static payTaxes(propertyOwner, taxpayer, tax) {
     if (!taxpayer.isSIGMA) {
-      if (taxpayer.money <= 0) taxpayer.bankruptcy();
+      if (taxpayer.money <= 0) this.sellProperty(taxpayer);
 
       // If taxpayer has respect he pays only half
       let taxToPay = !taxpayer.respect ? tax : Math.floor(tax / 2);

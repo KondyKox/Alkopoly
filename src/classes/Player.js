@@ -1,6 +1,7 @@
 import { gameState } from "../main";
 import { updateBoard } from "../utils/board";
 import BoardManager from "./PlayerManagers/BoardManager";
+import PropertyManager from "./PlayerManagers/PropertyManager";
 
 export default class Player {
   constructor(id, name, pawn) {
@@ -23,6 +24,7 @@ export default class Player {
     this.cantMove = 0;
     this.hasKilof = false;
     this.isBlessed = false;
+    this.movement = 0;
   }
 
   // Random color for player
@@ -87,6 +89,11 @@ export default class Player {
       return;
     }
 
+    if (this.movement > 0) {
+      steps *= 2;
+      this.movement--;
+    }
+
     let step = 0;
     const self = this;
 
@@ -120,10 +127,6 @@ export default class Player {
 
         // Check new possition
         BoardManager.checkCurrentField(this);
-
-        // Change turn
-        gameState.areDiceRolled = false;
-        gameState.nextTurn();
       }
     }, 500);
   }
