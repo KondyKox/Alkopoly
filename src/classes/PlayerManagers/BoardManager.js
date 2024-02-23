@@ -39,8 +39,13 @@ export default class BoardManager {
 
     switch (currentCell.type) {
       case "jail":
-        if (!player.isBlessed && player.cantMove === 0) {
+        if (!player.isBlessed) {
           player.cantMove = 3;
+
+          // Change turn
+          gameState.areDiceRolled = false;
+          gameState.nextTurn();
+
           return;
         }
         player.isBlessed = false;
