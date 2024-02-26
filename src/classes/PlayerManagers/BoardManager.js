@@ -4,35 +4,6 @@ import PropertyManager from "./PropertyManager";
 
 // Board manager for Player
 export default class BoardManager {
-  // Drive anywhere
-  static driveAnywhere(player) {
-    if (player.id !== gameState.currentPlayerId) return;
-
-    const cells = document.querySelectorAll(".board-cell");
-    cells.forEach((cell) => {
-      cell.addEventListener("click", handleCellClick);
-    });
-
-    // Handle click to drive
-    function handleCellClick(event) {
-      let target = event.target;
-      while (target !== null && !target.classList.contains("board-cell"))
-        target = target.parentNode;
-
-      const cellId = target.id;
-      const newPossition = cellId.match(/\d+/);
-
-      player.clearPlayerFromCell();
-      player.position = parseInt(newPossition[0]);
-      player.draw();
-      BoardManager.checkCurrentField(player);
-
-      cells.forEach((cell) => {
-        cell.removeEventListener("click", handleCellClick);
-      });
-    }
-  }
-
   // Check current field
   static checkCurrentField(player) {
     const currentCell = gameState.board[player.position - 1];

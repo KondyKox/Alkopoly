@@ -17,6 +17,7 @@ import generateBoard, { boardContainer } from "./utils/board";
 import renderPlayersInLobby from "./utils/lobby";
 import "./utils/sideMenu";
 import "./utils/pawnList";
+import BoardManager from "./classes/PlayerManagers/BoardManager";
 
 export const gameState = new GameState();
 
@@ -58,8 +59,36 @@ document.querySelector("#start").addEventListener("click", () => {
 });
 
 // Roll dice on click
-boardContainer.querySelector(".dice-container").addEventListener("click", () => {
-  gameState.rollDice();
+boardContainer
+  .querySelector(".dice-container")
+  .addEventListener("click", () => {
+    gameState.rollDice();
+  });
+
+// Click board cell to go there
+const cells = document.querySelectorAll(".board-cell");
+cells.forEach((cell) => {
+  cell.addEventListener("click", handleCellClick);
 });
+
+// Handle click to drive
+function handleCellClick(event) {
+  let target = event.target;
+  while (target !== null && !target.classList.contains("board-cell"))
+    target = target.parentNode;
+
+  const cellId = target.id;
+  const newPossition = cellId.match(/\d+/);
+
+  const player = gameState.getCurrentPlayer();
+
+  if (player.hasPolowka) {
+    player.clearPlayerFromCell();
+    player.position = parseInt(newPossition[0]);
+    player.draw();
+    player.hasPolowka = false;
+    BoardManager.checkCurrentField(player);
+  } else console.log(`${player.name} nie ma polówki.`);
+}
 
 generateBoard();

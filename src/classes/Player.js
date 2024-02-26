@@ -22,6 +22,7 @@ export default class Player {
     this.respect = false;
     this.incognito = 0;
     this.cantMove = 0;
+    this.hasPolowka = false;
     this.hasKilof = false;
     this.isBlessed = false;
     this.movement = 0;

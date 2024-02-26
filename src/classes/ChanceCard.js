@@ -245,7 +245,7 @@ export default class ChanceCard {
         break;
 
       case "Polówka":
-        BoardManager.driveAnywhere(player);
+        player.hasPolowka = true;
         console.log(`${player.name} wsiada do Polówki i jedzie gdzie chce.`);
         break;
 
