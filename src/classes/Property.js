@@ -1,6 +1,5 @@
 import propertyData from "../data/propertyData.json";
 import Alcohol from "./Alcohol";
-import PropertyManager from "./PlayerManagers/PropertyManager";
 
 class Property {
   constructor(data) {
@@ -87,7 +86,7 @@ class Property {
 
           // Destroy alcohol on click
           propertyAlcoholContainer.addEventListener("click", () =>
-            PropertyManager.destroyAlcohol(this.owner, this)
+            this.alcohols.destroy(this)
           );
         }
         break;

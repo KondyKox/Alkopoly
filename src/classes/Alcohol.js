@@ -1,3 +1,5 @@
+import { gameState } from "../main";
+
 export default class Alcohol {
   constructor() {
     this.type = "beer";
@@ -44,7 +46,9 @@ export default class Alcohol {
   }
 
   // Destroy 1 alcohol when player has a pickaxe
-  destroy(player, property) {
+  destroy(property) {
+    const player = gameState.getCurrentPlayer()
+
     if (!player.hasKilof) {
       console.log(`${player.name} nie ma kilofa.`);
       return false;
