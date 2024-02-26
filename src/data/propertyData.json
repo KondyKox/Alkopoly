@@ -6,210 +6,9 @@
     "image": "./properties/start.png",
     "price": 300
   },
-  
+
   {
     "id": 2,
-    "name": "Asik",
-    "type": "property",
-    "image": "./properties/asik.jpg",
-    "price": 400,
-    "tax": 200,
-    "owner": null
-  },
-  
-  {
-    "id": 3,
-    "name": "Hakuna Matata",
-    "type": "property",
-    "image": "./properties/hakuna_matata.jpg",
-    "price": 200,
-    "tax": 100,
-    "owner": null
-  },
-  
-  {
-    "id": 4,
-    "name": "Remiza",
-    "type": "property",
-    "image": "./properties/remiza.jpg",
-    "price": 500,
-    "tax": 250,
-    "owner": null
-  },
-  
-  {
-    "id": 5,
-    "name": "Domek Kubusia",
-    "type": "property",
-    "image": "./properties/domek_kubusia.jpg",
-    "price": 300,
-    "tax": 150,
-    "owner": null
-  },
-  
-  {
-    "id": 6,
-    "name": "Domek Ozziego",
-    "type": "property",
-    "image": "./properties/domek_oskara.jpg",
-    "price": 300,
-    "tax": 150,
-    "owner": null
-  },
-  
-  {
-    "id": 7,
-    "name": "Domek Benia",
-    "type": "property",
-    "image": "./properties/domek_benia.jpg",
-    "price": 300,
-    "tax": 150,
-    "owner": null
-  },
-  
-  {
-    "id": 8,
-    "name": "Czerwony Pomost",
-    "type": "property",
-    "image": "./properties/czerwony_pomost.jpg",
-    "price": 500,
-    "tax": 250,
-    "owner": null
-  },
-  
-  {
-    "id": 9,
-    "name": "Karta Szansy",
-    "type": "chance",
-    "image": "./properties/chance.jpg"
-  },
-  
-  {
-    "id": 10,
-    "name": "Grzywna",
-    "type": "fine",
-    "image": "./properties/fine.png",
-    "price": 200
-  },
-  
-  {
-    "id": 11,
-    "name": "Grzywna",
-    "type": "fine",
-    "image": "./properties/fine.png",
-    "price": 200
-  },
-  
-  {
-    "id": 12,
-    "name": "Wypłata",
-    "type": "reward",
-    "image": "./properties/reward.png"
-  },
-  
-  {
-    "id": 13,
-    "name": "Zakup zioła",
-    "type": "fine",
-    "image": "./properties/weed.png",
-    "price": 200
-  },
-  
-  {
-    "id": 14,
-    "name": "Zakup alkoholu",
-    "type": "fine",
-    "image": "./properties/vodka.png",
-    "price": 100
-  },
-  
-  {
-    "id": 15,
-    "name": "Plaża",
-    "type": "property",
-    "image": "./properties/plaza.jpg",
-    "price": 200,
-    "tax": 100,
-    "owner": null
-  },
-  
-  {
-    "id": 16,
-    "name": "Dom Kondiego",
-    "type": "property",
-    "image": "./properties/kondi_dom.jpg",
-    "price": 300,
-    "tax": 200,
-    "owner": null
-  },
-  
-  {
-    "id": 17,
-    "name": "Izba wytrzeźwień",
-    "type": "jail",
-    "image": "./properties/jail.jpg"
-  },
-  
-  {
-    "id": 18,
-    "name": "Dom Kamcia",
-    "type": "property",
-    "image": "./properties/dom_kamcia.jpg",
-    "price": 300,
-    "tax": 200,
-    "owner": null
-  },
-  
-  {
-    "id": 19,
-    "name": "Zakup alkoholu",
-    "type": "fine",
-    "image": "./properties/vodka.png",
-    "price": 100
-  },
-  
-  {
-    "id": 20,
-    "name": "Plac zabaw",
-    "type": "property",
-    "image": "./properties/plac_zabaw.jpg",
-    "price": 100,
-    "tax": 50,
-    "owner": null
-  },
-  
-  {
-    "id": 21,
-    "name": "Głuchów",
-    "type": "property",
-    "image": "./properties/gluchow.jpg",
-    "price": 200,
-    "tax": 100,
-    "owner": null
-  },
-  
-  {
-    "id": 22,
-    "name": "Stare Bogaczowice",
-    "type": "property",
-    "image": "./properties/stare_bogaczowice.jpg",
-    "price": 200,
-    "tax": 100,
-    "owner": null
-  },
-  
-  {
-    "id": 23,
-    "name": "Discord",
-    "type": "property",
-    "image": "./properties/discord.jpg",
-    "price": 100,
-    "tax": 50,
-    "owner": null
-  },
-  
-  {
-    "id": 24,
     "name": "Zjeżdzalnia na plaży",
     "type": "property",
     "image": "./properties/zjezdzalnia.jpg",
@@ -217,39 +16,62 @@
     "tax": 50,
     "owner": null
   },
-  
+
   {
-    "id": 25,
-    "name": "Wałbrzych",
+    "id": 3,
+    "name": "Plac zabaw",
     "type": "property",
-    "image": "./properties/walbrzych.jpg",
+    "image": "./properties/plac_zabaw.jpg",
+    "price": 100,
+    "tax": 50,
+    "owner": null
+  },
+
+  {
+    "id": 4,
+    "name": "Zakup alkoholu",
+    "type": "fine",
+    "image": "./properties/vodka.png",
+    "price": 100
+  },
+
+  {
+    "id": 5,
+    "name": "Discord",
+    "type": "property",
+    "image": "./properties/discord.jpg",
+    "price": 100,
+    "tax": 50,
+    "owner": null
+  },
+
+  {
+    "id": 6,
+    "name": "Głuchów",
+    "type": "property",
+    "image": "./properties/gluchow.jpg",
     "price": 200,
     "tax": 100,
     "owner": null
   },
-  
+
   {
-    "id": 26,
-    "name": "Tarnów Jezierny",
-    "type": "property",
-    "image": "./properties/tarnow_jezierny.jpg",
-    "price": 1500,
-    "tax": 750,
-    "owner": null
+    "id": 7,
+    "name": "Karta Szansy",
+    "type": "chance",
+    "image": "./properties/chance.jpg"
   },
-  
+
   {
-    "id": 27,
-    "name": "Piwnica u Kamilka",
-    "type": "property",
-    "image": "./properties/piwnica_kamcia.jpg",
-    "price": 1000,
-    "tax": 500,
-    "owner": null
+    "id": 8,
+    "name": "Grzywna",
+    "type": "fine",
+    "image": "./properties/fine.png",
+    "price": 200
   },
-  
+
   {
-    "id": 28,
+    "id": 9,
     "name": "Kuźnica",
     "type": "property",
     "image": "./properties/kuznica.jpg",
@@ -257,9 +79,81 @@
     "tax": 100,
     "owner": null
   },
-  
+
   {
-    "id": 29,
+    "id": 10,
+    "name": "Wałbrzych",
+    "type": "property",
+    "image": "./properties/walbrzych.jpg",
+    "price": 200,
+    "tax": 100,
+    "owner": null
+  },
+
+  {
+    "id": 11,
+    "name": "Stare Bogaczowice",
+    "type": "property",
+    "image": "./properties/stare_bogaczowice.jpg",
+    "price": 200,
+    "tax": 100,
+    "owner": null
+  },
+
+  {
+    "id": 12,
+    "name": "Zakup zioła",
+    "type": "fine",
+    "image": "./properties/weed.png",
+    "price": 200
+  },
+
+  {
+    "id": 13,
+    "name": "Hakuna Matata",
+    "type": "property",
+    "image": "./properties/hakuna_matata.jpg",
+    "price": 200,
+    "tax": 100,
+    "owner": null
+  },
+
+  {
+    "id": 14,
+    "name": "Asik",
+    "type": "property",
+    "image": "./properties/asik.jpg",
+    "price": 400,
+    "tax": 200,
+    "owner": null
+  },
+
+  {
+    "id": 15,
+    "name": "Karta Szansy",
+    "type": "chance",
+    "image": "./properties/chance.jpg"
+  },
+
+  {
+    "id": 16,
+    "name": "Plaża",
+    "type": "property",
+    "image": "./properties/plaza.jpg",
+    "price": 200,
+    "tax": 100,
+    "owner": null
+  },
+
+  {
+    "id": 17,
+    "name": "Izba wytrzeźwień",
+    "type": "jail",
+    "image": "./properties/jail.jpg"
+  },
+
+  {
+    "id": 18,
     "name": "Jacuzzi",
     "type": "property",
     "image": "./properties/jacuzzi.jpg",
@@ -267,28 +161,134 @@
     "tax": 100,
     "owner": null
   },
-  
+
+  {
+    "id": 19,
+    "name": "Dom Mikiego",
+    "type": "property",
+    "image": "./properties/dom_mikiego.jpg",
+    "price": 300,
+    "tax": 150,
+    "owner": null
+  },
+
+  {
+    "id": 20,
+    "name": "Zakup alkoholu",
+    "type": "fine",
+    "image": "./properties/vodka.png",
+    "price": 100
+  },
+
+  {
+    "id": 21,
+    "name": "Dom Kamcia",
+    "type": "property",
+    "image": "./properties/dom_kamcia.jpg",
+    "price": 300,
+    "tax": 200,
+    "owner": null
+  },
+
+  {
+    "id": 22,
+    "name": "Dom Kondiego",
+    "type": "property",
+    "image": "./properties/kondi_dom.jpg",
+    "price": 300,
+    "tax": 200,
+    "owner": null
+  },
+
+  {
+    "id": 23,
+    "name": "Wypłata",
+    "type": "reward",
+    "image": "./properties/reward.png"
+  },
+
+  {
+    "id": 24,
+    "name": "Grzywna",
+    "type": "fine",
+    "image": "./properties/fine.png",
+    "price": 200
+  },
+
+  {
+    "id": 25,
+    "name": "Domek Benia",
+    "type": "property",
+    "image": "./properties/domek_benia.jpg",
+    "price": 300,
+    "tax": 150,
+    "owner": null
+  },
+
+  {
+    "id": 26,
+    "name": "Domek Kubusia",
+    "type": "property",
+    "image": "./properties/domek_kubusia.jpg",
+    "price": 300,
+    "tax": 150,
+    "owner": null
+  },
+
+  {
+    "id": 27,
+    "name": "Domek Ozziego",
+    "type": "property",
+    "image": "./properties/domek_oskara.jpg",
+    "price": 300,
+    "tax": 150,
+    "owner": null
+  },
+
+  {
+    "id": 28,
+    "name": "Czerwony Pomost",
+    "type": "property",
+    "image": "./properties/czerwony_pomost.jpg",
+    "price": 500,
+    "tax": 250,
+    "owner": null
+  },
+
+  {
+    "id": 29,
+    "name": "Remiza",
+    "type": "property",
+    "image": "./properties/remiza.jpg",
+    "price": 500,
+    "tax": 250,
+    "owner": null
+  },
+
   {
     "id": 30,
-    "name": "Karta Szansy",
-    "type": "chance",
-    "image": "./properties/chance.jpg"
+    "name": "Piwnica u Kamilka",
+    "type": "property",
+    "image": "./properties/piwnica_kamcia.jpg",
+    "price": 1000,
+    "tax": 500,
+    "owner": null
   },
-  
+
   {
     "id": 31,
     "name": "Karta Szansy",
     "type": "chance",
     "image": "./properties/chance.jpg"
   },
-  
+
   {
     "id": 32,
-    "name": "Dom Mikiego",
+    "name": "Tarnów Jezierny",
     "type": "property",
-    "image": "./properties/dom_mikiego.jpg",
-    "price": 300,
-    "tax": 150,
+    "image": "./properties/tarnow_jezierny.jpg",
+    "price": 1500,
+    "tax": 750,
     "owner": null
   }
 ]
