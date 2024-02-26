@@ -100,7 +100,7 @@ export default class Alcohol {
   }
 
   // Reset values after player bankruptcy
-  resetAfterBankruptcy() {
+  resetAlcohol() {
     this.quantity = 0;
     this.resetToBeer();
   }

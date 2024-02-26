@@ -48,7 +48,9 @@ export default class PropertyManager {
       propertyToSell.tax * propertyToSell.alcohols.taxMultiplier;
 
     player.addMoney(sellingPrice);
+    player.properties[propertyId].resetProperty();
     delete player.properties[propertyId];
+    updateBoard();
     alert(`Sprzedano ${propertyToSell.name} za ${sellingPrice}`);
   }
 

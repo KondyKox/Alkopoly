@@ -18,10 +18,10 @@ class Property {
   }
 
   // Reset values after player bankruptcy
-  resetAfterBankruptcy() {
+  resetProperty() {
     this.owner = null;
     this.background = "none";
-    this.alcohols.resetAfterBankruptcy();
+    this.alcohols.resetAlcohol();
   }
 
   // Display property card

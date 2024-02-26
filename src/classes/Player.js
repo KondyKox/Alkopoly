@@ -145,7 +145,7 @@ export default class Player {
     this.isBankrupt = true;
 
     Object.values(this.properties).forEach((property) => {
-      property.resetAfterBankruptcy();
+      property.resetProperty();
     });
 
     delete gameState.players[this.id];
