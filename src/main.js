@@ -13,7 +13,7 @@ import "../styles/components/lobby.css";
 // JS
 import GameState from "./classes/GameState";
 import Player from "./classes/Player";
-import generateBoard from "./utils/board";
+import generateBoard, { boardContainer } from "./utils/board";
 import renderPlayersInLobby from "./utils/lobby";
 import "./utils/sideMenu";
 import "./utils/pawnList";
@@ -58,7 +58,7 @@ document.querySelector("#start").addEventListener("click", () => {
 });
 
 // Roll dice on click
-document.querySelector(".dice-container").addEventListener("click", () => {
+boardContainer.querySelector(".dice-container").addEventListener("click", () => {
   gameState.rollDice();
 });
 

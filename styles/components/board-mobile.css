@@ -35,7 +35,7 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translate(-50%, 300%);
+    transform: translate(-50%, 50%);
   }
 
   .board-cell {

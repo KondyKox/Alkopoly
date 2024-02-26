@@ -1,3 +1,5 @@
+import { boardContainer } from "../utils/board";
+
 export default class GameState {
   constructor() {
     this.players = {};
@@ -62,9 +64,9 @@ export default class GameState {
     this.areDiceRolled = true;
 
     // Dice result
-    const diceResultEl = document.querySelector(".dice-result");
+    const diceResultEl = boardContainer.querySelector(".dice-result");
     const diceResult = Math.floor(Math.random() * 6) + 1;
-    diceResultEl.innerHTML = diceResult;
+    diceResultEl.textContent = diceResult;
 
     const currentPlayer = this.getCurrentPlayer();
     console.log(`${currentPlayer.name} wyrzucił: ${diceResult}`);

@@ -1,6 +1,11 @@
 import { board } from "../classes/Property";
 import { gameState } from "../main";
 
+export const boardContainer =
+  window.innerWidth >= 475
+    ? (boardContainer = document.querySelector(".board"))
+    : document.querySelector(".board-mobile");
+
 // Shuffle board
 function shuffleBoard() {
   const startProperty = board.find((property) => property.name === "Start");
@@ -43,7 +48,7 @@ export default function generateBoard() {
   gameState.initializeBoard(shuffledBoard);
 
   for (let i = 0; i < shuffledBoard.length; i++) {
-    const cell = document.querySelector(`#c${i + 1}`);
+    const cell = boardContainer.querySelector(`#c${i + 1}`);
     cell.style.backgroundColor = shuffledBoard[i].background;
 
     const property = shuffledBoard[i];
@@ -61,7 +66,7 @@ export default function generateBoard() {
 
 export function updateBoard() {
   for (let i = 0; i < gameState.board.length; i++) {
-    const cell = document.querySelector(`#c${i + 1}`);
+    const cell = boardContainer.querySelector(`#c${i + 1}`);
 
     // Find current field and change color
     if (cell.style.backgroundColor !== gameState.board[i].background) {

@@ -1,5 +1,5 @@
 import { gameState } from "../main";
-import { updateBoard } from "../utils/board";
+import { boardContainer, updateBoard } from "../utils/board";
 import BoardManager from "./PlayerManagers/BoardManager";
 import PropertyManager from "./PlayerManagers/PropertyManager";
 
@@ -42,7 +42,7 @@ export default class Player {
   // Remove player from current cell
   clearPlayerFromCell() {
     // Remove player from current position
-    const currentCell = document.querySelector(`#c${this.position}`);
+    const currentCell = boardContainer.querySelector(`#c${this.position}`);
     const playerEl = currentCell.querySelector(".player");
 
     if (playerEl) currentCell.removeChild(playerEl);
@@ -65,13 +65,12 @@ export default class Player {
     const playerElement = document.createElement("div");
     playerElement.className = "player";
     playerElement.style.backgroundColor = this.color;
-    playerElement.style.filter = `drop-shadow(0 0 1em ${this.color})`;
     playerElement.innerHTML = `
       <div class="player-name">${this.name}</div> 
       <img class="player-pawn" src="${this.pawn}" alt="${this.name}">
     `;
 
-    const cell = document.querySelector(`#c${this.position}`);
+    const cell = boardContainer.querySelector(`#c${this.position}`);
     cell.appendChild(playerElement);
   }
 
