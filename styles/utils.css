@@ -63,3 +63,10 @@
   background-color: var(--clr-red);
   filter: drop-shadow(0 0 1em var(--clr-red));
 }
+
+/* xs */
+@media (max-width: 475px) {
+  .btn {
+    font-size: var(--size-xxs);
+  }
+}

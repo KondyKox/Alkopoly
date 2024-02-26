@@ -64,3 +64,39 @@
   position: fixed;
   bottom: 1em;
 }
+
+/* xs */
+@media (max-width: 475px) {
+  .lobby {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 17em;
+    height: 15em;
+    /* padding: 2em 1em; */
+  }
+
+  .registered-players {
+    max-height: 10em;
+  }
+
+  .lobby__player {
+    padding: 0.25em;
+    height: 4em;
+    width: 2em;
+  }
+
+  .lobby__player-img {
+    max-width: 2em;
+    max-height: 2em;
+  }
+
+  .lobby__player-name {
+    font-size: var(--size-base);
+  }
+}

@@ -2,6 +2,7 @@
 import "../styles/style.css";
 import "../styles/utils.css";
 import "../styles/components/board.css";
+import "../styles/components/board-mobile.css";
 import "../styles/components/propertyCard.css";
 import "../styles/components/sideMenu.css";
 import "../styles/components/chanceCard.css";

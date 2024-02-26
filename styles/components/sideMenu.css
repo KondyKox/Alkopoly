@@ -203,10 +203,19 @@
 /* xs */
 @media (max-width: 475px) {
   .side-menu {
-    max-width: 20em;
+    max-width: 15em;
     height: 90%;
     padding: 2em;
-    margin: 0 1em;
+    margin: auto;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 1.5em;
+    margin: 1em;
+    font-size: var(--size-sm);
   }
 
   .close-button {

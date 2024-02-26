@@ -1,0 +1,58 @@
+.board-mobile {
+  display: none;
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .board {
+    display: none;
+  }
+
+  .board-mobile {
+    position: relative;
+    padding: 1em;
+    margin: auto;
+    /* max-width: 85%; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .current-player__title {
+    font-size: var(--size-sm);
+  }
+
+  .logo-board {
+    max-width: 15em;
+  }
+
+  .dice {
+    max-width: 5em;
+  }
+
+  .dice-result {
+    font-size: var(--size-sm);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 300%);
+  }
+
+  .board-cell {
+    width: 5em;
+    height: 2.5em;
+    padding: 0.1em;
+  }
+
+  .property-name {
+    font-size: var(--size-xxs);
+  }
+
+  .property-image {
+    position: relative;
+    width: 70%;
+    height: auto;
+    min-height: 0;
+    max-height: 2em;
+  }
+}
