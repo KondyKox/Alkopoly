@@ -3,7 +3,7 @@ import { gameState } from "../main";
 
 export const boardContainer =
   window.innerWidth >= 475
-    ? (boardContainer = document.querySelector(".board"))
+    ? document.querySelector(".board")
     : document.querySelector(".board-mobile");
 
 // Shuffle board
