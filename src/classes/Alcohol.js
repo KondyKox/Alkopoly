@@ -108,7 +108,7 @@ export default class Alcohol {
   // Reset to initial beer state
   resetToBeer() {
     this.type = "beer";
-    this.price = 350;
+    this.price = 250;
     this.image.src = "./game_pieces/alkohol/beer.png";
     this.updateTaxMultiplier();
   }
