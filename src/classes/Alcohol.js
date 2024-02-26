@@ -2,7 +2,7 @@ export default class Alcohol {
   constructor() {
     this.type = "beer";
     this.quantity = 0;
-    this.price = 350;
+    this.price = 250;
     this.image = new Image();
     this.image.src = "./game_pieces/alkohol/beer.png";
 
@@ -88,7 +88,7 @@ export default class Alcohol {
   changeBeerIntoVodka() {
     this.type = "vodka";
     this.quantity = 1;
-    this.price = 750;
+    this.price = 650;
     this.image.src = "./game_pieces/alkohol/vodka.png";
     // this.updateTaxMultiplier();
   }

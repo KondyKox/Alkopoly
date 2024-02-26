@@ -21,18 +21,18 @@ export default class PropertyManager {
   }
 
   // Sell property
-  static sellProperty(player) {
+  static sellProperty(player, tax) {
     if (Object.keys(player.properties).length === 0) {
       alert("Nie posiadasz żadnych nieruchomości do sprzedaży.");
       player.bankruptcy();
       return;
     }
 
-    let propertiesList = "Twoje posiadłości:\n";
+    let propertiesList = `Podatek wynosi: ${tax}zł\nTwoje posiadłości:\n`;
     Object.values(player.properties).forEach((property) => {
       propertiesList += `ID: ${property.id}, ${property.name}, Zarobisz: ${
         property.tax * property.alcohols.taxMultiplier
-      }`;
+      }zł.\n`;
     });
 
     const propertyId = prompt(`Wybierz ID, żeby sprzedać:\n${propertiesList}`);
@@ -55,7 +55,7 @@ export default class PropertyManager {
   // Pay taxes to other player
   static payTaxes(propertyOwner, taxpayer, tax) {
     if (!taxpayer.isSIGMA) {
-      if (taxpayer.money <= 0) this.sellProperty(taxpayer);
+      if (taxpayer.money <= 0) this.sellProperty(taxpayer, tax);
 
       // If taxpayer has respect he pays only half
       let taxToPay = !taxpayer.respect ? tax : Math.floor(tax / 2);
