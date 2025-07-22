@@ -1,4 +1,4 @@
-import type { TileProps } from "../../types/TileProps";
+import type { TileProps } from "../types/TileProps";
 
 export const mapTilesToGrid = (tiles: TileProps[]): (TileProps | null)[] => {
   const grid = Array(91).fill(null); // Wszystkie pola (też te puste)

@@ -1,6 +1,6 @@
 import type { Socket } from "socket.io";
-import type { Pawn } from "../types/GameState";
-import { addPlayer, alkopolyState } from "./gameState";
+import { addPlayer, alkopolyState } from "../game/gameState";
+import type { Pawn } from "../../types/GameState";
 
 export const handleAlkopolySocket = (socket: Socket) => {
   socket.on("joinGame", ({ name, pawn }: { name: string; pawn: Pawn }) => {

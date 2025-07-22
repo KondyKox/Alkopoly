@@ -1,5 +1,5 @@
 import type { AlkopolyPlayer } from "../../types/GameState";
-import styles from "../../styles/Player.module.css";
+import styles from "../../styles/game/Player.module.css";
 
 const Player = ({ player }: { player: AlkopolyPlayer }) => {
   return (

@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import { Server } from "socket.io";
-import { handleAlkopolySocket } from "./lib/socketHandlers";
+import { handleAlkopolySocket } from "./sockets/socketHandlers";
 
 const vite_url = process.env.VITE_URL || "http://localhost:5173";
 
@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Server working on http://localhost:${PORT}`);
 });

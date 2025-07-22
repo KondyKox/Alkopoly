@@ -4,7 +4,7 @@ import styles from "../../styles/modal/JoinModal.module.css";
 import type { JoinModalProps } from "../../types/ModalProps";
 import type { Pawn } from "../../types/GameState";
 import Modal from "./Modal";
-import socket from "../../lib/sockets";
+import socket from "../../server/sockets/sockets";
 import InputGroup from "../ui/InputGroup";
 import Button from "../ui/Button";
 

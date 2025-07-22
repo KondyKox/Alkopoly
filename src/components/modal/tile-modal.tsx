@@ -1,7 +1,7 @@
 import Modal from "./Modal";
 import styles from "../../styles/modal/TileModal.module.css";
 import { useState } from "react";
-import { buyProperty } from "../../lib/utils/property";
+import { buyProperty } from "../../utils/property";
 import Button from "../ui/Button";
 import type { TileModalProps } from "../../types/ModalProps";
 

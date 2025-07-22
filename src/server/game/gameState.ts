@@ -1,5 +1,5 @@
-import type { AlkopolyPlayer, GameState, Pawn } from "../types/GameState";
-import { generateTiles } from "./utils/generateTiles";
+import type { AlkopolyPlayer, GameState, Pawn } from "../../types/GameState";
+import { generateTiles } from "../../utils/generateTiles";
 
 export const alkopolyState: GameState = {
   players: {},

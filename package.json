@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
-    "dev:server": "nodemon --watch src --ext ts --exec ts-node --project tsconfig.node.json src/index.ts",
+    "dev:server": "nodemon --watch src --ext ts --exec ts-node --project tsconfig.node.json src/server/index.ts",
     "dev:client": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

@@ -1,6 +1,6 @@
 import type { TileProps } from "../../types/TileProps";
 import TileModal from "../modal/tile-modal";
-import styles from "../../styles/Board.module.css";
+import styles from "../../styles/game/Board.module.css";
 import { useState } from "react";
 
 const Tile = ({ tile }: { tile: TileProps }) => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import socket from "./lib/sockets";
+import socket from "./server/sockets/sockets";
 import type { TileProps } from "./types/TileProps";
 import type { AlkopolyPlayer } from "./types/GameState";
 import JoinModal from "./components/modal/join-modal";

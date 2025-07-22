@@ -1,6 +1,6 @@
-import { mapTilesToGrid } from "../../lib/utils/mapTilesToGrid";
+import { mapTilesToGrid } from "../../utils/mapTilesToGrid";
 import type { BoardProps } from "../../types/BoardProps";
-import styles from "../../styles/Board.module.css";
+import styles from "../../styles/game/Board.module.css";
 import Tile from "./Tile";
 
 const Board = ({ tiles }: BoardProps) => {
