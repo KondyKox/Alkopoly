@@ -21,7 +21,7 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(`🟢 New connection: ${socket.id}`);
 
-  handleAlkopolySocket(socket);
+  handleAlkopolySocket(io, socket);
 
   socket.on("disconnect", () => {
     console.log(`🔴 Disconnect: ${socket.id}`);

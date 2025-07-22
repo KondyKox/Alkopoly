@@ -10,6 +10,7 @@ function App() {
   const [tiles, setTiles] = useState<TileProps[]>([]);
   const [players, setPlayers] = useState<AlkopolyPlayer[]>([]);
   const [joined, setJoined] = useState<boolean>(false);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
 
   useEffect(() => {
     const onConnect = () => console.log("🎉 Socket is working!");
@@ -25,6 +26,7 @@ function App() {
       const playersArray: AlkopolyPlayer[] = Object.values(state.players);
       setPlayers(playersArray);
       setTiles(state.tiles);
+      setGameStarted(state.gameStarted);
     });
 
     return () => {
@@ -38,7 +40,7 @@ function App() {
         {!joined ? (
           <JoinModal joined={joined} setJoined={setJoined} />
         ) : (
-          <Lobby joined={joined} players={players} />
+          <Lobby joined={joined} players={players} gameStarted={gameStarted} />
         )}
         <Board tiles={tiles} />
       </div>

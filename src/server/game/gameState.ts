@@ -8,6 +8,7 @@ export const alkopolyState: GameState = {
   tiles: generateTiles(),
 };
 
+// Add new player
 export const addPlayer = (id: string, name: string, pawn: Pawn) => {
   if (alkopolyState.players[id]) return; // exists
 
@@ -24,4 +25,9 @@ export const addPlayer = (id: string, name: string, pawn: Pawn) => {
   alkopolyState.players[id] = newPlayer;
 
   if (!alkopolyState.currentPlayerId) alkopolyState.currentPlayerId = id;
+};
+
+// Start game
+export const startGame = () => {
+  alkopolyState.gameStarted = true;
 };

@@ -15,6 +15,7 @@ export interface JoinModalProps {
 export interface LobbyProps {
   joined: boolean; // display lobby when joined
   players: AlkopolyPlayer[];
+  gameStarted: boolean;
 }
 
 export interface TileModalProps extends Omit<ModalProps, "children"> {
