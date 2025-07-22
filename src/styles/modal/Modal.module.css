@@ -1,0 +1,34 @@
+.modal__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-purple-transparent);
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-gradient);
+  border-radius: 20px;
+  padding: 4rem 8rem;
+  position: relative;
+  width: fit-content;
+  max-width: calc(100% / 2);
+  min-width: 300px;
+  overflow: hidden;
+}
+
+.modal__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: fit-content;
+}

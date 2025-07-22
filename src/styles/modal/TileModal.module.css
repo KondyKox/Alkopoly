@@ -1,0 +1,120 @@
+.tileModal__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  min-height: 600px;
+  min-width: 600px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tileModal__container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: background 0.3s ease-in-out;
+}
+
+.tileModal__container:hover::before {
+  background-color: var(--bg-purple-transparent);
+}
+
+.tileModal__hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.tileModal__header {
+  color: var(--text-secondary);
+  font-size: var(--font-xl);
+}
+
+.tileModal__owner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tileModal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1;
+}
+
+.tileModal__content::before {
+  content: "";
+  background-color: var(--bg-pink-transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 150px;
+}
+
+.tileModal__description {
+  text-align: center;
+  color: var(--text-hover);
+  max-width: 15rem;
+  z-index: 1;
+}
+
+.tileModal__info {
+  letter-spacing: 0.3rem;
+  z-index: 1;
+}
+
+.tileModal__price {
+  color: var(--text-price);
+  font-weight: 700;
+}
+
+.tileModal__tax {
+  color: var(--text-tax);
+  font-weight: 700;
+}
+
+.tileModal__btn {
+  box-shadow: 0 0 2px 3px var(--bg-pink);
+  width: 100%;
+}
+
+.tileModal__btn:hover {
+  box-shadow: none;
+}
+
+.confirm__container {
+  text-align: center;
+}
+
+.confirm__container span {
+  color: var(--text-hover);
+  font-weight: 900;
+}
+
+.confirm__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--text-primary);
+}

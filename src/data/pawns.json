@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Ano Kondy",
+    "imageSrc": "./pawns/kondy/kondy_ano.png"
+  },
+  {
+    "name": "Kondy Dupka",
+    "imageSrc": "./pawns/kondy/kondy_dupka.png"
+  },
+  {
+    "name": "Emo Kondy",
+    "imageSrc": "./pawns/kondy/kondy_emo.png"
+  },
+  {
+    "name": "Kondy Essa",
+    "imageSrc": "./pawns/kondy/kondy_essa.png"
+  },
+  {
+    "name": "Mały Kondy",
+    "imageSrc": "./pawns/kondy/kondy_gowniarz.png"
+  },
+  {
+    "name": "Jamajka",
+    "imageSrc": "./pawns/kondy/kondy_jamajka.png"
+  },
+  {
+    "name": "Kondy - Perełka Chmielowa",
+    "imageSrc": "./pawns/kondy/kondy_perla.png"
+  },
+  {
+    "name": "Kondy <3 Żubrówka",
+    "imageSrc": "./pawns/kondy/kondy_zubrowka.png"
+  },
+
+  {
+    "name": "Kamcio z Kukłą",
+    "imageSrc": "./pawns/kamcio/kamcio_kukla.png"
+  },
+  {
+    "name": "Kamcio - jest moc!",
+    "imageSrc": "./pawns/kamcio/kamcio_moc.png"
+  },
+  {
+    "name": "Kamcio ze szlugiem",
+    "imageSrc": "./pawns/kamcio/kamcio_szlug.png"
+  },
+
+  {
+    "name": "Ozzi Dziwka",
+    "imageSrc": "./pawns/ozzi/ozzi_dziwka.png"
+  },
+  {
+    "name": "Spiąca Królewna",
+    "imageSrc": "./pawns/ozzi/ozzi_spiaca_krolewna.png"
+  },
+  {
+    "name": "Ozzi w staniku",
+    "imageSrc": "./pawns/ozzi/ozzi_stanik.png"
+  },
+  {
+    "name": "Ależ mięśnie",
+    "imageSrc": "./pawns/ozzi/ozzi_szesciopak.png"
+  },
+
+  {
+    "name": "Olga ADHD",
+    "imageSrc": "./pawns/olga/olga_adhd.png"
+  },
+  {
+    "name": "Olga Chillera",
+    "imageSrc": "./pawns/olga/olga_chillera.png"
+  },
+  {
+    "name": "Chuj wie co",
+    "imageSrc": "./pawns/olga/olga_chuj_wie_co.png"
+  },
+  {
+    "name": "Olga oksy",
+    "imageSrc": "./pawns/olga/olga_oksy.png"
+  },
+
+  {
+    "name": "Wika w sukience",
+    "imageSrc": "./pawns/wika/wika_sukienka.png"
+  },
+  {
+    "name": "Zdziwiona Wiktoria Mazela",
+    "imageSrc": "./pawns/wika/wika_zdziwienie.png"
+  },
+
+  {
+    "name": "Kamil się opala",
+    "imageSrc": "./pawns/kamil/kamil_opalanie.png"
+  },
+
+  {
+    "name": "Zamaskowany Perłą Chmielową",
+    "imageSrc": "./pawns/szczepan/szczepan_perla.png"
+  },
+  {
+    "name": "Szczepan z cudem świata",
+    "imageSrc": "./pawns/szczepan/szczepan_zubrowka.png"
+  },
+
+  {
+    "name": "Wiktor Idol",
+    "imageSrc": "./pawns/wiktor/wiktor_panda.png"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "dist-node",
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@alkopoly/*": ["alkopoly/*"],
+      "@ano/*": ["ano/*"]
+    },
+
+    "resolveJsonModule": true, // bez tego nie czyta plików JSON i wywala błąd
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,306 @@
+[
+  {
+    "name": "Start",
+    "type": "start",
+    "imageSrc": "./properties/start.png",
+    "description": "Tu zaczynasz."
+  },
+
+  {
+    "name": "Discord",
+    "type": "property",
+    "imageSrc": "./properties/discord.jpg",
+    "description": "Magiczne miejsce pełne nienawiści.",
+    "price": 100,
+    "tax": 50
+  },
+
+  {
+    "name": "Krzesło Gamingowe",
+    "type": "property",
+    "imageSrc": "./properties/krzeslo_gamingowe.jpg",
+    "description": "Rozjebane plecy gwarantowane.",
+    "price": 100,
+    "tax": 50
+  },
+
+  {
+    "name": "Hamak",
+    "type": "property",
+    "imageSrc": "./properties/hamak.jpg",
+    "description": "Szczyt inżynierii.",
+    "price": 500,
+    "tax": 200
+  },
+
+  {
+    "name": "Zakup alkoholu",
+    "type": "fine",
+    "imageSrc": "./properties/vodka.png",
+    "description": "Alkohol jest jak wróg - trzeba go lać w mordę.",
+    "tax": 100
+  },
+
+  {
+    "name": "Kuźnica",
+    "type": "property",
+    "imageSrc": "./properties/kuznica.jpg",
+    "description": "Jakieś tam zadupie.",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Karta Szansy",
+    "type": "chance",
+    "imageSrc": "./properties/chance.jpg",
+    "description": "Ciągnij szansę."
+  },
+
+  {
+    "name": "Głuchów",
+    "type": "property",
+    "imageSrc": "./properties/gluchow.jpg",
+    "description": "Dobra miejscówka.",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Zakup zioła",
+    "type": "fine",
+    "imageSrc": "./properties/weed.png",
+    "description": "Riki tiki narkotyki.",
+    "tax": 200
+  },
+
+  {
+    "name": "Zjeżdzalnia na plaży",
+    "type": "property",
+    "imageSrc": "./properties/zjezdzalnia.jpg",
+    "description": "Dobry punkt dla skoków do wody.",
+    "price": 100,
+    "tax": 50
+  },
+
+  {
+    "name": "Plaża",
+    "type": "property",
+    "imageSrc": "./properties/plaza.jpg",
+    "description": "Miejsce do chlania i ćpania (i do kąpania przy okazji).",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Czerwony Pomost",
+    "type": "property",
+    "imageSrc": "./properties/czerwony_pomost.jpg",
+    "description": "Czerwieńszy niż nos pijaka po tygodniowym maratonie.",
+    "price": 500,
+    "tax": 250
+  },
+
+  {
+    "name": "Wypłata",
+    "type": "reward",
+    "imageSrc": "./properties/reward.png",
+    "description": "Dostajesz wypłatę mordeczko."
+  },
+
+  {
+    "name": "Plac zabaw",
+    "type": "property",
+    "imageSrc": "./properties/plac_zabaw.jpg",
+    "description": "Plac zabaw, chlania, ćpania i w sumie wszystkiego.",
+    "price": 100,
+    "tax": 50
+  },
+
+  {
+    "name": "Remiza",
+    "type": "property",
+    "imageSrc": "./properties/remiza.jpg",
+    "description": "Cudowne miejsce, dla osób z klasą.",
+    "price": 500,
+    "tax": 250
+  },
+
+  {
+    "name": "Karta Szansy",
+    "type": "chance",
+    "imageSrc": "./properties/chance.jpg",
+    "description": "Ciągnij szansę."
+  },
+
+  {
+    "name": "Hakuna Matata",
+    "type": "property",
+    "imageSrc": "./properties/hakuna_matata.jpg",
+    "description": "'Jak cudownie to brzmi'",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Asik",
+    "type": "property",
+    "imageSrc": "./properties/asik.jpg",
+    "description": "Najlepszy sklep pod słońcem.",
+    "price": 400,
+    "tax": 200
+  },
+
+  {
+    "name": "Izba wytrzeźwień",
+    "type": "jail",
+    "imageSrc": "./properties/jail.jpg",
+    "description": "Miejsce dla takich jak ty."
+  },
+
+  {
+    "name": "Domek Benia",
+    "type": "property",
+    "imageSrc": "./properties/domek_benia.jpg",
+    "description": "Babcia już fentanyl robi.",
+    "price": 300,
+    "tax": 150
+  },
+
+  {
+    "name": "Domek Kubusia",
+    "type": "property",
+    "imageSrc": "./properties/domek_kubusia.jpg",
+    "description": "Chuj z tym domkiem, bo Ewcia go zajmuje.",
+    "price": 300,
+    "tax": 150
+  },
+
+  {
+    "name": "Domek Ozziego",
+    "type": "property",
+    "imageSrc": "./properties/domek_oskara.jpg",
+    "description": "'Idę po zasięg, wracam za pół godziny.'",
+    "price": 300,
+    "tax": 150
+  },
+
+  {
+    "name": "Zakup alkoholu",
+    "type": "fine",
+    "imageSrc": "./properties/vodka.png",
+    "description": "Alkohol jest jak wróg - trzeba go lać w mordę.",
+    "tax": 100
+  },
+
+  {
+    "name": "Jacuzzi",
+    "type": "property",
+    "imageSrc": "./properties/jacuzzi.jpg",
+    "description": "Co się dzieje w jacuzzi - zostaje w jacuzzi",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Karta Szansy",
+    "type": "chance",
+    "imageSrc": "./properties/chance.jpg",
+    "description": "Ciągnij szansę."
+  },
+
+  {
+    "name": "Piwnica u Kamilka",
+    "type": "property",
+    "imageSrc": "./properties/piwnica_kamcia.jpg",
+    "description": "Wiadro z mopa to tradycja.",
+    "price": 1000,
+    "tax": 500
+  },
+
+  {
+    "name": "Zakup zioła",
+    "type": "fine",
+    "imageSrc": "./properties/weed.png",
+    "description": "Riki tiki narkotyki.",
+    "tax": 200
+  },
+
+  {
+    "name": "Dom Mikiego",
+    "type": "property",
+    "imageSrc": "./properties/dom_mikiego.jpg",
+    "description": "Melina obok regularnie odwiedzana.",
+    "price": 300,
+    "tax": 150
+  },
+
+  {
+    "name": "Dom Kamcia",
+    "type": "property",
+    "imageSrc": "./properties/dom_kamcia.jpg",
+    "description": "Najczęściej odwiedzany burdel w Tarnowie.",
+    "price": 300,
+    "tax": 200
+  },
+
+  {
+    "name": "Dom Kondiego",
+    "type": "property",
+    "imageSrc": "./properties/kondi_dom.jpg",
+    "description": "Dom Boży",
+    "price": 300,
+    "tax": 200
+  },
+
+  {
+    "name": "Dobry Melanż",
+    "type": "fine",
+    "imageSrc": "./properties/dobry_melanz.jpg",
+    "description": "Dobry melanż był, ale to kosztowało troszkę.",
+    "tax": 300
+  },
+
+  {
+    "name": "Wrocław",
+    "type": "property",
+    "imageSrc": "./properties/wroclaw.jpg",
+    "description": "Nie mam pomysłu, ale pierwsze co widziałem we Wrocku to murzyn.",
+    "price": 400,
+    "tax": 150
+  },
+
+  {
+    "name": "Łódź",
+    "type": "property",
+    "imageSrc": "./properties/lodz.jpg",
+    "description": "Emiraty Zgierskie",
+    "price": 500,
+    "tax": 200
+  },
+
+  {
+    "name": "Karta Szansy",
+    "type": "chance",
+    "imageSrc": "./properties/chance.jpg",
+    "description": "Ciągnij szansę."
+  },
+
+  {
+    "name": "Wałbrzych",
+    "type": "property",
+    "imageSrc": "./properties/walbrzych.jpg",
+    "description": "Miasto przez Boga zapomniane.",
+    "price": 200,
+    "tax": 100
+  },
+
+  {
+    "name": "Tarnów Jezierny",
+    "type": "property",
+    "imageSrc": "./properties/tarnow_jezierny.jpg",
+    "description": "Cudowna wioska. Stolica Polski.",
+    "price": 1500,
+    "tax": 750
+  }
+]

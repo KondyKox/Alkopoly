@@ -1,0 +1,26 @@
+.btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  /* border: 1px solid var(--text-primary); */
+  border-radius: 20px;
+  /* width: 100%; */
+  cursor: pointer;
+  text-align: center;
+  color: var(--text-primary);
+  background-color: transparent;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: var(--bg-pink);
+  color: var(--text-hover);
+  border-color: transparent;
+  transform: scale(1.2);
+}
+
+.btn:active {
+  background-color: var(--bg-pink-active);
+  border-color: transparent;
+}

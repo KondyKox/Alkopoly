@@ -1,0 +1,19 @@
+.loading_text {
+  color: var(--text-primary);
+  font-size: var(--font-xl);
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

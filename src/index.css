@@ -1,0 +1,104 @@
+:root {
+  --text-primary: hsl(0, 0%, 90.6%);
+  --text-secondary: hsl(340, 84.2%, 52.9%);
+  --text-hover: hsl(192, 88%, 49%);
+
+  --bg-pink: hsl(340, 80%, 60%);
+  --bg-pink-active: hsl(340, 80%, 50%);
+  --bg-pink-transparent: hsla(340, 80%, 50%, 0.5);
+  --bg-purple: hsl(280, 60%, 25%);
+  --bg-purple-active: hsl(280, 60%, 50%);
+  --bg-purple-transparent: hsla(280, 60%, 25%, 0.8);
+  --bg-gradient: linear-gradient(135deg, var(--bg-pink), var(--bg-purple));
+
+  --font-sm: 0.85rem;
+  --font-base: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 1.75rem;
+  --font-3xl: 2rem;
+  --font-4xl: 2.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background: var(--bg-gradient);
+  background-size: 200% 200%;
+  animation: animate-bg 6s ease infinite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+/* Home Page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  font-size: var(--font-xl);
+}
+
+.home__btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 2px solid var(--bg-pink);
+  border-bottom: 2px solid var(--bg-pink);
+  padding: 2rem 1.5rem;
+}
+
+/* Animate bg */
+@keyframes animate-bg {
+  0% {
+    background-position: 0% 50%;
+    translate: rotate(0deg);
+  }
+  50% {
+    background-position: 100% 100%;
+    translate: rotate(180deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    translate: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    font-size: var(--font-3xl);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    font-size: var(--font-4xl);
+  }
+}
