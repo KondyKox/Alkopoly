@@ -30,6 +30,7 @@ export default class GameStateManager {
   getTiles(): TileProps[] {
     return [...this.tiles];
   }
+  // ----------------------------------------------
 
   // METODY
   addPlayer(id: string, player: AlkopolyPlayer): void {
@@ -37,7 +38,26 @@ export default class GameStateManager {
     if (Object.keys(this.players).length === 1) this.currentPlayerId = id;
   }
 
+  renderBoard() {
+    // Clear players from tiles
+    this.tiles.forEach((tile) => {
+      tile.players = [];
+    });
+
+    // Render players on tiles
+    this.getPlayersArray().forEach((player) => {
+      const tile = this.findTile(player.position);
+      tile.players.push(player);
+    });
+  }
+
   startGame(): void {
     this.gameStarted = true;
+    this.renderBoard();
+  }
+
+  // HELPERS
+  findTile(id: number): TileProps {
+    return this.tiles.find((t) => t.id === id)!;
   }
 }

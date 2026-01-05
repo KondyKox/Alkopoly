@@ -78,6 +78,7 @@
 
 .tileModal__info {
   letter-spacing: 0.3rem;
+  position: relative;
   z-index: 1;
 }
 
@@ -89,6 +90,19 @@
 .tileModal__tax {
   color: var(--text-tax);
   font-weight: 700;
+}
+
+.tileModal_players {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tileModal__container:hover .tileModal_players {
+  opacity: 1;
 }
 
 .tileModal__btn {

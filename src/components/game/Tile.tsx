@@ -2,6 +2,7 @@ import type { TileProps } from "../../types/TileProps";
 import TileModal from "../modal/tile-modal";
 import styles from "../../styles/game/Board.module.css";
 import { useState } from "react";
+import PlayerPawn from "./PlayerPawn";
 
 const Tile = ({ tile }: { tile: TileProps }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -14,6 +15,10 @@ const Tile = ({ tile }: { tile: TileProps }) => {
         onClick={() => setIsOpen(true)}
       >
         <h6 className={styles.tile__header}>{tile.name}</h6>
+        <div className={styles.players__container}>
+          {tile.players &&
+            tile.players.map((player) => <PlayerPawn player={player} />)}
+        </div>
         <div className={styles.tile__info}>
           {tile.type === "property"
             ? !tile.owner && (

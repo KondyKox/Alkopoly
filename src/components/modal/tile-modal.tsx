@@ -4,6 +4,7 @@ import { useState } from "react";
 import { buyProperty } from "../../utils/property";
 import Button from "../ui/Button";
 import type { TileModalProps } from "../../types/ModalProps";
+import PlayerPawn from "../game/PlayerPawn";
 
 const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   if (!isOpen) return null;
@@ -33,6 +34,16 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
             </div>
           )}
         </div>
+        {/* TODO: ZMIENIC JAKOS USTAWIENIE GRACZY */}
+        {tile.players && (
+          <div className={styles.tileModal_players}>
+            {tile.players.map((player) => (
+              <div key={player.id}>
+                <PlayerPawn player={player} />
+              </div>
+            ))}
+          </div>
+        )}
         <div className={styles.tileModal__content}>
           <p className={styles.tileModal__description}>
             <i>{tile.description}</i>
@@ -58,6 +69,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
           </div>
         </div>
       </div>
+
       {tile.type === "property" && (
         <Button
           onClick={() => setConfirmOpen(true)}

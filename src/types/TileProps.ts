@@ -7,6 +7,7 @@ export interface TileProps {
   imageSrc: string;
   owner: AlkopolyPlayer | null;
   description: string;
+  players: AlkopolyPlayer[];
   price?: number; // buying property
   tax?: number;
 }
