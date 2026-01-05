@@ -4,7 +4,6 @@ import styles from "../../styles/modal/JoinModal.module.css";
 import type { JoinModalProps } from "../../types/ModalProps";
 import type { Pawn } from "../../types/GameState";
 import Modal from "./Modal";
-import socket from "../../server/sockets/sockets";
 import InputGroup from "../ui/InputGroup";
 import Button from "../ui/Button";
 
@@ -29,11 +28,6 @@ const JoinModal = ({ joined, setJoined }: JoinModalProps) => {
       alert("No ale we wszystko zrób dobrze a nie...");
       return;
     }
-
-    socket.emit("joinGame", {
-      name: playerName,
-      pawn: playerPawn,
-    });
 
     setJoined(true);
   };

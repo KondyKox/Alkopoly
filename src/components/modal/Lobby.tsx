@@ -3,13 +3,11 @@ import styles from "../../styles/modal/Lobby.module.css";
 import type { LobbyProps } from "../../types/ModalProps";
 import Player from "../game/Player";
 import Button from "../ui/Button";
-import socket from "../../server/sockets/sockets";
 
 const Lobby = ({ joined, players, gameStarted }: LobbyProps) => {
   if (!joined) return null;
 
   const handleStartGame = () => {
-    socket.emit("startGame");
     console.log("GAME STARTED!");
   };
 

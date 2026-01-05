@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import socket from "./server/sockets/sockets";
 import type { TileProps } from "./types/TileProps";
 import type { AlkopolyPlayer } from "./types/GameState";
 import JoinModal from "./components/modal/join-modal";
@@ -11,28 +10,6 @@ function App() {
   const [players, setPlayers] = useState<AlkopolyPlayer[]>([]);
   const [joined, setJoined] = useState<boolean>(false);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
-
-  useEffect(() => {
-    const onConnect = () => console.log("🎉 Socket is working!");
-    socket.on("connect", onConnect);
-
-    return () => {
-      socket.off("connect", onConnect); // odpinamy listener, ale NIE rozłączamy socketu!
-    };
-  }, []);
-
-  useEffect(() => {
-    socket.on("gameState", (state) => {
-      const playersArray: AlkopolyPlayer[] = Object.values(state.players);
-      setPlayers(playersArray);
-      setTiles(state.tiles);
-      setGameStarted(state.gameStarted);
-    });
-
-    return () => {
-      socket.off("gameState");
-    };
-  }, []);
 
   return (
     <main className="container">
