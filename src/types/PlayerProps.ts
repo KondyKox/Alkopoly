@@ -1,11 +1,4 @@
-import type { Property, TileProps } from "./TileProps";
-
-export interface GameState {
-  players: Record<string, AlkopolyPlayer>;
-  currentPlayerId: string;
-  gameStarted: boolean;
-  tiles: TileProps[];
-}
+import type { Property } from "./TileProps";
 
 export interface AlkopolyPlayer {
   id: string;

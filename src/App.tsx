@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
-import type { TileProps } from "./types/TileProps";
-import type { AlkopolyPlayer } from "./types/GameState";
 import JoinModal from "./components/modal/join-modal";
 import Lobby from "./components/modal/Lobby";
 import Board from "./components/game/Board";
+import { useGame } from "./context/GameStateContext";
+import { useState } from "react";
 
 function App() {
-  const [tiles, setTiles] = useState<TileProps[]>([]);
-  const [players, setPlayers] = useState<AlkopolyPlayer[]>([]);
   const [joined, setJoined] = useState<boolean>(false);
-  const [gameStarted, setGameStarted] = useState<boolean>(false);
+  const game = useGame();
 
   return (
     <main className="container">
@@ -17,9 +14,9 @@ function App() {
         {!joined ? (
           <JoinModal joined={joined} setJoined={setJoined} />
         ) : (
-          <Lobby joined={joined} players={players} gameStarted={gameStarted} />
+          <Lobby joined={joined} players={game.getPlayersArray()} />
         )}
-        <Board tiles={tiles} />
+        <Board tiles={game.tiles} />
       </div>
     </main>
   );

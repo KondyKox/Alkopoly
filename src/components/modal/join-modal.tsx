@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import pawnsData from "../../data/pawns.json";
 import styles from "../../styles/modal/JoinModal.module.css";
 import type { JoinModalProps } from "../../types/ModalProps";
-import type { Pawn } from "../../types/GameState";
+import type { AlkopolyPlayer, Pawn } from "../../types/PlayerProps";
 import Modal from "./Modal";
 import InputGroup from "../ui/InputGroup";
 import Button from "../ui/Button";
+import { useGame } from "../../context/GameStateContext";
+import Player from "../../game/player";
 
 const JoinModal = ({ joined, setJoined }: JoinModalProps) => {
   const [pawns, setPawns] = useState<Pawn[]>([]);
   const [playerName, setPlayerName] = useState<string>("");
   const [playerPawn, setPlayerPawn] = useState<Pawn | null>(null);
+  const game = useGame();
 
   useEffect(() => {
     setPawns(pawnsData);
@@ -29,6 +32,10 @@ const JoinModal = ({ joined, setJoined }: JoinModalProps) => {
       return;
     }
 
+    const playerId = (playerName + playerPawn.name).trim();
+    const player = new Player(playerId, playerName, playerPawn);
+
+    game.addPlayer(playerId, player as AlkopolyPlayer);
     setJoined(true);
   };
 

@@ -1,7 +1,7 @@
-import type { AlkopolyPlayer } from "../../types/GameState";
+import type { AlkopolyPlayer } from "../../types/PlayerProps";
 import styles from "../../styles/game/Player.module.css";
 
-const Player = ({ player }: { player: AlkopolyPlayer }) => {
+const PlayerPawn = ({ player }: { player: AlkopolyPlayer }) => {
   return (
     <div className={styles.player}>
       <img
@@ -14,4 +14,4 @@ const Player = ({ player }: { player: AlkopolyPlayer }) => {
   );
 };
 
-export default Player;
+export default PlayerPawn;

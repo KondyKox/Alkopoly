@@ -1,4 +1,4 @@
-import type { AlkopolyPlayer } from "./GameState";
+import type { AlkopolyPlayer } from "./PlayerProps";
 import type { TileProps } from "./TileProps";
 
 export interface ModalProps {
@@ -15,7 +15,6 @@ export interface JoinModalProps {
 export interface LobbyProps {
   joined: boolean; // display lobby when joined
   players: AlkopolyPlayer[];
-  gameStarted: boolean;
 }
 
 export interface TileModalProps extends Omit<ModalProps, "children"> {

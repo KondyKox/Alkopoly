@@ -1,4 +1,4 @@
-import type { AlkopolyPlayer } from "./GameState";
+import type { AlkopolyPlayer } from "./PlayerProps";
 
 export interface TileProps {
   id: number;
