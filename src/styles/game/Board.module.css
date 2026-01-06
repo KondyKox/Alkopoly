@@ -22,6 +22,33 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board__dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.board__dice img {
+  max-width: 7rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.board__dice img:hover {
+  filter: drop-shadow(0 0 1rem var(--bg-purple));
+  transform: scale(1.2);
+}
+
+.board__dice span {
+  font-size: var(--font-4xl);
+  font-weight: 700;
 }
 
 .empty_tile {

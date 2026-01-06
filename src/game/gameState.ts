@@ -51,6 +51,19 @@ export default class GameStateManager {
     });
   }
 
+  // TODO: When multiplayer - check current player turn
+  rollDice(diceResult: number) {
+    const currentPlayer = this.players[this.currentPlayerId];
+    currentPlayer.position += diceResult;
+
+    if (currentPlayer.position > this.tiles.length) {
+      const newPos = currentPlayer.position - this.tiles.length;
+      currentPlayer.position = newPos;
+    }
+
+    this.renderBoard();
+  }
+
   startGame(): void {
     this.gameStarted = true;
     this.renderBoard();

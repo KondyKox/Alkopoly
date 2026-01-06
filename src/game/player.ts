@@ -9,7 +9,7 @@ export default class Player implements AlkopolyPlayer {
   pawn: Pawn;
   money: number = START_MONEY;
   properties: Property[] = [];
-  position: number = 0;
+  position: number = 1; // First tile on board has id=1
   jailed: boolean = false;
 
   constructor(id: string, name: string, pawn: Pawn) {
