@@ -3,11 +3,13 @@ import type { TileProps } from "../types/TileProps";
 import { generateTiles } from "../utils/generateTiles";
 
 const INITIAL_TILES = generateTiles();
+const BONUS_MONEY = 400;
 
 export default class GameStateManager {
   private players: Record<string, AlkopolyPlayer> = {};
   private currentPlayerId: string = "";
   private gameStarted: boolean = false;
+  private reward: number = 0;
   public readonly tiles: TileProps[] = INITIAL_TILES;
 
   // GETTERY
@@ -33,6 +35,10 @@ export default class GameStateManager {
 
   getTiles(): TileProps[] {
     return [...this.tiles];
+  }
+
+  getReward(): number {
+    return this.reward;
   }
   // ----------------------------------------------
 
@@ -64,9 +70,11 @@ export default class GameStateManager {
     if (currentPlayer.position > this.tiles.length) {
       const newPos = currentPlayer.position - this.tiles.length;
       currentPlayer.position = newPos;
+      currentPlayer.money += BONUS_MONEY;
     }
 
     this.renderBoard();
+    this.checkTile(currentPlayer);
   }
 
   startGame(): void {
@@ -90,5 +98,29 @@ export default class GameStateManager {
   // HELPERS
   findTile(id: number): TileProps {
     return this.tiles.find((t) => t.id === id)!;
+  }
+
+  checkTile(player: AlkopolyPlayer): void {
+    const tile = this.findTile(player.position);
+
+    switch (tile.type) {
+      case "property":
+        if (tile.owner && tile.tax) player.payTax(tile.tax, tile.owner);
+        break;
+      case "fine":
+        if (!tile.tax) return;
+        player.payTax(tile.tax);
+        this.reward += tile.tax;
+        break;
+      case "reward":
+        player.money += this.reward;
+        this.reward = 0;
+        break;
+      case "chance":
+        // zrobic klase chancecard
+        break;
+      default:
+        break;
+    }
   }
 }

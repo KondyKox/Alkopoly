@@ -11,6 +11,7 @@ export interface AlkopolyPlayer {
   rolled: boolean;
 
   buyProperty: (tile: Property) => void;
+  payTax: (amount: number, toPlayer?: AlkopolyPlayer) => void;
 }
 
 export interface Pawn {
