@@ -1,5 +1,5 @@
-import type { ButtonProps } from "../../types/ButtonProps";
 import styles from "../../styles/ui/Button.module.css";
+import type { ButtonProps } from "../../types/InputProps";
 import LoadingText from "./LoadingText";
 
 // TODO: Zrobić rodzaje przycisków do  ALKOPOLY

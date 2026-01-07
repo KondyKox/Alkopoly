@@ -14,6 +14,10 @@ export interface TileProps {
 
 export type TileFromJSON = Omit<TileProps, "id">;
 
+export interface BoardProps {
+  tiles: TileProps[];
+}
+
 export type TileType =
   | "start"
   | "property"

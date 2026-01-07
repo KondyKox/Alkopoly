@@ -1,10 +1,10 @@
 import { mapTilesToGrid } from "../../utils/mapTilesToGrid";
-import type { BoardProps } from "../../types/BoardProps";
 import styles from "../../styles/game/Board.module.css";
 import Tile from "./Tile";
 import { useState } from "react";
 import Button from "../ui/Button";
 import { useGame } from "../../context/GameStateContext";
+import type { BoardProps } from "../../types/TileProps";
 
 const Board = ({ tiles }: BoardProps) => {
   const mappedGrid = mapTilesToGrid(tiles);
