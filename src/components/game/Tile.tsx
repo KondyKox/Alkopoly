@@ -1,11 +1,22 @@
 import type { TileProps } from "../../types/TileProps";
 import TileModal from "../modal/tile-modal";
 import styles from "../../styles/game/Board.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlayerPawn from "./PlayerPawn";
+import { useGame } from "../../context/GameStateContext";
 
 const Tile = ({ tile }: { tile: TileProps }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const game = useGame();
+
+  useEffect(() => {
+    if (tile.id === game.getCurrentTileToShowId()) setIsOpen(true);
+  }, [tile.id, game.getCurrentTileToShowId()]);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    game.clearCurrentTileToShow();
+  };
 
   return (
     <>
@@ -35,7 +46,7 @@ const Tile = ({ tile }: { tile: TileProps }) => {
               )}
         </div>
       </div>
-      <TileModal isOpen={isOpen} onClose={() => setIsOpen(false)} tile={tile} />
+      <TileModal isOpen={isOpen} onClose={() => handleClose()} tile={tile} />
     </>
   );
 };

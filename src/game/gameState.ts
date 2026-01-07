@@ -9,8 +9,9 @@ export default class GameStateManager {
   private players: Record<string, AlkopolyPlayer> = {};
   private currentPlayerId: string = "";
   private gameStarted: boolean = false;
-  private reward: number = 0;
   public readonly tiles: TileProps[] = INITIAL_TILES;
+  private reward: number = 0;
+  private currentTileToShowId: number | null = null;
 
   // GETTERY
   getPlayers(): Record<string, AlkopolyPlayer> {
@@ -40,6 +41,11 @@ export default class GameStateManager {
   getReward(): number {
     return this.reward;
   }
+
+  getCurrentTileToShowId(): number | null {
+    return this.currentTileToShowId;
+  }
+
   // ----------------------------------------------
 
   // METODY
@@ -102,6 +108,7 @@ export default class GameStateManager {
 
   checkTile(player: AlkopolyPlayer): void {
     const tile = this.findTile(player.position);
+    this.currentTileToShowId = tile.id;
 
     switch (tile.type) {
       case "property":
@@ -122,5 +129,9 @@ export default class GameStateManager {
       default:
         break;
     }
+  }
+
+  clearCurrentTileToShow(): void {
+    this.currentTileToShowId = null;
   }
 }
