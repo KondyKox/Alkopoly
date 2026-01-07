@@ -43,13 +43,6 @@
   font-size: var(--font-xl);
 }
 
-.tileModal__owner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .tileModal__content {
   display: flex;
   flex-direction: column;

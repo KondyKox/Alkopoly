@@ -1,18 +1,29 @@
 import Modal from "./Modal";
 import styles from "../../styles/modal/TileModal.module.css";
 import { useState } from "react";
-import { buyProperty } from "../../utils/property";
 import Button from "../ui/Button";
 import type { TileModalProps } from "../../types/ModalProps";
 import PlayerPawn from "../game/PlayerPawn";
+import { useGame } from "../../context/GameStateContext";
+import type { Property } from "../../types/TileProps";
 
 const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   if (!isOpen) return null;
 
   const [isConfirmOpen, setConfirmOpen] = useState<boolean>(false);
+  const game = useGame();
 
   const handleBuyProperty = () => {
-    buyProperty(tile);
+    const currentPlayerId = game.getCurrentPlayerId();
+    const currentPlayer = game.getPlayers()[currentPlayerId];
+
+    if (currentPlayer.position != tile.id) {
+      alert("Nie jesteś na tym polu kretynie!");
+      return;
+    }
+
+    currentPlayer.buyProperty(tile as Property);
+
     setConfirmOpen(false);
   };
 
@@ -24,15 +35,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
       >
         <div className={styles.tileModal__hero}>
           <h3 className={styles.tileModal__header}>{tile.name}</h3>
-          {tile.owner && (
-            <div className={styles.tileModal__owner}>
-              <img
-                src={tile.owner.pawn.imageSrc}
-                alt={`Pionek ${tile.owner.name}`}
-              />
-              <span>{tile.owner.name}</span>
-            </div>
-          )}
+          {tile.owner && <PlayerPawn player={tile.owner} />}
         </div>
         {/* TODO: ZMIENIC JAKOS USTAWIENIE GRACZY */}
         {tile.players && (
@@ -49,28 +52,43 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
             <i>{tile.description}</i>
           </p>
           <div className={styles.tileModal__info}>
-            {tile.type === "property"
-              ? !tile.owner && (
-                  <>
-                    Zakup:{" "}
-                    <span className={styles.tileModal__price}>
-                      {tile.price}
-                    </span>
-                    zł
-                  </>
-                )
-              : tile.tax && (
-                  <>
-                    Podatek:{" "}
-                    <span className={styles.tileModal__tax}>{tile.tax}</span>
-                    zł
-                  </>
-                )}
+            {tile.type === "property" ? (
+              <>
+                {tile.owner
+                  ? // Właściciel jest – pokaz podatek
+                    tile.tax !== undefined && (
+                      <>
+                        Podatek:{" "}
+                        <span className={styles.tileModal__tax}>
+                          {tile.tax}
+                        </span>{" "}
+                        zł
+                      </>
+                    )
+                  : // Brak właściciela – cena zakupu
+                    tile.price !== undefined && (
+                      <>
+                        Zakup:{" "}
+                        <span className={styles.tileModal__price}>
+                          {tile.price}
+                        </span>{" "}
+                        zł
+                      </>
+                    )}
+              </>
+            ) : (
+              tile.tax !== undefined && (
+                <>
+                  Podatek:{" "}
+                  <span className={styles.tileModal__tax}>{tile.tax}</span> zł
+                </>
+              )
+            )}
           </div>
         </div>
       </div>
 
-      {tile.type === "property" && (
+      {tile.type === "property" && !tile.owner && (
         <Button
           onClick={() => setConfirmOpen(true)}
           className={styles.tileModal__btn}

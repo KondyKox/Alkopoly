@@ -38,7 +38,7 @@ export default class GameStateManager {
     if (Object.keys(this.players).length === 1) this.currentPlayerId = id;
   }
 
-  renderBoard() {
+  renderBoard(): void {
     // Clear players from tiles
     this.tiles.forEach((tile) => {
       tile.players = [];
@@ -52,7 +52,7 @@ export default class GameStateManager {
   }
 
   // TODO: When multiplayer - check current player turn
-  rollDice(diceResult: number) {
+  rollDice(diceResult: number): void {
     const currentPlayer = this.players[this.currentPlayerId];
     currentPlayer.position += diceResult;
 
@@ -62,11 +62,22 @@ export default class GameStateManager {
     }
 
     this.renderBoard();
+    this.nextTurn();
   }
 
   startGame(): void {
     this.gameStarted = true;
     this.renderBoard();
+  }
+
+  nextTurn(): void {
+    const playerIds = Object.keys(this.players);
+    if (playerIds.length === 0) return;
+
+    const currentIndex = playerIds.indexOf(this.currentPlayerId);
+    const nextIndex = (currentIndex + 1) % playerIds.length;
+
+    this.currentPlayerId = playerIds[nextIndex];
   }
 
   // HELPERS

@@ -17,4 +17,19 @@ export default class Player implements AlkopolyPlayer {
     this.name = name;
     this.pawn = pawn;
   }
+
+  buyProperty(tile: Property): void {
+    if (!tile.price) return;
+
+    if (this.money <= tile.price) {
+      alert("BIEDAK JESTEŚ!!!");
+      return;
+    }
+
+    this.money -= tile.price;
+    this.properties.push(tile);
+    tile.owner = this;
+
+    console.log(`${this.name} kupił ${tile.name} za ${tile.price}`);
+  }
 }
