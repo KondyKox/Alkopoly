@@ -11,6 +11,7 @@ const Board = ({ tiles }: BoardProps) => {
   const [diceResult, setDiceResult] = useState<number | null>(null);
   const [isRolling, setIsRolling] = useState<boolean>(false);
   const game = useGame();
+  const currentPlayer = game.getCurrentPlayer();
 
   const handleRollDice = () => {
     setDiceResult(null);
@@ -34,11 +35,18 @@ const Board = ({ tiles }: BoardProps) => {
       <div className={styles.alkopoly__logo}>
         <img src="./alkopoly/logo.png" alt="Logo Alkopoly" />
         <div className={styles.board__dice}>
-          <Button onClick={handleRollDice} disabled={isRolling}>
-            <img src="./alkopoly/game_pieces/dice/dice.png" alt="Kostki" />
-          </Button>
+          {!currentPlayer?.rolled && (
+            <Button onClick={handleRollDice} disabled={isRolling}>
+              <img src="./alkopoly/game_pieces/dice/dice.png" alt="Kostki" />
+            </Button>
+          )}
           <span>{diceResult}</span>
         </div>
+        {currentPlayer?.rolled && (
+          <div>
+            <Button onClick={() => game.nextTurn()}>Koniec tury</Button>
+          </div>
+        )}
       </div>
       {mappedGrid.map((tile, i) =>
         tile ? (

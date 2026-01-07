@@ -14,8 +14,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   const game = useGame();
 
   const handleBuyProperty = () => {
-    const currentPlayerId = game.getCurrentPlayerId();
-    const currentPlayer = game.getPlayers()[currentPlayerId];
+    const currentPlayer = game.getCurrentPlayer();
 
     if (currentPlayer.position != tile.id) {
       alert("Nie jesteś na tym polu kretynie!");

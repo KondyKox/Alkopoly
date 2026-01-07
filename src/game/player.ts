@@ -11,6 +11,7 @@ export default class Player implements AlkopolyPlayer {
   properties: Property[] = [];
   position: number = 1; // First tile on board has id=1
   jailed: boolean = false;
+  rolled: boolean = false;
 
   constructor(id: string, name: string, pawn: Pawn) {
     this.id = id;

@@ -8,6 +8,7 @@ export interface AlkopolyPlayer {
   properties: Property[];
   position: number;
   jailed: boolean;
+  rolled: boolean;
 
   buyProperty: (tile: Property) => void;
 }

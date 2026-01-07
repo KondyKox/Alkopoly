@@ -23,6 +23,10 @@ export default class GameStateManager {
     return this.currentPlayerId;
   }
 
+  getCurrentPlayer(): AlkopolyPlayer {
+    return this.players[this.currentPlayerId];
+  }
+
   getGameStarted(): boolean {
     return this.gameStarted;
   }
@@ -53,7 +57,8 @@ export default class GameStateManager {
 
   // TODO: When multiplayer - check current player turn
   rollDice(diceResult: number): void {
-    const currentPlayer = this.players[this.currentPlayerId];
+    const currentPlayer = this.getCurrentPlayer();
+    currentPlayer.rolled = true;
     currentPlayer.position += diceResult;
 
     if (currentPlayer.position > this.tiles.length) {
@@ -62,7 +67,6 @@ export default class GameStateManager {
     }
 
     this.renderBoard();
-    this.nextTurn();
   }
 
   startGame(): void {
@@ -71,6 +75,9 @@ export default class GameStateManager {
   }
 
   nextTurn(): void {
+    const currentPlayer = this.getCurrentPlayer();
+    currentPlayer.rolled = false;
+
     const playerIds = Object.keys(this.players);
     if (playerIds.length === 0) return;
 
