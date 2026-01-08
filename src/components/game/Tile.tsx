@@ -4,18 +4,26 @@ import styles from "../../styles/game/Board.module.css";
 import { useEffect, useState } from "react";
 import PlayerPawn from "./PlayerPawn";
 import { useGame } from "../../context/GameStateContext";
+import ChanceCard from "../modal/ChanceCard";
 
 const Tile = ({ tile }: { tile: TileProps }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [showChanceCard, setShowChanceCard] = useState<boolean>(false);
   const game = useGame();
 
   useEffect(() => {
-    if (tile.id === game.getCurrentTileToShowId()) setIsOpen(true);
+    if (tile.type === "chance") setShowChanceCard(true);
+    else if (tile.id === game.getCurrentTileToShowId()) setIsOpen(true);
   }, [tile.id, game.getCurrentTileToShowId()]);
 
-  const handleClose = () => {
+  const handleCloseTile = () => {
     setIsOpen(false);
     game.clearCurrentTileToShow();
+  };
+
+  const handleCloseChanceCard = () => {
+    setShowChanceCard(false);
+    game.clearChanceCardToShow();
   };
 
   return (
@@ -46,7 +54,16 @@ const Tile = ({ tile }: { tile: TileProps }) => {
               )}
         </div>
       </div>
-      <TileModal isOpen={isOpen} onClose={() => handleClose()} tile={tile} />
+      <TileModal
+        isOpen={isOpen}
+        onClose={() => handleCloseTile()}
+        tile={tile}
+      />
+      <ChanceCard
+        isOpen={showChanceCard}
+        onClose={() => handleCloseChanceCard()}
+        chanceCard={game.getChanceCardToShow()}
+      />
     </>
   );
 };

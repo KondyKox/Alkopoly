@@ -6,5 +6,6 @@ export const generateTiles = (): TileProps[] => {
     ...tile,
     id: index + 1,
     owner: null,
+    type: "chance", // !TESTING
   }));
 };

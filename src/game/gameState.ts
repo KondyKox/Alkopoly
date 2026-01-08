@@ -1,17 +1,26 @@
+import type { ChanceCardProps } from "../types/ChanceCardProps";
 import type { AlkopolyPlayer } from "../types/PlayerProps";
 import type { TileProps } from "../types/TileProps";
+import { generateChanceCards } from "../utils/generateChanceCards";
 import { generateTiles } from "../utils/generateTiles";
-
-const INITIAL_TILES = generateTiles();
-const BONUS_MONEY = 400;
+import { createChanceCardEffects } from "./chanceCardEffects";
 
 export default class GameStateManager {
   private players: Record<string, AlkopolyPlayer> = {};
   private currentPlayerId: string = "";
   private gameStarted: boolean = false;
-  public readonly tiles: TileProps[] = INITIAL_TILES;
-  private reward: number = 0;
+  public readonly tiles: TileProps[] = [];
+  public reward: number = 0;
   private currentTileToShowId: number | null = null;
+  private chanceCards: ChanceCardProps[] = [];
+  private chanceCardToShow: ChanceCardProps | null = null;
+  private bonusMoney = 400;
+
+  constructor() {
+    const effectsMap = createChanceCardEffects(this);
+    this.chanceCards = generateChanceCards(effectsMap);
+    this.tiles = generateTiles();
+  }
 
   // GETTERY
   getPlayers(): Record<string, AlkopolyPlayer> {
@@ -46,6 +55,10 @@ export default class GameStateManager {
     return this.currentTileToShowId;
   }
 
+  getChanceCardToShow(): ChanceCardProps | null {
+    return this.chanceCardToShow;
+  }
+
   // ----------------------------------------------
 
   // METODY
@@ -76,7 +89,7 @@ export default class GameStateManager {
     if (currentPlayer.position > this.tiles.length) {
       const newPos = currentPlayer.position - this.tiles.length;
       currentPlayer.position = newPos;
-      currentPlayer.money += BONUS_MONEY;
+      currentPlayer.money += this.bonusMoney;
     }
 
     this.renderBoard();
@@ -124,7 +137,11 @@ export default class GameStateManager {
         this.reward = 0;
         break;
       case "chance":
-        // zrobic klase chancecard
+        const randomId =
+          Math.floor(Math.random() * this.chanceCards.length) + 1;
+        const randomCard = this.chanceCards[randomId];
+        this.chanceCardToShow = randomCard;
+        randomCard.execute(player);
         break;
       default:
         break;
@@ -133,5 +150,9 @@ export default class GameStateManager {
 
   clearCurrentTileToShow(): void {
     this.currentTileToShowId = null;
+  }
+
+  clearChanceCardToShow(): void {
+    this.chanceCardToShow = null;
   }
 }

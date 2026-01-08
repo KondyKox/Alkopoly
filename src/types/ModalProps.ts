@@ -1,3 +1,4 @@
+import type { ChanceCardProps } from "./ChanceCardProps";
 import type { AlkopolyPlayer } from "./PlayerProps";
 import type { TileProps } from "./TileProps";
 
@@ -19,4 +20,8 @@ export interface LobbyProps {
 
 export interface TileModalProps extends Omit<ModalProps, "children"> {
   tile: TileProps;
+}
+
+export interface ChanceCardModal extends Omit<ModalProps, "children"> {
+  chanceCard: ChanceCardProps | null;
 }

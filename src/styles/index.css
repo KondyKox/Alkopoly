@@ -9,6 +9,7 @@
   --bg-purple: hsl(280, 60%, 25%);
   --bg-purple-active: hsl(280, 60%, 50%);
   --bg-purple-transparent: hsla(280, 60%, 25%, 0.8);
+  --bg-blue-transparent: hsla(192, 88%, 49%, 0.8);
   --bg-gradient: linear-gradient(135deg, var(--bg-pink), var(--bg-purple));
 
   --font-sm: 0.85rem;

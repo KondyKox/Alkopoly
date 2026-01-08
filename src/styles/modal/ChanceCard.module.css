@@ -1,0 +1,65 @@
+.chanceCard__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  /* padding-top: 1rem; */
+  border-radius: 10px;
+  min-height: 600px;
+  min-width: 600px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.chanceCard__img {
+  position: relative;
+  overflow: hidden;
+  max-height: 500px;
+  width: 100%;
+}
+
+.chanceCard__header {
+  background-color: var(--bg-purple-transparent);
+  padding: 1rem 0;
+  z-index: 1;
+  letter-spacing: 0.5rem;
+}
+
+.chanceCard__image img {
+  max-height: 500px;
+  width: 100%;
+}
+
+.chanceCard__image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: background 0.3s ease-in-out;
+}
+
+.chanceCard__image:hover::before {
+  background-color: var(--bg-purple-transparent);
+}
+
+.chanceCard__content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1;
+}
+
+.chanceCard__content > p {
+  padding: 1.5rem 0;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.chanceCard__text {
+  background: var(--bg-pink-transparent);
+}
+
+.chanceCard__action {
+  background: var(--bg-blue-transparent);
+}
