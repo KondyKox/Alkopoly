@@ -174,7 +174,7 @@
     "id": 20,
     "name": "Polówka",
     "text": "Polówką dojedziesz wszędzie.",
-    "action": "Udaj się na dowolne pole.",
+    "action": "Jedziesz na Tarnów Jezierny.",
     "effect": "polowka",
     "imageSrc": "./chance_cards/polowka.jpg"
   },

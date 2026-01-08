@@ -9,9 +9,19 @@ export interface AlkopolyPlayer {
   position: number;
   jailed: boolean;
   rolled: boolean;
+  respect: boolean;
+  incognito: number;
+  kilof: boolean;
+  sober: number;
+  sigma: boolean;
+  sniper: number;
+  no_i_chuj: boolean;
+  monkey: number;
 
   buyProperty: (tile: Property) => void;
   payTax: (amount: number, toPlayer?: AlkopolyPlayer) => void;
+  move: (amount: number, tileLenght: number) => void;
+  rudyChuj: () => void;
 }
 
 export interface Pawn {

@@ -14,7 +14,6 @@ export default class GameStateManager {
   private currentTileToShowId: number | null = null;
   private chanceCards: ChanceCardProps[] = [];
   private chanceCardToShow: ChanceCardProps | null = null;
-  private bonusMoney = 400;
 
   constructor() {
     const effectsMap = createChanceCardEffects(this);
@@ -84,13 +83,7 @@ export default class GameStateManager {
   rollDice(diceResult: number): void {
     const currentPlayer = this.getCurrentPlayer();
     currentPlayer.rolled = true;
-    currentPlayer.position += diceResult;
-
-    if (currentPlayer.position > this.tiles.length) {
-      const newPos = currentPlayer.position - this.tiles.length;
-      currentPlayer.position = newPos;
-      currentPlayer.money += this.bonusMoney;
-    }
+    currentPlayer.move(diceResult, this.tiles.length);
 
     this.renderBoard();
     this.checkTile(currentPlayer);
@@ -114,9 +107,68 @@ export default class GameStateManager {
     this.currentPlayerId = playerIds[nextIndex];
   }
 
+  goToJail(player: AlkopolyPlayer): void {
+    if (player.no_i_chuj) {
+      player.no_i_chuj = false;
+      alert(`No i chuj, ${player.name} unika Izby Wytrzeźwień.`);
+      return;
+    }
+
+    player.jailed = true;
+    player.position = this.findPrison();
+  }
+
+  getMoneyFromPlayers(player: AlkopolyPlayer, moneyAmount: number): void {
+    let money = 0;
+
+    this.getPlayersArray().forEach((p) => {
+      if (p.id !== player.id) {
+        player.payTax(moneyAmount);
+        money += moneyAmount;
+      }
+    });
+
+    player.money += money;
+  }
+
+  mariage(player: AlkopolyPlayer): void {
+    const players = this.getPlayersArray().filter((p) => p.id !== player.id);
+    const randomIndex = Math.floor(Math.random() * players.length) + 1;
+
+    const wife = players[randomIndex];
+    const toPay = player.money / 20;
+
+    player.payTax(toPay, wife);
+    alert(`${player.name} żeni się z ${wife.name} i płaci 20% pieniędzy.`);
+  }
+
   // HELPERS
   findTile(id: number): TileProps {
     return this.tiles.find((t) => t.id === id)!;
+  }
+
+  findZioloTile(): number {
+    return this.tiles.find((t) => t.name === "Zakup zioła")!.id;
+  }
+
+  findVodkaTile(): number {
+    return this.tiles.find((t) => t.name === "Zakup alkoholu")!.id;
+  }
+
+  findStart(): number {
+    return this.tiles.find((t) => t.type === "start")!.id;
+  }
+
+  findPrison(): number {
+    return this.tiles.find((t) => t.type === "jail")!.id;
+  }
+
+  findRewardTile(): number {
+    return this.tiles.find((t) => t.type === "reward")!.id;
+  }
+
+  findTarnowJezierny(): number {
+    return this.findTile(this.tiles.length - 1)!.id;
   }
 
   checkTile(player: AlkopolyPlayer): void {
@@ -141,7 +193,7 @@ export default class GameStateManager {
           Math.floor(Math.random() * this.chanceCards.length) + 1;
         const randomCard = this.chanceCards[randomId];
         this.chanceCardToShow = randomCard;
-        randomCard.execute(player);
+        randomCard.execute(player, randomCard.name);
         break;
       default:
         break;

@@ -8,7 +8,7 @@ export interface ChanceCardProps {
   effect: ChanceCardEffect;
   imageSrc: string;
 
-  execute: (player: AlkopolyPlayer) => void;
+  execute: (player: AlkopolyPlayer, cardName: string) => void;
 }
 
 // typ z efektami
