@@ -1,7 +1,4 @@
-import type {
-  ChanceCardEffect,
-  ChanceCardProps,
-} from "../types/ChanceCardProps";
+import type { ChanceCardProps } from "../types/ChanceCardProps";
 import type { AlkopolyPlayer } from "../types/PlayerProps";
 import type { TileProps } from "../types/TileProps";
 import { generateChanceCards } from "../utils/generateChanceCards";

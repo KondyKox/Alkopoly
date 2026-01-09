@@ -51,7 +51,7 @@
 }
 
 .chanceCard__content > p {
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
   font-weight: 500;
   font-style: italic;
 }

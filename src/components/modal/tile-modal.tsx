@@ -11,6 +11,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   if (!isOpen) return null;
 
   const [isConfirmOpen, setConfirmOpen] = useState<boolean>(false);
+  const [confirmAlcohol, setConfirmAlcohol] = useState<boolean>(false);
   const game = useGame();
 
   const handleBuyProperty = () => {
@@ -34,6 +35,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     }
 
     tile.addAlcohol(currentPlayer);
+    setConfirmAlcohol(false);
   };
 
   const getNextAlcoholInfo = () => {
@@ -147,35 +149,52 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
         </div>
       </div>
 
-      {tile.type === "property" && !tile.owner ? (
-        <Button
-          onClick={() => setConfirmOpen(true)}
-          className={styles.tileModal__btn}
-        >
-          Kup {tile.name}
-        </Button>
-      ) : nextAlcohol ? (
-        <Button
-          onClick={() => handleBuyAlcohol()}
-          className={styles.tileModal__btn}
-        >
-          Kup {nextAlcohol.type} za {nextAlcohol.cost} zł
-        </Button>
-      ) : (
-        <Button
-          disabled
-          className={`${styles.tileModal__btn} ${styles.btn__disabled}`}
-        >
-          Jest wóda - więcej nie trzeba
-        </Button>
+      {tile.type === "property" && (
+        <>
+          {!tile.owner ? (
+            <Button
+              onClick={() => setConfirmOpen(true)}
+              className={styles.tileModal__btn}
+            >
+              Kup {tile.name}
+            </Button>
+          ) : nextAlcohol ? (
+            <Button
+              onClick={() => setConfirmAlcohol(true)}
+              className={styles.tileModal__btn}
+            >
+              Kup {nextAlcohol.type} za {nextAlcohol.cost} zł
+            </Button>
+          ) : (
+            <Button
+              disabled
+              className={`${styles.tileModal__btn} ${styles.btn__disabled}`}
+            >
+              Jest wóda – więcej nie trzeba
+            </Button>
+          )}
+        </>
       )}
 
+      {/* Modal "buy property" */}
       <Modal isOpen={isConfirmOpen} onClose={() => setConfirmOpen(false)}>
         <div className={styles.confirm__container}>
           Czy zakupić <span>{tile.name}</span> za <span>{tile.price}</span>zł?
           <div className={styles.confirm__btns}>
             <Button onClick={() => setConfirmOpen(false)}>NIE</Button>
             <Button onClick={() => handleBuyProperty()}>TAK</Button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Modal "buy alcohol" */}
+      <Modal isOpen={confirmAlcohol} onClose={() => setConfirmAlcohol(false)}>
+        <div className={styles.confirm__container}>
+          Czy zakupić <span>{nextAlcohol?.type}</span> za{" "}
+          <span>{nextAlcohol?.cost}</span>zł?
+          <div className={styles.confirm__btns}>
+            <Button onClick={() => setConfirmAlcohol(false)}>NIE</Button>
+            <Button onClick={() => handleBuyAlcohol()}>TAK</Button>
           </div>
         </div>
       </Modal>
