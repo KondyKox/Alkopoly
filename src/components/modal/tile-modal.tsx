@@ -84,7 +84,9 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
                       key={index}
                       src={alcohol.imageSrc}
                       alt={alcohol.type}
-                      className={styles.alcohol__icon}
+                      className={`${styles.alcohol__icon} ${
+                        alcohol.type === "beer" ? styles.beer : styles.vodka
+                      }`}
                       title={`${alcohol.type === "beer" ? "Piwo" : "Wódka"} (+${
                         alcohol.taxBonus
                       } zł)`}

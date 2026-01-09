@@ -1,4 +1,7 @@
 .tileModal__container {
+  --shadow-beer: hsl(120, 95%, 36%);
+  --shadow-vodka: hsl(194, 87%, 42%);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -126,6 +129,24 @@
   object-fit: contain;
   border-radius: 8px;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.tileModal__container:hover .beer {
+  filter: drop-shadow(0 0 0.5rem var(--shadow-beer));
+}
+
+.tileModal__container:hover .vodka {
+  filter: drop-shadow(0 0 0.5rem var(--shadow-vodka));
+}
+
+.beer:hover {
+  transform: scale(1.2);
+}
+
+.vodka:hover {
+  transform: rotate(360deg) scale(1.5);
 }
 
 .tileModal__visitors {
