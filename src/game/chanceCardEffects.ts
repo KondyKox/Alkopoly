@@ -4,7 +4,7 @@ import type GameStateManager from "./gameState";
 
 type EffectHandler = (player: AlkopolyPlayer, cardName?: string) => void;
 
-// TODO: FIX THIS EFFECTS
+// TODO: FUNKCJONALNOSC NIEKTORYCH RZECZY (NP. KILOF)
 
 // Surowa mapa fabryk – zostaje prywatna
 const rawEffectFactories: Record<
@@ -17,11 +17,12 @@ const rawEffectFactories: Record<
 
     player.payTax(COST);
     gameState.reward += COST;
-    player.move(TO_MOVE, gameState.tiles.length);
+    player.move(TO_MOVE, gameState);
   },
   ziolo: (gameState) => (player) => {
     const newPos = gameState.findZioloTile();
     player.position = newPos;
+    gameState.renderBoard();
     gameState.checkTile(player);
   },
   tj_tatoo: (gameState) => (player) => {
@@ -32,6 +33,7 @@ const rawEffectFactories: Record<
   },
   kd: (gameState) => (player) => {
     player.position = gameState.findStart();
+    gameState.renderBoard();
     gameState.checkTile(player);
   },
   kilof: (gameState) => (player) => {
@@ -39,6 +41,7 @@ const rawEffectFactories: Record<
   },
   vodka: (gameState) => (player) => {
     player.position = gameState.findVodkaTile();
+    gameState.renderBoard();
     gameState.checkTile(player);
   },
   emotes: (gameState) => (player) => {
@@ -47,8 +50,7 @@ const rawEffectFactories: Record<
     player.sober = 1;
   },
   zgon: (gameState) => (player) => {
-    player.position = gameState.findPrison();
-    player.jailed = true;
+    gameState.goToJail(player);
   },
   gift: (gameState) => (player) => {
     const moneyAmount = 50;
@@ -63,6 +65,7 @@ const rawEffectFactories: Record<
   },
   wyplata: (gameState) => (player) => {
     player.position = gameState.findRewardTile();
+    gameState.renderBoard();
     gameState.checkTile(player);
   },
   rudy_chuj: (gameState) => (player) => {
@@ -76,8 +79,7 @@ const rawEffectFactories: Record<
     gameState.reward += 200;
   },
   alkoholizm: (gameState) => (player) => {
-    const toPay = player.money / 10;
-    player.payTax(toPay);
+    player.payExciseTax(gameState);
   },
   tankowanie: (gameState) => (player) => {
     const toPay = 51;
@@ -88,6 +90,7 @@ const rawEffectFactories: Record<
   },
   polowka: (gameState) => (player) => {
     player.position = gameState.findTarnowJezierny();
+    gameState.renderBoard();
     gameState.checkTile(player);
   },
   sniper: (gameState) => (player) => {
@@ -101,7 +104,7 @@ const rawEffectFactories: Record<
   },
   deutchland: (gameState) => (player) => {
     const tileLenght = gameState.tiles.length;
-    player.move(tileLenght, tileLenght);
+    player.move(tileLenght, gameState);
   },
   movement_malpy: (gameState) => (player) => {
     player.monkey = 2;

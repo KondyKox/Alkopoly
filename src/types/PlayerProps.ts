@@ -1,3 +1,4 @@
+import type GameStateManager from "../game/gameState";
 import type { Property } from "./TileProps";
 
 export interface AlkopolyPlayer {
@@ -21,7 +22,8 @@ export interface AlkopolyPlayer {
   buyProperty: (tile: Property) => void;
   buyAlcohol: (cost: number) => void;
   payTax: (amount: number, toPlayer?: AlkopolyPlayer) => void;
-  move: (amount: number, tileLenght: number) => void;
+  payExciseTax: (gameState: GameStateManager) => void;
+  move: (amount: number, gameState: GameStateManager) => void;
   rudyChuj: () => void;
 }
 

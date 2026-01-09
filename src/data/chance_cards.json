@@ -147,7 +147,7 @@
     "id": 17,
     "name": "Alkoholizm",
     "text": "Zostajesz alkoholikiem 🍺.",
-    "action": "Zyskujesz respekt, ale tracisz hajs. -10% twoich pieniędzy.",
+    "action": "Płacisz akcyzę za każdy twój alkohol.",
     "effect": "alkoholizm",
     "imageSrc": "./chance_cards/alkoholizm.jpg"
   },

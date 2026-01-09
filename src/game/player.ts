@@ -1,5 +1,6 @@
 import type { AlkopolyPlayer, Pawn } from "../types/PlayerProps";
 import type { Property } from "../types/TileProps";
+import type GameStateManager from "./gameState";
 
 const START_MONEY = 2000;
 
@@ -93,7 +94,37 @@ export default class Player implements AlkopolyPlayer {
     console.log(`${this.name} płaci podatek.`);
   }
 
-  move(amount: number, tileLenght: number) {
+  payExciseTax(gameState: GameStateManager): void {
+    let totalExcise = 0;
+
+    this.properties.forEach((property) => {
+      if (
+        "getAlcohols" in property &&
+        typeof property.getAlcohols === "function"
+      ) {
+        property.getAlcohols().forEach((alco) => {
+          const excise =
+            alco.type === "vodka" ? alco.cost * 0.7 : alco.cost * 0.3;
+
+          this.money -= excise;
+          totalExcise += excise;
+          gameState.reward += totalExcise;
+        });
+      }
+
+      if (totalExcise > 0) {
+        alert(`${this.name} płaci ${totalExcise.toFixed(2)} akcyzy.`);
+        console.log(`${this.name} płaci ${totalExcise.toFixed(2)} akcyzy.`);
+      } else {
+        alert(`${this.name} nie ma żadnych alkoholi. Nic nie płaci.`);
+        console.log(`${this.name} nie ma żadnych alkoholi. Nic nie płaci.`);
+      }
+    });
+
+    console.log(`${this.name} płaci akcyzę.`);
+  }
+
+  move(amount: number, gameState: GameStateManager) {
     if (this.jailed) return; // TODO: coś tu zrobic
 
     if (this.sober > 0) {
@@ -114,11 +145,14 @@ export default class Player implements AlkopolyPlayer {
 
     this.position += howMany;
 
-    if (this.position > tileLenght) {
-      const newPos = this.position - tileLenght;
+    if (this.position > gameState.tiles.length) {
+      const newPos = this.position - gameState.tiles.length;
       this.position = newPos;
       this.money += this.bonusMoney;
     }
+
+    gameState.renderBoard();
+    gameState.checkTile(this);
   }
 
   rudyChuj(): void {

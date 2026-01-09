@@ -1,4 +1,7 @@
-import type { ChanceCardProps } from "../types/ChanceCardProps";
+import type {
+  ChanceCardEffect,
+  ChanceCardProps,
+} from "../types/ChanceCardProps";
 import type { AlkopolyPlayer } from "../types/PlayerProps";
 import type { TileProps } from "../types/TileProps";
 import { generateChanceCards } from "../utils/generateChanceCards";
@@ -83,10 +86,7 @@ export default class GameStateManager {
   rollDice(diceResult: number): void {
     const currentPlayer = this.getCurrentPlayer();
     currentPlayer.rolled = true;
-    currentPlayer.move(diceResult, this.tiles.length);
-
-    this.renderBoard();
-    this.checkTile(currentPlayer);
+    currentPlayer.move(diceResult, this);
   }
 
   startGame(): void {
@@ -116,6 +116,7 @@ export default class GameStateManager {
 
     player.jailed = true;
     player.position = this.findPrison();
+    this.renderBoard();
   }
 
   getMoneyFromPlayers(player: AlkopolyPlayer, moneyAmount: number): void {
@@ -148,15 +149,32 @@ export default class GameStateManager {
   }
 
   findZioloTile(): number {
-    return this.tiles.find((t) => t.name === "Zakup zioła")!.id;
+    const tile = this.tiles.find((t) => t.name === "Zakup zioła");
+    if (!tile) {
+      console.warn("Brak pola 'Zakup zioła'.");
+      return 1; // fallback na start, żeby nie crash
+    }
+    return tile.id;
   }
 
   findVodkaTile(): number {
-    return this.tiles.find((t) => t.name === "Zakup alkoholu")!.id;
+    const tile = this.tiles.find((t) => t.name === "Zakup alkoholu");
+    if (!tile) {
+      console.warn("Brak pola 'Zakup alkoholu'.");
+      return 1;
+    }
+    return tile.id;
   }
 
   findStart(): number {
-    return this.tiles.find((t) => t.type === "start")!.id;
+    const startTile = this.tiles.find((t) => t.type === "start");
+
+    if (!startTile) {
+      console.warn("Brak pola 'start' na planszy. Fallback na pole 1.");
+      return 1; // fallback na pierwsze pole – gra nie crashuje
+    }
+
+    return startTile.id;
   }
 
   findPrison(): number {
@@ -177,8 +195,13 @@ export default class GameStateManager {
 
     switch (tile.type) {
       case "property":
-        if (tile.owner && tile.tax)
-          player.payTax(tile.getTotalTax!(), tile.owner);
+        if (tile.owner) {
+          const tax =
+            "getTotalTax" in tile && typeof tile.getTotalTax === "function"
+              ? (tile as any).getTotalTax()
+              : tile.tax || 0;
+          player.payTax(tax, tile.owner);
+        }
         break;
       case "fine":
         if (!tile.tax) return;
@@ -190,11 +213,10 @@ export default class GameStateManager {
         this.reward = 0;
         break;
       case "chance":
-        const randomId =
-          Math.floor(Math.random() * this.chanceCards.length) + 1;
+        const randomId = Math.floor(Math.random() * this.chanceCards.length);
         const randomCard = this.chanceCards[randomId];
         this.chanceCardToShow = randomCard;
-        randomCard.execute(player, randomCard.name);
+        setTimeout(() => randomCard.execute(player, randomCard.name), 1000);
         break;
       default:
         break;

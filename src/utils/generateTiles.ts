@@ -9,7 +9,6 @@ export const generateTiles = (): TileProps[] => {
       id: index + 1,
       owner: null,
       players: [],
-      // type: "chance", // !TESTING
     };
 
     if (tile.type === "property") {
