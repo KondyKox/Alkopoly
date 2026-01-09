@@ -10,6 +10,10 @@ export interface TileProps {
   players: AlkopolyPlayer[];
   price?: number; // buying property
   tax?: number;
+
+  getAlcohols?: () => AlcoholProps[];
+  getTotalTax?: () => number;
+  addAlcohol: (buyer: AlkopolyPlayer) => void;
 }
 
 export type TileFromJSON = Omit<TileProps, "id">;
@@ -28,10 +32,12 @@ export type TileType =
 
 export interface Property extends TileProps {
   type: "property";
-  alcohol: Alcohol[];
+  alcohol: AlcoholProps[];
 }
 
-export interface Alcohol {
+export interface AlcoholProps {
   type: "beer" | "vodka";
   taxBonus: number;
+  cost: number;
+  imageSrc: string;
 }

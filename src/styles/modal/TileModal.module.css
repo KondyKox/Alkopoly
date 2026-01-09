@@ -36,11 +36,27 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  position: relative;
+  width: 100%;
 }
 
 .tileModal__header {
   color: var(--text-secondary);
   font-size: var(--font-xl);
+}
+
+.tileModal__owner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0.7);
+  opacity: 0.25;
+  transition: all 0.3s ease-in-out;
+}
+
+.tileModal__container:hover .tileModal__owner {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .tileModal__content {
@@ -85,17 +101,53 @@
   font-weight: 700;
 }
 
-.tileModal_players {
+.tileModal__alcohols {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20px;
+  right: 20px;
+  opacity: 0.25;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tileModal__container:hover .tileModal__alcohols {
+  opacity: 1;
+}
+
+.alcohol__icon {
+  width: 1.25rem;
+  object-fit: contain;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); */
+}
+
+.tileModal__visitors {
+  position: absolute;
+  bottom: 150px; /* ta sama wysokość co "container::before" */
+}
+
+.visitors__pawns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-.tileModal__container:hover .tileModal_players {
+.tileModal__container:hover .visitors__pawns {
   opacity: 1;
+}
+
+.visitors__pawns div {
+  transform: scale(0.7);
 }
 
 .tileModal__btn {
@@ -124,4 +176,10 @@
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 2px solid var(--text-primary);
+}
+
+.btn__disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
 }

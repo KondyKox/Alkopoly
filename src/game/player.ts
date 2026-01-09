@@ -48,6 +48,17 @@ export default class Player implements AlkopolyPlayer {
     console.log(`${this.name} kupił ${tile.name} za ${tile.price}`);
   }
 
+  buyAlcohol(cost: number): void {
+    if (this.money <= cost) {
+      alert("BIEDAK JESTEŚ!!!");
+      return;
+    }
+
+    this.money -= cost;
+
+    console.log(`${this.name} kupił alkohol za ${cost}`);
+  }
+
   payTax(amount: number, toPlayer?: AlkopolyPlayer): void {
     if (this.money <= 0) {
       alert(`${this.name} TO BIEDAK JEBANY 😂😂😂`);

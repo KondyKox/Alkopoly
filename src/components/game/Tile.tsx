@@ -1,6 +1,6 @@
 import type { TileProps } from "../../types/TileProps";
 import TileModal from "../modal/tile-modal";
-import styles from "../../styles/game/Board.module.css";
+import styles from "../../styles/game/Tile.module.css";
 import { useEffect, useState } from "react";
 import PlayerPawn from "./PlayerPawn";
 import { useGame } from "../../context/GameStateContext";
@@ -39,19 +39,35 @@ const Tile = ({ tile }: { tile: TileProps }) => {
             tile.players.map((player) => <PlayerPawn player={player} />)}
         </div>
         <div className={styles.tile__info}>
-          {tile.type === "property"
-            ? !tile.owner && (
+          {tile.type === "property" ? (
+            <>
+              {/* Cena kupna – tylko jeśli bez właściciela */}
+              {!tile.owner && tile.price && (
                 <>
-                  <span className={styles.tile__price}>{tile.price}</span>
-                  zł
+                  <span className={styles.tile__price}>{tile.price}</span> zł
+                  <br />
                 </>
-              )
-            : tile.tax && (
+              )}
+
+              {/* Całkowity podatek – zawsze, jak jest właściciel */}
+              {tile.owner && (
                 <>
-                  <span className={styles.tile__tax}>{tile.tax}</span>
+                  <span className={styles.tile__tax}>
+                    {/* jeśli ma metodę, bierz dynamiczny tax, inaczej bazowy */}
+                    {"getTotalTax" in tile &&
+                    typeof tile.getTotalTax === "function"
+                      ? (tile as any).getTotalTax()
+                      : tile.tax || 0}
+                  </span>{" "}
                   zł
                 </>
               )}
+            </>
+          ) : tile.tax ? (
+            <>
+              <span className={styles.tile__tax}>{tile.tax}</span> zł
+            </>
+          ) : null}
         </div>
       </div>
       <TileModal

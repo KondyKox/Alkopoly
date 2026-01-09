@@ -168,7 +168,7 @@ export default class GameStateManager {
   }
 
   findTarnowJezierny(): number {
-    return this.findTile(this.tiles.length - 1)!.id;
+    return this.findTile(this.tiles.length)!.id;
   }
 
   checkTile(player: AlkopolyPlayer): void {
@@ -177,7 +177,8 @@ export default class GameStateManager {
 
     switch (tile.type) {
       case "property":
-        if (tile.owner && tile.tax) player.payTax(tile.tax, tile.owner);
+        if (tile.owner && tile.tax)
+          player.payTax(tile.getTotalTax!(), tile.owner);
         break;
       case "fine":
         if (!tile.tax) return;
