@@ -15,6 +15,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   const game = useGame();
   const currentPlayer = game.getCurrentPlayer();
 
+  // Buy this property
   const handleBuyProperty = () => {
     if (!isPlayerOnTile()) return;
 
@@ -22,6 +23,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     setConfirmOpen(false);
   };
 
+  // Buy alcohol on this tile
   const handleBuyAlcohol = () => {
     if (!isPlayerOnTile()) return;
 
@@ -34,14 +36,19 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     setConfirmAlcohol(false);
   };
 
+  // get info which alcohol type you can buy
   const getNextAlcoholInfo = () => {
     if (tile.type !== "property" || !tile.owner) return null;
 
-    if (!("getAlcohols" in tile) || typeof tile.getAlcohols !== "function")
+    if (
+      !("getAlcohols" in tile) ||
+      typeof tile.getAlcohols !== "function" ||
+      typeof tile.hasVodka !== "function"
+    )
       return { type: "beer", cost: 100 };
 
     const alcohols = (tile as any).getAlcohols();
-    const hasVodka = alcohols.some((a: AlcoholProps) => a.type === "vodka");
+    const hasVodka = tile.hasVodka();
 
     if (hasVodka) return null;
 
@@ -54,6 +61,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     else return { type: "piwo", cost: 100 };
   };
 
+  // check if player is on tile
   const isPlayerOnTile = (): boolean => {
     if (currentPlayer.position != tile.id) {
       alert("Nie jesteś na tym polu kretynie!");
@@ -61,6 +69,20 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     }
 
     return true;
+  };
+
+  const handleAlcoholClick = () => {
+    if (!currentPlayer.kilof) return;
+
+    if (
+      !("destroyAlcohol" in tile) ||
+      typeof tile.destroyAlcohol !== "function"
+    )
+      return;
+
+    tile.destroyAlcohol();
+    alert(`${currentPlayer.name} używa kilofa! 😮😮😮`);
+    currentPlayer.kilof = false;
   };
 
   const nextAlcohol = getNextAlcoholInfo();
@@ -91,6 +113,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
                       key={index}
                       src={alcohol.imageSrc}
                       alt={alcohol.type}
+                      onClick={() => handleAlcoholClick()}
                       className={`${styles.alcohol__icon} ${
                         alcohol.type === "beer" ? styles.beer : styles.vodka
                       }`}

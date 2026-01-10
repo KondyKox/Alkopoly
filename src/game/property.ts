@@ -37,8 +37,7 @@ export default class Property implements TileProps {
     let alcoType: "beer" | "vodka";
     let message = "";
 
-    const hasVodka = this.alcohols.some((a) => a.type === "vodka");
-    if (hasVodka) {
+    if (this.hasVodka()) {
       console.log(`Na ${this.name} już stoi wódka.`);
       return;
     }
@@ -68,5 +67,27 @@ export default class Property implements TileProps {
     console.log(
       `${message} Zakupiono ${alcoType} na polu ${this.name} za ${alcohol.cost}.`
     );
+  }
+
+  destroyAlcohol(): void {
+    if (!this.hasVodka()) {
+      if (this.alcohols.length > 0) {
+        this.alcohols.pop();
+        console.log(`Usunięto jednego browara z ${this.name}.`);
+      }
+      return;
+    }
+
+    this.alcohols = [];
+    for (let i = 0; i < this.maxBeers; i++) {
+      const beer = new Alcohol("beer");
+      this.alcohols.push(beer);
+    }
+
+    console.log(`Usunięto wódkę z ${this.name}. Zastąpiono ją browarami.`);
+  }
+
+  hasVodka(): boolean {
+    return this.alcohols.some((a) => a.type === "vodka");
   }
 }

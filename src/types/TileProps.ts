@@ -14,6 +14,8 @@ export interface TileProps {
   getAlcohols?: () => AlcoholProps[];
   getTotalTax?: () => number;
   addAlcohol: (buyer: AlkopolyPlayer) => void;
+  destroyAlcohol?: () => void;
+  hasVodka?: () => boolean;
 }
 
 export type TileFromJSON = Omit<TileProps, "id">;
