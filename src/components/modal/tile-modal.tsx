@@ -13,22 +13,18 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
   const [isConfirmOpen, setConfirmOpen] = useState<boolean>(false);
   const [confirmAlcohol, setConfirmAlcohol] = useState<boolean>(false);
   const game = useGame();
+  const currentPlayer = game.getCurrentPlayer();
 
   const handleBuyProperty = () => {
-    const currentPlayer = game.getCurrentPlayer();
-
-    if (currentPlayer.position != tile.id) {
-      alert("Nie jesteś na tym polu kretynie!");
-      return;
-    }
+    if (!isPlayerOnTile()) return;
 
     currentPlayer.buyProperty(tile as Property);
-
     setConfirmOpen(false);
   };
 
   const handleBuyAlcohol = () => {
-    const currentPlayer = game.getCurrentPlayer();
+    if (!isPlayerOnTile()) return;
+
     if (currentPlayer !== tile.owner) {
       alert("Nie jesteś właścicielem!");
       return;
@@ -56,6 +52,15 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
 
     if (beerCount >= maxBeers) return { type: "wódka", cost: 300 };
     else return { type: "piwo", cost: 100 };
+  };
+
+  const isPlayerOnTile = (): boolean => {
+    if (currentPlayer.position != tile.id) {
+      alert("Nie jesteś na tym polu kretynie!");
+      return false;
+    }
+
+    return true;
   };
 
   const nextAlcohol = getNextAlcoholInfo();
