@@ -14,6 +14,8 @@ export default class GameStateManager {
   private currentTileToShowId: number | null = null;
   private chanceCards: ChanceCardProps[] = [];
   private chanceCardToShow: ChanceCardProps | null = null;
+  private turnsInJail: number = 3; // default value
+  private freedomCost: number = 300;
 
   constructor() {
     const effectsMap = createChanceCardEffects(this);
@@ -58,6 +60,10 @@ export default class GameStateManager {
     return this.chanceCardToShow;
   }
 
+  getFreedomCost(): number {
+    return this.freedomCost;
+  }
+
   // ----------------------------------------------
 
   // METODY
@@ -82,8 +88,10 @@ export default class GameStateManager {
   // TODO: When multiplayer - check current player turn
   rollDice(diceResult: number): void {
     const currentPlayer = this.getCurrentPlayer();
+
     currentPlayer.rolled = true;
     currentPlayer.move(diceResult, this);
+    if (currentPlayer.turnsToFreedom <= 0) currentPlayer.jailed = false;
   }
 
   startGame(): void {
@@ -112,8 +120,23 @@ export default class GameStateManager {
     }
 
     player.jailed = true;
+    player.turnsToFreedom = this.turnsInJail;
     player.position = this.findPrison();
     this.renderBoard();
+  }
+
+  exitJail(player: AlkopolyPlayer): void {
+    if (player.turnsToFreedom > 0) {
+      if (player.money <= this.freedomCost) {
+        alert("Nie stać cię na wykupienie się.");
+        return;
+      }
+
+      player.money -= this.freedomCost;
+      player.turnsToFreedom = 0;
+    }
+
+    player.jailed = false;
   }
 
   getMoneyFromPlayers(player: AlkopolyPlayer, moneyAmount: number): void {

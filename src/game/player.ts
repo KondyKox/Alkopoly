@@ -27,6 +27,7 @@ export default class Player implements AlkopolyPlayer {
   sniper: number = 0; // amount of moving by half
   no_i_chuj: boolean = false; // free from jail card
   monkey: number = 0; // amount of moving by 2 times more
+  turnsToFreedom: number = 3;
 
   constructor(id: string, name: string, pawn: Pawn) {
     this.id = id;
@@ -125,7 +126,14 @@ export default class Player implements AlkopolyPlayer {
   }
 
   move(amount: number, gameState: GameStateManager) {
-    if (this.jailed) return; // TODO: coś tu zrobic
+    if (this.jailed) {
+      alert(
+        `${this.name} siedzi na izbie wytrzeźwień jeszcze ${this.turnsToFreedom} tury.`
+      );
+      this.turnsToFreedom--;
+      if (this.turnsToFreedom <= 0) gameState.exitJail(this);
+      return;
+    }
 
     if (this.sober > 0) {
       alert(`${this.name} nie jest trzeźwy więc zostaje w miejscu.`);

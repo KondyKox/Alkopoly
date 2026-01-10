@@ -13,6 +13,7 @@ const Board = ({ tiles }: BoardProps) => {
   const [isRolling, setIsRolling] = useState<boolean>(false);
   const game = useGame();
   const currentPlayer = game.getCurrentPlayer();
+  const freedomCost = game.getFreedomCost();
 
   const handleRollDice = () => {
     setDiceResult(null);
@@ -31,6 +32,11 @@ const Board = ({ tiles }: BoardProps) => {
     }, 2000);
   };
 
+  const handleBuyFreedom = () => {
+    game.exitJail(currentPlayer);
+    console.log(`${currentPlayer.name} wykupuje się z izby wytrzeźwień.`);
+  };
+
   return (
     <div className={styles.board}>
       <div className={styles.board__info}>
@@ -45,8 +51,13 @@ const Board = ({ tiles }: BoardProps) => {
             <span>{diceResult}</span>
           </div>
           {currentPlayer?.rolled && (
-            <div>
+            <div className={styles.board__btns}>
               <Button onClick={() => game.nextTurn()}>Koniec tury</Button>
+              {currentPlayer.jailed && (
+                <Button onClick={() => handleBuyFreedom()}>
+                  Wykup się ({freedomCost}zł)
+                </Button>
+              )}
             </div>
           )}
         </div>

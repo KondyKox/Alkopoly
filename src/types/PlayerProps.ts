@@ -18,6 +18,7 @@ export interface AlkopolyPlayer {
   sniper: number;
   no_i_chuj: boolean;
   monkey: number;
+  turnsToFreedom: number;
 
   buyProperty: (tile: Property) => void;
   buyAlcohol: (cost: number) => void;
