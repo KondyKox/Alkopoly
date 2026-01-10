@@ -22,7 +22,11 @@ export interface AlkopolyPlayer {
 
   buyProperty: (tile: Property) => void;
   buyAlcohol: (cost: number) => void;
-  payTax: (amount: number, toPlayer?: AlkopolyPlayer) => void;
+  payTax: (
+    amount: number,
+    gameState: GameStateManager,
+    toPlayer?: AlkopolyPlayer
+  ) => void;
   payExciseTax: (gameState: GameStateManager) => void;
   move: (amount: number, gameState: GameStateManager) => void;
   rudyChuj: () => void;

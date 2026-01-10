@@ -112,6 +112,41 @@ export default class GameStateManager {
     this.currentPlayerId = playerIds[nextIndex];
   }
 
+  checkTile(player: AlkopolyPlayer): void {
+    const tile = this.findTile(player.position);
+    this.currentTileToShowId = tile.id;
+
+    switch (tile.type) {
+      case "property":
+        if (tile.owner) {
+          const tax =
+            "getTotalTax" in tile && typeof tile.getTotalTax === "function"
+              ? (tile as any).getTotalTax()
+              : tile.tax || 0;
+          player.payTax(tax, this, tile.owner);
+        }
+        break;
+      case "fine":
+        if (!tile.tax) return;
+        player.payTax(tile.tax, this);
+        this.reward += tile.tax;
+        break;
+      case "reward":
+        player.money += this.reward;
+        this.reward = 0;
+        break;
+      case "chance":
+        const randomId = Math.floor(Math.random() * this.chanceCards.length);
+        const randomCard = this.chanceCards[randomId];
+        this.chanceCardToShow = randomCard;
+        setTimeout(() => randomCard.execute(player, randomCard.name), 1000);
+        break;
+      default:
+        break;
+    }
+  }
+
+  // JAIL
   goToJail(player: AlkopolyPlayer): void {
     if (player.no_i_chuj) {
       player.no_i_chuj = false;
@@ -123,6 +158,9 @@ export default class GameStateManager {
     player.turnsToFreedom = this.turnsInJail;
     player.position = this.findPrison();
     this.renderBoard();
+
+    alert(`${player.name} idzie na wytrzeźwiałke.`);
+    console.log(`${player.name} idzie do więzienia.`);
   }
 
   exitJail(player: AlkopolyPlayer): void {
@@ -138,13 +176,14 @@ export default class GameStateManager {
 
     player.jailed = false;
   }
+  // ---------------------------------
 
   getMoneyFromPlayers(player: AlkopolyPlayer, moneyAmount: number): void {
     let money = 0;
 
     this.getPlayersArray().forEach((p) => {
       if (p.id !== player.id) {
-        player.payTax(moneyAmount);
+        player.payTax(moneyAmount, this);
         money += moneyAmount;
       }
     });
@@ -159,7 +198,7 @@ export default class GameStateManager {
     const wife = players[randomIndex];
     const toPay = player.money / 20;
 
-    player.payTax(toPay, wife);
+    player.payTax(toPay, this, wife);
     alert(`${player.name} żeni się z ${wife.name} i płaci 20% pieniędzy.`);
   }
 
@@ -207,40 +246,6 @@ export default class GameStateManager {
 
   findTarnowJezierny(): number {
     return this.findTile(this.tiles.length)!.id;
-  }
-
-  checkTile(player: AlkopolyPlayer): void {
-    const tile = this.findTile(player.position);
-    this.currentTileToShowId = tile.id;
-
-    switch (tile.type) {
-      case "property":
-        if (tile.owner) {
-          const tax =
-            "getTotalTax" in tile && typeof tile.getTotalTax === "function"
-              ? (tile as any).getTotalTax()
-              : tile.tax || 0;
-          player.payTax(tax, tile.owner);
-        }
-        break;
-      case "fine":
-        if (!tile.tax) return;
-        player.payTax(tile.tax);
-        this.reward += tile.tax;
-        break;
-      case "reward":
-        player.money += this.reward;
-        this.reward = 0;
-        break;
-      case "chance":
-        const randomId = Math.floor(Math.random() * this.chanceCards.length);
-        const randomCard = this.chanceCards[randomId];
-        this.chanceCardToShow = randomCard;
-        setTimeout(() => randomCard.execute(player, randomCard.name), 1000);
-        break;
-      default:
-        break;
-    }
   }
 
   clearCurrentTileToShow(): void {

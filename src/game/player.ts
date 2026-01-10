@@ -2,8 +2,6 @@ import type { AlkopolyPlayer, Pawn } from "../types/PlayerProps";
 import type { Property } from "../types/TileProps";
 import type GameStateManager from "./gameState";
 
-const START_MONEY = 2000;
-
 const rudy_chuj: Pawn = {
   name: "Rudy Chuj",
   imageSrc: "./pawns/rudy_chuj.png",
@@ -13,7 +11,7 @@ export default class Player implements AlkopolyPlayer {
   id: string;
   name: string;
   pawn: Pawn;
-  money: number = START_MONEY;
+  money: number = 2000; // start money
   properties: Property[] = [];
   position: number = 1; // First tile on board has id=1
   jailed: boolean = false;
@@ -38,7 +36,7 @@ export default class Player implements AlkopolyPlayer {
   buyProperty(tile: Property): void {
     if (!tile.price) return;
 
-    if (this.money <= tile.price) {
+    if (this.money < tile.price) {
       alert("BIEDAK JESTEŚ!!!");
       return;
     }
@@ -51,7 +49,7 @@ export default class Player implements AlkopolyPlayer {
   }
 
   buyAlcohol(cost: number): void {
-    if (this.money <= cost) {
+    if (this.money < cost) {
       alert("BIEDAK JESTEŚ!!!");
       return;
     }
@@ -61,10 +59,14 @@ export default class Player implements AlkopolyPlayer {
     console.log(`${this.name} kupił alkohol za ${cost}`);
   }
 
-  payTax(amount: number, toPlayer?: AlkopolyPlayer): void {
+  payTax(
+    amount: number,
+    gameState: GameStateManager,
+    toPlayer?: AlkopolyPlayer
+  ): void {
     if (this.money <= 0) {
       alert(`${this.name} TO BIEDAK JEBANY 😂😂😂`);
-      this.jailed = true;
+      gameState.goToJail(this);
       return;
     }
 
