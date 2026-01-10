@@ -2,6 +2,8 @@
   --shadow-beer: hsl(120, 95%, 36%);
   --shadow-vodka: hsl(194, 87%, 42%);
 
+  --height-hero: 100px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,13 +41,41 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  position: relative;
   width: 100%;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.tileModal__container:hover .tileModal__hero {
+  max-height: var(--height-hero);
+  opacity: 1;
+  visibility: visible;
+}
+
+.tileModal__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-pink-transparent);
+  z-index: -1;
+  max-height: 0;
+}
+
+.tileModal__container:hover .tileModal__hero::before {
+  max-height: var(--height-hero);
 }
 
 .tileModal__header {
-  color: var(--text-secondary);
+  color: transparent;
   font-size: var(--font-xl);
+  font-weight: 900;
+  letter-spacing: 0.3rem;
+  -webkit-text-stroke: 1px var(--text-primary);
+  text-stroke: 1px var(--text-primary);
+  text-shadow: 0 0 12px var(--text-primary);
+  paint-order: stroke fill; /* kolejność rysowania - najpierw obramowanie, potem wypełnienie */
 }
 
 .tileModal__owner {
@@ -114,8 +144,9 @@
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   position: absolute;
-  top: 20px;
+  top: 50%;
   right: 20px;
+  transform: translateY(calc(-50% - 40px));
   opacity: 0.25;
   transition: opacity 0.3s ease-in-out;
 }
