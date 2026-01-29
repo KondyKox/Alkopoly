@@ -30,7 +30,7 @@ const Tile = ({ tile }: { tile: TileProps }) => {
     <>
       <div
         className={styles.tile}
-        style={{ backgroundImage: `url("/alkopoly/${tile.imageSrc}")` }}
+        style={{ backgroundImage: `url("./${tile.imageSrc}")` }}
         onClick={() => setIsOpen(true)}
       >
         <h6 className={styles.tile__header}>{tile.name}</h6>

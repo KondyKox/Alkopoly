@@ -8,12 +8,12 @@ const ChanceCard = ({ isOpen, onClose, chanceCard }: ChanceCardModal) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div
-        // style={{ backgroundImage: `url("/alkopoly/${chanceCard.imageSrc}")` }}
+        // style={{ backgroundImage: `url("${chanceCard.imageSrc}")` }}
         className={styles.chanceCard__container}
       >
         <h2 className={styles.chanceCard__header}>{chanceCard.name}</h2>
         <div className={styles.chanceCard__image}>
-          <img src={`/alkopoly/${chanceCard.imageSrc}`} alt={chanceCard.name} />
+          <img src={`./${chanceCard.imageSrc}`} alt={chanceCard.name} />
         </div>
         <div className={styles.chanceCard__content}>
           <p className={styles.chanceCard__text}>{chanceCard.text}</p>

@@ -5,7 +5,7 @@
     "text": "Kupujesz Zestaw Deluxe.",
     "action": "Tracisz 100zł oraz idziesz 4 pola do przodu.",
     "effect": "zestaw_deluxe",
-    "imageSrc": "./chance_cards/zestaw_deluxe.jpg"
+    "imageSrc": "chance_cards/zestaw_deluxe.jpg"
   },
 
   {
@@ -14,7 +14,7 @@
     "text": "Kupujesz zioło mordeczko i jest essa 420 😎.",
     "action": "Idziesz na pole zakupu zioła.",
     "effect": "ziolo",
-    "imageSrc": "./chance_cards/ziolo.jpg"
+    "imageSrc": "chance_cards/ziolo.jpg"
   },
 
   {
@@ -23,7 +23,7 @@
     "text": "Robisz sobie tatuaż TJ i zyskujesz respekt.",
     "action": "Następnym razem płacisz połowę mniej podatku.",
     "effect": "tj_tatoo",
-    "imageSrc": "./chance_cards/tatuaz-tj.jpg"
+    "imageSrc": "chance_cards/tatuaz-tj.jpg"
   },
 
   {
@@ -32,7 +32,7 @@
     "text": "Jesteś incognito półwidoczny.",
     "action": "Gdy staniesz na polu innego gracza masz 50% szans, że Cię nie zauważy (3 użycia).",
     "effect": "polwidoczny",
-    "imageSrc": "./chance_cards/polwidoczni.jpg"
+    "imageSrc": "chance_cards/polwidoczni.jpg"
   },
 
   {
@@ -41,7 +41,7 @@
     "text": "100 minut opóźnienia xD",
     "action": "Wracasz na Start",
     "effect": "kd",
-    "imageSrc": "./chance_cards/koleje-dolnoslaskie.jpg"
+    "imageSrc": "chance_cards/koleje-dolnoslaskie.jpg"
   },
 
   {
@@ -50,7 +50,7 @@
     "text": "Zbudowałeś zajebisty kilof! Zniszcz komuś jakieś domki.",
     "action": "Niszczysz dowolny alkohol innego gracza.",
     "effect": "kilof",
-    "imageSrc": "./chance_cards/kilof.jpg"
+    "imageSrc": "chance_cards/kilof.jpg"
   },
 
   {
@@ -59,7 +59,7 @@
     "text": "Wódeczka to miłość życia.",
     "action": "Przejdź na pole wódki.",
     "effect": "vodka",
-    "imageSrc": "./chance_cards/wodka-serce.jpg"
+    "imageSrc": "chance_cards/wodka-serce.jpg"
   },
 
   {
@@ -68,7 +68,7 @@
     "text": "Zjarałeś się i robisz emotki. Inni czują respekt.",
     "action": "Dostajesz od każdego po 20zł, ale stoisz w miejscu jedną kolejkę.",
     "effect": "emotes",
-    "imageSrc": "./chance_cards/emotki.jpg"
+    "imageSrc": "chance_cards/emotki.jpg"
   },
 
   {
@@ -77,7 +77,7 @@
     "text": "Najebałeś się i zgonujesz.",
     "action": "Lecisz na izbe wytrzeźwień.",
     "effect": "zgon",
-    "imageSrc": "./chance_cards/zgon.jpg"
+    "imageSrc": "chance_cards/zgon.jpg"
   },
 
   {
@@ -86,7 +86,7 @@
     "text": "Urodzinki 🥳",
     "action": "Dostajesz od każdego po 50zł.",
     "effect": "gift",
-    "imageSrc": "./chance_cards/prezencik.jpg"
+    "imageSrc": "chance_cards/prezencik.jpg"
   },
 
   {
@@ -95,7 +95,7 @@
     "text": "Zakładasz Scam and Run i stajesz się bogaty.",
     "action": "Dostajesz 1 000 000 zł, ale tracisz z tego 999 000 zł.",
     "effect": "scam_and_run",
-    "imageSrc": "./chance_cards/scam-and-run.jpg"
+    "imageSrc": "chance_cards/scam-and-run.jpg"
   },
 
   {
@@ -104,7 +104,7 @@
     "text": "Walisz wiadro z ziomeczkami.",
     "action": "Przez 2 tury się nie ruszasz.",
     "effect": "wiadro",
-    "imageSrc": "./chance_cards/wiadro.jpg"
+    "imageSrc": "chance_cards/wiadro.jpg"
   },
 
   {
@@ -113,7 +113,7 @@
     "text": "Dostajesz wypłatę 💵",
     "action": "Idziesz na pole nagrody.",
     "effect": "wyplata",
-    "imageSrc": "./chance_cards/wyplata.jpg"
+    "imageSrc": "chance_cards/wyplata.jpg"
   },
 
   {
@@ -122,7 +122,7 @@
     "text": "Twoje włosy to teraz rudy chuj.",
     "action": "Nic się nie dzieje, po prostu jest śmiesznie xD.",
     "effect": "rudy_chuj",
-    "imageSrc": "./chance_cards/rudy-chuj.jpg"
+    "imageSrc": "chance_cards/rudy-chuj.jpg"
   },
 
   {
@@ -131,7 +131,7 @@
     "text": "SIGMA",
     "action": "Stajesz się SIGMĄ. Gdy następnym razem staniesz na polu innego gracza, to on Ci płaci.",
     "effect": "sigma",
-    "imageSrc": "./chance_cards/sigma.jpg"
+    "imageSrc": "chance_cards/sigma.jpg"
   },
 
   {
@@ -140,7 +140,7 @@
     "text": "Szczepan przyjechał 😯",
     "action": "Tracisz 200zł.",
     "effect": "main_event",
-    "imageSrc": "./chance_cards/main-event.jpg"
+    "imageSrc": "chance_cards/main-event.jpg"
   },
 
   {
@@ -149,7 +149,7 @@
     "text": "Zostajesz alkoholikiem 🍺.",
     "action": "Płacisz akcyzę za każdy twój alkohol.",
     "effect": "alkoholizm",
-    "imageSrc": "./chance_cards/alkoholizm.jpg"
+    "imageSrc": "chance_cards/alkoholizm.jpg"
   },
 
   {
@@ -158,7 +158,7 @@
     "text": "Polówkę wypada zatankować.",
     "action": "Tracisz 51zł.",
     "effect": "tankowanie",
-    "imageSrc": "./chance_cards/tankowanie-polowki.jpg"
+    "imageSrc": "chance_cards/tankowanie-polowki.jpg"
   },
 
   {
@@ -167,7 +167,7 @@
     "text": "Żenisz się z losowym graczem.",
     "action": "20% twoich pieniędzy idzie do niego.",
     "effect": "malzenstwo",
-    "imageSrc": "./chance_cards/malzenstwo.jpg"
+    "imageSrc": "chance_cards/malzenstwo.jpg"
   },
 
   {
@@ -176,7 +176,7 @@
     "text": "Polówką dojedziesz wszędzie.",
     "action": "Jedziesz na Tarnów Jezierny.",
     "effect": "polowka",
-    "imageSrc": "./chance_cards/polowka.jpg"
+    "imageSrc": "chance_cards/polowka.jpg"
   },
 
   {
@@ -185,7 +185,7 @@
     "text": "Snajper do ciebie strzela!",
     "action": "Następne 2 kolejki ruszasz się tylko o połowe oczek.",
     "effect": "sniper",
-    "imageSrc": "./chance_cards/snajper.jpg"
+    "imageSrc": "chance_cards/snajper.jpg"
   },
 
   {
@@ -194,7 +194,7 @@
     "text": "No i chuj, zostałeś błogosławiony!",
     "action": "Unikasz izby wytrzeźwień.",
     "effect": "no_i_chuj",
-    "imageSrc": "./chance_cards/no-i-chuj.jpg"
+    "imageSrc": "chance_cards/no-i-chuj.jpg"
   },
 
   {
@@ -203,7 +203,7 @@
     "text": "Dzidka spotkałeś!",
     "action": "Patrz jaki zajebisty.",
     "effect": "dzidek",
-    "imageSrc": "./chance_cards/dzidek.jpg"
+    "imageSrc": "chance_cards/dzidek.jpg"
   },
 
   {
@@ -212,7 +212,7 @@
     "text": "Kto wie ten wie.",
     "action": "Robisz kółko po planszy",
     "effect": "deutchland",
-    "imageSrc": "./chance_cards/misja_niemcy.jpg"
+    "imageSrc": "chance_cards/misja_niemcy.jpg"
   },
 
   {
@@ -221,6 +221,6 @@
     "text": "Czaisz ziomuś ten movement.",
     "action": "Poruszasz się 2 razy dalej przez 2 tury.",
     "effect": "movement_malpy",
-    "imageSrc": "./chance_cards/movement.jpg"
+    "imageSrc": "chance_cards/movement.jpg"
   }
 ]

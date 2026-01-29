@@ -53,7 +53,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     if (hasVodka) return null;
 
     const beerCount = alcohols.filter(
-      (a: AlcoholProps) => a.type === "beer"
+      (a: AlcoholProps) => a.type === "beer",
     ).length;
     const maxBeers = 4; // like in Property class
 
@@ -91,7 +91,7 @@ const TileModal = ({ isOpen, onClose, tile }: TileModalProps) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <div
         className={styles.tileModal__container}
-        style={{ backgroundImage: `url("/alkopoly/${tile.imageSrc}")` }}
+        style={{ backgroundImage: `url("./${tile.imageSrc}")` }}
       >
         <div className={styles.tileModal__hero}>
           <h3 className={styles.tileModal__header}>{tile.name}</h3>
